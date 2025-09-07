@@ -2,6 +2,8 @@
 ## by Rev. Jose E. Lopez
 ### v1.0 : 2025-09-03
 
+*© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).*
+
 The origin of the vocation to gather others is very ancient. It has its beginning in the annals of history. It belongs to that moment when human beings went from being hunter-gatherers to cultivating the land and building monumental buildings. A period usually called the Paleolithic Revolution. A revolution that closely united with the figure of the shaman, the proto-priest, proto-poet, proto-scientist. The one who first sought to understand and access the phenomenon of transcendence, Mysterium tremendum et fascinans.
 This person, recognizing the universal order, provides him/herself with a spell that convinces others to follow the vision that comes to him/her from the depths and the heavens. This vision indicates that the sacred is accessible and seeks to satisfy human needs. The shaman looks to the sky, from it, it is revealed the movement of the seasons and the rains that fertilize the earth and give way to plant life. This domination of the growth of plants is no small thing because it allows human beings to sustain themselves on Earth indefinitely. Agriculture is sacred because it constitutes the domain of life itself. Thus, discovering the secrets of the abysses and the heights, “Melchizedek” offers the bread and wine from above to those who seek to persevere in life. This catalyst helps overcome the biological barrier of large human groups that became civilized together.
 
