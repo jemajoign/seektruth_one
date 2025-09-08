@@ -1,0 +1,37 @@
+# Augustine on time and consciousness
+## by Rev. Thomas J. Pulickal
+### v1.0 : 2015-08-13
+
+Augustine begins his inquiry into the nature of time with the phenomena of past, present, and future, three “times” that present themselves to us with definitive meaning. The past is that which no longer *is*, the present is that which *is* now, and the future is that which *will be*.[^1] From this starting point, Augustine raises a series of questions that ultimately leads him to the essence of time. If the past is past precisely because it *was* and therefore *is not*, how can we speak of it? Is it not contradictory to ask, “What is it?” of something that *is not*? The same can be said about the future, which *is not yet*, and so also *is not*. The foundation of Augustine’s understanding of time is therefore that only the present *is*. For, if the past still *is*, we would call it present. And if the future *is* already, we would call it present. But since the past *is* no longer and the future *is* not yet, of these we may say, “They are not.” Therefore only the present *is*.[^2]  
+
+That the present alone *is* does not solve the complexity of time altogether but introduces more questions about the ontology of time, the past, the future, and even the present itself. For example, Augustine notes that while the present alone *is*, if the present never ceases to be present (i.e. if it does not become past), then there would be no time but simply eternity. Thus, the present time *is* only insofar as it tends *not to be*.[^3] Time is not at all static; rather, it is always experienced as a continuous flow that begins from the future, proceeds through the present, and continues into the past. And in this strange flow, only the present *is*, though an explanation of the past and future will be pursued later. But concerning the present, Augustine also demonstrates its instantaneity. “For if it be extended, it is divided into the past and future; but the present has no space.”[^4] This can be explained as follows. The present must be instantaneous because if it is in any way divisible, the divided parts would be orderable. If so, as time passes, it is evident that the first of the parts would become present before the latter parts, as the first minute of an hour is ‘now’ before the second minute of the hour is. Likewise, the first of the parts would become *past* by the time the second becomes *present*. All the while, the third has not yet become present and so is *future*. Therefore, since only the smallest possible part can belong to the present, any extension (at least divisible extension) in the present is a logical impossibility. The present is duration-less.  
+
+The next point of Augustine’s inquiry is to explain how we can measure time, which in the process also solves the paradox concerning the manner of being that the past and future have. Phrases that we readily employ such as a “long pause” or a “short beep” assume that it is obvious that time can be measured. However, presumably only something that *is* can be measured and not anything that *is not*. If something *is not*, there will be nothing to measure.[^5] Thus the past and the future are clearly immeasurable, leaving only the present to be measured. However, it was earlier demonstrated that the present can have no duration, in which case it too should be absolutely immeasurable. If the present too is immeasurable, what remains to be measured when we measure time? Augustine struggles with this paradox and implores the help of God as he seeks to make sense of it.[^6]  
+
+Augustine ultimately resolves this paradox by locating the past and the future in the mind.[^7] The past as we remember it is not the past *per se* but is the past as present in our memory. Likewise, the future is not the future *per se* but is the future as present in our expectation. The brilliance of this discovery is that it confirms the foundational proposition that only the present *is*. For how can one know the past if the past *is not*? According to Augustine, it is impossible. Rather, we know our memory of the past, which is indeed present. To use a modern analogy, the memory can be compared to a video camera that records the appearances of things over time onto its magnetic tape. Each frame recorded on the tape represents a moment in the past. While this past moment no longer *is*, the image of that moment *is* because it is present as represented on the tape. This would also make it possible to measure time, since the duration of elapsed time is represented in the present and this can be measured. Similarly, for Augustine, it is our memory that makes it possible to experience the extension of time and so to measure duration.  
+
+> “In you \[my mind\], I say, I measure times; the impression which things as they pass by make on you, and which, when they have passed by, remains, that I measure as time present, not those things which have passed by, that the impression should be made. This I measure when I measure times.”[^8]
+
+Of course, one might argue that time is nothing so complicated, but merely the days and years that go by. But what Augustine is able to arrive at in his analysis of time is something much more fundamental, since he recognizes that the flow of time involves the relationship between the ever-changing present and our minds. He points to an imagined scenario where the sun and other celestial bodies cease to move. If one were to observe a potter’s wheel spinning, would there not still be an observed passage of time? One could still make out if one revolution was slower than the other, for example.[^9] The flow of time thus clearly involves our minds. Likewise, if the earth began rotating twice as fast, we could easily make out that the days were going by faster. We could also ‘scientifically’ determine this by comparing it with our atomic clocks. However, one could also imagine a scenario in which the atomic clocks themselves began ticking twice as fast. We would complain that the clocks were moving too fast. All the movements in the universe may or may not maintain their proportionate speeds or frequencies, yet the proportionality of these velocities is not what makes time flow, since it does not in itself possess a flow or a rate of flowing. There is no fast or slow except in relation to some reference. We can imagine all the movements of the universe in double or triple time or even 1000 times faster while still maintaining their proportionality, and this would make no difference as far as the universe is concerned. But it is their proportionality to our consciousness, so to speak, that constitutes the flowing of time.
+
+[^1]:  Augustine, *Confessions*, XI, 14, 17, trans. J.G. Pilkington, ed. Philip Schaff, From Nicene and Post-Nicene Fathers 1 (New York: Christian Literature Publishing Co., 1887). Revised and edited for New Advent by Kevin Knight. <http://www.newadvent.org/fathers/110111.htm>.
+
+[^2]:  Ibid.
+
+[^3]:  Ibid.
+
+[^4]:  Augustine, *Confessions*, XI, 15, 20
+
+[^5]:  Augustine, *Confessions*, XI, 15-17
+
+[^6]:  Augustine, *Confessions*, XI, 25
+
+[^7]:  Augustine, *Confessions*, XI, 27, 36
+
+[^8]:  Ibid.
+
+[^9]:  Augustine, *Confessions*, XI, 23, 29
+
+* * *
+© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+* * *

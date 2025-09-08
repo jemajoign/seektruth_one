@@ -2,8 +2,6 @@
 ## by Rev. Thomas J. Pulickal
 ### v1.0 : 2025-07-25
 
-*© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).*
-
 Albert Bandura is well known as the founder of social cognitive theory. His work was part of a significant turning point in the history of psychotherapy. Following the groundbreaking work of Sigmund Freud and Carl Jung, psychotherapy was mostly practiced and studied from a psychoanalytic framework. According to this theory, human behavior was a symptom of the unconscious mental life and the interactions between the different aspects of this psychic realm. For example, Freud taught that the three parts of the psyche, the id, ego, and superego, interacted with each other to form a specific personality. Jung theorized that such interactions took place between a different set of parts: the shadow, the anima or animus, the persona, and the self. The role of the psychotherapist then was to help the patient explore and further integrate these unconscious parts through the interpretation of dreams, word associations, or the uncovering of subconscious motivations that caused certain behaviors or reactions.
 
 In sharp contrast to this approach, behavioral psychologists placed their emphasis on the modification of problematic behaviors through careful manipulation of the environment rather than on a person’s internal systems. They were skeptical about psychoanalysis for several reasons, including its lack of predictive and therapeutic value. Some claimed that its only predictive power was that patients inevitably ended up with beliefs that matched the clinician’s particular theory.[^1] B. F. Skinner, one of the founders of behaviorism, wrote, “Feelings occur at just the right time to serve as causes of behavior and they have been cited as such for centuries.” He cited the example of a parent who wants to make his child eat nutritious food and so does not allow him to eat anything else. Eventually, the child will feel hunger and eat the food. In this example, we observe that a physical situation causes a feeling and a feeling causes a physical action. Thus, the feelings or the intrapsychic activity is a middle term between two physical realities, not the actual cause. Moreover, this middle term is largely unexplainable and undecipherable. He therefore suggested that we simply ignore it, focusing instead on the causality between the physical environment and human behavior.
@@ -29,3 +27,7 @@ In Bandura’s early work with phobics (persons suffering from phobias), he walk
 [^7]: Albert Bandura, “Influence of Models’ Reinforcement Contingencies on the Acquisition of Imitative Responses,” Journal of Personality and Social Psychology 1, no. 6 (1965): 589–95.
 [^8]: Albert Bandura, “Toward a Psychology of Human Agency,” *Perspectives on Psychological Science* 1, no. 2 (2006): 164–80.
 [^9]: Albert Bandura, *Albert Bandura on Behavior Therapy, Self Efficacy & Modeling (Interview)*.
+
+* * *
+© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
+* * *
