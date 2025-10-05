@@ -1,4 +1,4 @@
-title: seek(truth_1)
+title: seek(truth₁)
 url: https://www.seektruth.one
 basreurl: ""
 remote_theme: pages-themes/hacker@v0.2.0
@@ -8,5 +8,5 @@ plugins:
 github:
     is_project_page: false
 
-title: seek(truth_1)
+title: seek(truth₁)
 description: A free and honest inquiry into the real.
