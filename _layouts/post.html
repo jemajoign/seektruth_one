@@ -10,5 +10,14 @@ layout: default
 {{content}}
 
 {% if page.tags %}
-  <small style="color: rgb(119 157 49)">tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+      <small style="color: rgb(119 157 49)">tags: 
+      {% for tag in page.tags %}
+          {% assign tag_posts = site.tags[tag] %}
+          {% if tag_posts.size > 1 %}
+            <em><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %} - {% endunless %}</em>
+          {% else %}
+            <em>{{ tag }}{% unless forloop.last %} - {% endunless %}</em>
+          {% endif %}
+      {% endfor %}
+      </small>
 {% endif %}

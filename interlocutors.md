@@ -1,3 +1,6 @@
+---
+
+---
 # Interlocutors
 * Jolly John
 > Jolly is devoted to the integration of psychology and spirituality both at a theoretical level and in clinical practice. As a Doctor of Medical Sciences specializing in psychiatry, as well as a Physician Assistant, she employs a holistic approach grounded in the bio-psycho-social-spiritual model. She loves helping people work through depression, anxiety, bipolar disorder, ADHD, and more. She also serves as a spiritual director and is currently pursuing a Doctor in Ministry with a specialization in the Spiritual Exercises of St. Ignatius of Loyola.
@@ -10,4 +13,4 @@
 * Rev. Thomas J. Pulickal
 > Fr. Thomas is a computer programmer at his core, beginning at age 8 with GW-BASIC. He has continued writing software throughout his life and during the advent of the world wide web, giving him a unique perspective on contemporary questions about artificial intelligence and the human-technology relationship. He is an enthusiast about evolution, cognitive science, relativity, quantum uncertainty, the hard problem of consciousness, and more. *He also gladly wrote the above descriptions of his fellow interlocutors.*
 
-#### All the interolocutors have discovered Jesus Christ to be the ultimate meaning of reality, the *nexus* wherein the wide horizons of being come together into a meaningful whole. The divine nexus, they observe, does not hinder diversity but allows for maximal distinction and strangeness in the universe without its collapsing into absurdity.
+#### All the interlocutors have discovered Jesus Christ to be the ultimate meaning of reality, the *nexus* wherein the wide horizons of being come together into a meaningful whole. The divine nexus, they observe, does not hinder diversity but allows for maximal distinction and strangeness in the universe without its collapsing into absurdity.

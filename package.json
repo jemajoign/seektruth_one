@@ -1,0 +1,23 @@
+{
+  "name": "seektruth_one",
+  "version": "1.0.0",
+  "description": "hELLO!",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jemajoign/seektruth_one.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jemajoign/seektruth_one/issues"
+  },
+  "homepage": "https://github.com/jemajoign/seektruth_one#readme",
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  }
+}
