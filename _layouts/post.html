@@ -14,7 +14,7 @@ layout: default
       {% for tag in page.tags %}
           {% assign tag_posts = site.tags[tag] %}
           {% if tag_posts.size > 1 %}
-            <em><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %} - {% endunless %}</em>
+            <em><a href="/tags/{{ tag | slugify }}.html">{{ tag }}</a>{% unless forloop.last %} - {% endunless %}</em>
           {% else %}
             <em>{{ tag }}{% unless forloop.last %} - {% endunless %}</em>
           {% endif %}

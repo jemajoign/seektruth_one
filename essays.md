@@ -14,7 +14,7 @@
       <td>{% for tag in post.tags %}
           {% assign tag_posts = site.tags[tag] %}
           {% if tag_posts.size > 1 %}
-            <a href="/tags/{{ tag | slugify }}/">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+            <a href="/tags/{{ tag | slugify }}.html">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
           {% else %}
             {{ tag }}{% unless forloop.last %}, {% endunless %}
           {% endif %}
