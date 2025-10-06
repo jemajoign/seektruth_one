@@ -7,5 +7,6 @@
 
 <br><br><br><br><br><br><br><br><br>
 * * *
+We value engagement. Please share your thoughts with us by emailing dialog@seektruth.one. If mutually agreeable, we will add your insights to the bottom of the essay.
 © 2025. All works are openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
 * * *
