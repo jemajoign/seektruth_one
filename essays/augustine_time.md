@@ -31,7 +31,3 @@ Of course, one might argue that time is nothing so complicated, but merely the d
 [^8]:  Ibid.
 
 [^9]:  Augustine, *Confessions*, XI, 23, 29
-
-* * *
-© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
-* * *

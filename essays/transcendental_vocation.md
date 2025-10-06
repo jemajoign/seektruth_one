@@ -12,7 +12,3 @@ However, the shaman’s success is also his/her downfall. The growth of the numb
 Eventually, the Athenian experiment will separate the civilizing function of both the temple and the king and will begin the project of democracy. To a certain extent, it serves the temple’s function but lacks a proper cult. In may be better to say that, the temple gets dedicated first and foremost to a new god, the majority. However, given the disintegrating forces, both internal and external, these societies tend to be challenging to sustain, with the figure of the king appearing once again. Does the temple emerge again? Does the vocation to transcendence resurface? What happened to our humanity, to our poetry and science, and large gatherings in the absence of a clear transcendental vocation?
 
 \#transcendence \#consciousness \#origins
-
-* * *
-© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
-* * *

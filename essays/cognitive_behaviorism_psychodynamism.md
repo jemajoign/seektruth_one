@@ -33,7 +33,3 @@ In future articles, we will explore the merits of the "inside-out" approach.
 [^7]: Albert Bandura, “Influence of Models’ Reinforcement Contingencies on the Acquisition of Imitative Responses,” Journal of Personality and Social Psychology 1, no. 6 (1965): 589–95.
 [^8]: Albert Bandura, “Toward a Psychology of Human Agency,” *Perspectives on Psychological Science* 1, no. 2 (2006): 164–80.
 [^9]: Albert Bandura, *Albert Bandura on Behavior Therapy, Self Efficacy & Modeling (Interview)*.
-
-* * *
-© 2025. This work is openly licensed via [CC BY 4.0](http://creativecommons.org/licenses/by/4.0/).
-* * *
