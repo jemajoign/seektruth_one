@@ -1,8 +1,16 @@
-| title | author | date  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |
-| [The Providence of Subjectivism](./essays/subjectivism.html) | Rev. Thomas J. Pulickal | 2025-10-01 |
-| [Results-Based, Contractual Work](./essays/results_based_work.html) | Rev. Thomas J. Pulickal | 2025-09-13 |
-| [The origins of the transcendental vocation and its civilizing force](./essays/transcendental_vocation.html) | Rev. Jose E. Lopez | 2025-09-03 |
-| [The Genesis and Merits of Cognitive Behaviorism](./essays/cognitive_behaviorism_psychodynamism.html) | Rev. Thomas J. Pulickal | 2025-07-25 |
-| [Augustine on time and consciousness](./essays/augustine_time.html) | Rev. Thomas J. Pulickal | 2015-08-13 |
+<table><tbody>
+<tr>
+    <td>title</td>
+    <td>author</td>
+    <td>tags</td>
+</tr>
+  {% for post in site.posts %}
+    <tr>
+      <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+      <td>{{ post.author }}</td>
+      <td>{{ post.tags | join: ", " }}</td>
+    </tr>
+  {% endfor %}
+</tbody></table>
 
 <br><br><br><br><br><br>

@@ -1,7 +1,12 @@
-# The Genesis and Merits of Cognitive Behaviorism
-## by Rev. Thomas J. Pulickal
-### v1.1 : 2025-9-14 (orig. 2025-07-25)
-
+---
+title: The Genesis and Merits of Cognitive Behaviorism
+version: v1.1 (2025-09-14)
+author: Rev. Thomas J. Pulickal
+tags:
+- behaviorism
+- psychodynamism
+- psychology
+---
 Albert Bandura is well known as the founder of social cognitive theory. His work was part of a significant turning point in the history of psychotherapy. Following the groundbreaking work of Sigmund Freud and Carl Jung, psychotherapy was mostly practiced and studied from a psychoanalytic framework. According to this theory, human behavior was a symptom of the unconscious mental life and the interactions between the different aspects of this psychic realm. For example, Freud taught that the three parts of the psyche, the id, ego, and superego, interacted with each other to form a specific personality. Jung theorized that such interactions took place between a different set of parts: the shadow, the anima or animus, the persona, and the self. The role of the psychotherapist then was to help the patient explore and further integrate these unconscious parts through the interpretation of dreams, the analysis of word associations, or the uncovering of subconscious motivations that caused certain behaviors or reactions.
 
 In sharp contrast to this approach, behavioral psychologists placed their emphasis on the modification of problematic behaviors through careful manipulation of the environment rather than on a person’s internal systems. They were skeptical about psychoanalysis for several reasons, including its lack of predictive and therapeutic value. Some claimed that its only predictive power was that patients inevitably ended up with beliefs that matched the clinician’s particular theory.[^1] B. F. Skinner, one of the founders of behaviorism, wrote, “Feelings occur at just the right time to serve as causes of behavior and they have been cited as such for centuries.” He cited the example of a parent who wants to make his child eat nutritious food and so does not allow him to eat anything else. Eventually, the child will feel hunger and eat the food. In this example, we observe that a physical situation causes a feeling and a feeling causes a physical action. Thus, the feelings or the intrapsychic activity is a middle term between two physical realities, not the actual cause. Moreover, this middle term is largely unexplainable and undecipherable. He therefore suggested that we simply ignore it, focusing instead on the causality between the physical environment and human behavior.

@@ -1,7 +1,10 @@
-# Augustine on time and consciousness
-## by Rev. Thomas J. Pulickal
-### v1.0 : 2015-08-13
-
+---
+title: Augustine on Time and Consciousness
+author: Rev. Thomas J. Pulickal
+tags:
+- consciousness
+- time
+---
 Augustine begins his inquiry into the nature of time with the phenomena of past, present, and future, three “times” that present themselves to us with definitive meaning. The past is that which no longer *is*, the present is that which *is* now, and the future is that which *will be*.[^1] From this starting point, Augustine raises a series of questions that ultimately leads him to the essence of time. If the past is past precisely because it *was* and therefore *is not*, how can we speak of it? Is it not contradictory to ask, “What is it?” of something that *is not*? The same can be said about the future, which *is not yet*, and so also *is not*. The foundation of Augustine’s understanding of time is therefore that only the present *is*. For, if the past still *is*, we would call it present. And if the future *is* already, we would call it present. But since the past *is* no longer and the future *is* not yet, of these we may say, “They are not.” Therefore only the present *is*.[^2]  
 
 That the present alone *is* does not solve the complexity of time altogether but introduces more questions about the ontology of time, the past, the future, and even the present itself. For example, Augustine notes that while the present alone *is*, if the present never ceases to be present (i.e. if it does not become past), then there would be no time but simply eternity. Thus, the present time *is* only insofar as it tends *not to be*.[^3] Time is not at all static; rather, it is always experienced as a continuous flow that begins from the future, proceeds through the present, and continues into the past. And in this strange flow, only the present *is*, though an explanation of the past and future will be pursued later. But concerning the present, Augustine also demonstrates its instantaneity. “For if it be extended, it is divided into the past and future; but the present has no space.”[^4] This can be explained as follows. The present must be instantaneous because if it is in any way divisible, the divided parts would be orderable. If so, as time passes, it is evident that the first of the parts would become present before the latter parts, as the first minute of an hour is ‘now’ before the second minute of the hour is. Likewise, the first of the parts would become *past* by the time the second becomes *present*. All the while, the third has not yet become present and so is *future*. Therefore, since only the smallest possible part can belong to the present, any extension (at least divisible extension) in the present is a logical impossibility. The present is duration-less.  

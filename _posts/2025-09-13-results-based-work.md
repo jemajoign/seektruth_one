@@ -1,7 +1,13 @@
-# Results-Based, Contractual Workplace (RBCW)
-## by Rev. Thomas J. Pulickal
-### v1.1 : 2025-09-19 (orig. 2025-09-13)
-
+---
+title: Results-Based, Contractual Workplace (RBCW)
+version: v1.1 (2025-09-19)
+author: Rev. Thomas J. Pulickal
+tags:
+- social organization
+- freedom
+- work
+- rethink
+---
 ## The Employee Model
 Why should *you* be nervous at an interview and not the person interviewing you? Come to think of it, why aren't you interviewing the company instead? The employer holds all the cards. Like feudal lords, *they* decide whether or not they want the hired hand, the hand opened and extended before them in humble supplication. In a small window of opportunity, the applicant has to show himself pleasant, professional, brilliant, tactful, etc. And this is just the interview process. If the person is hired, he becomes properly indebted, indentured even. After all, he continues to be employed solely by the good graces of his master. Therefore the employee must be on his best behavior, especially when his manager is watching.
 

@@ -1,7 +1,13 @@
-# The Providence of Subjectivism
-## by Rev. Thomas J. Pulickal
-### v1.0 : 2025-10-01
-
+---
+title: The Providence of Subjectivism
+version: v1.0 (2025-10-01)
+author: Rev. Thomas J. Pulickal
+tags:
+- consciousness
+- heart
+- ai
+- behaviorism
+---
 Subjectivism, alongside many other \-isms, is rightly frowned upon. However, the shift towards acknowledging that being human means *to be in the first-person*, it seems to me, was providential. Consider the classical definition of the human being as a rational animal. If some totally external third party were observing all the phenomena in the universe, it would notice that human beings were exactly like other mammals (as many scientists notice, who forget that they are not third parties) *except* that they behave according to reason. Hence, rational \+ animal. With the discovery of artificial neural networks, this same third party \- in a few short decades \- will observe the same rational behavior in machines as well; it may very well classify humans and robots together. 
 
 I am not making the rash claim that neural networks can reason. However, they *can* capture rational behavior. The reductionists would conclude that this amounts to the same thing, but this is besides the point. The point is that looking at the human being from a third-person perspective has diminishing returns; it proffers diminishing distinctness from materiality. What has endured the test of time is *interiority* or *being-a-subject*, which is irreducible.
