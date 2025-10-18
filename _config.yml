@@ -1,6 +1,6 @@
 title: seek(truth₁)
 url: https://www.seektruth.one
-basreurl: ""
+baseurl: ""
 remote_theme: pages-themes/hacker@v0.2.0
 plugins:
 - jekyll-remote-theme
@@ -10,3 +10,5 @@ github:
 
 title: seek(truth₁)
 description: A free and honest inquiry into the real.
+
+media: https://github.com/jemajoign/seektruth_one/raw/refs/heads/main/media/
