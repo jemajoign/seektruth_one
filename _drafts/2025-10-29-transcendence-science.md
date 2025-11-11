@@ -1,5 +1,5 @@
 ---
-title: The Fact of Mystery
+title: Foundations for a Science of Transcendent Realities
 version: v1.0
 author: Rev. Thomas J. Pulickal
 tags:
@@ -7,7 +7,7 @@ tags:
 ---
 
 ## What is real?
-Many scientists today chuckle at what they consider the silly beliefs of prior generations and pious people around the world: beliefs in the existence God, angels, the spiritual soul, life after death, and immaterial reality in general. The objects of these beliefs are *a priori* taken to be unreal, and they therefore bristle at its striking ubiquity across time and space and its popularity even in this advanced age. This is backwards. An honest inquiry must begin with the *fact*. Human beings experience the immaterial, transcendent, or what shall be called *mystery*. This fact is independent of whether such experienced mystery is *real*, which is a word whose meaning we have to explore.
+Many scientists today chuckle at what they consider the silly beliefs of prior generations and pious people around the world: beliefs in the existence of God, angels, the spiritual soul, life after death, and immaterial reality in general. The objects of these beliefs are *a priori* taken to be unreal, and they therefore bristle at its striking ubiquity across time and space and its popularity even in this advanced age. This is backwards. An honest inquiry must begin with the *fact*. Human beings experience the immaterial, transcendent, or what shall be called *mystery*. This fact is independent of whether such experienced mystery is *real*, which is a word whose meaning we have to explore.
 
 For example, a person experiences God calling him to a certain action. Afterwards, he doubts whether the call was *real* or whether he was imagining it. The call was a phenomenon that presented itself as something lacking materiality by its very nature (assuming it was not experienced as an audible voice). Now, he seeks to know whether or not he should trust the phenomenon, whether it was really God who was calling him or his own mind. Notably, he does not doubt that he experienced *something*. This is the fact. The interpretation of the fact is up in the air, but the fact has its feet on the ground.
 
