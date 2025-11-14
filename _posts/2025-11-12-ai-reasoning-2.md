@@ -1,6 +1,6 @@
 ---
 title: Can AI think? (part 2)
-version: v1.0b
+version: v1.0c
 author: Rev. Thomas J. Pulickal
 tags:
 - ai
@@ -58,6 +58,8 @@ Turing tried to make this argument during his lifetime but it was unconvincing. 
 
 ## Conclusion
 Alan Turing was brilliant and thanks to his work and the work of countless others over the last few hundred years, we are privileged to live in a time when machines "embody intelligence" more than most of us ever thought possible. They can already do countless human tasks and they will do more still, freeing us up for higher pursuits in some way analogously to how the industrial revolution freed most human beings from repetitive labor. But had Turing himself digitized all the extant literature prior to his own writings and trained a powerful LLM on it, I do not believe it would have predicted that machines would one day pass the Turing test. Turing did that. Because as incredibly powerful as machines are, from the ancient orrery to the Jacquard machine and now to ChatGPT, they are not capable of "being intelligent." In the cosmic division of labor, being intelligent is evidently the lot marked out for us.
+
+An LLM is not intelligent, but it is *fluent*, since it embodies our intelligence in words. Have you ever met a person who speaks brilliantly but on further inspection does not know what he is talking about? Compare that to where LLMs were just a few years ago in terms of "hallucinations." Humans usually speak at a level commensurate with their understanding. LLMs write brilliantly and convincingly even when they are embarrassingly wrong because there is no understanding beneath the words. The vacuum of understanding is being covered over by the ever-increasing power and scale of next-token fluency. Such sheer power has made LLMs incredibly useful to us, but it will never make them credibly intelligent alongside us.
 
 ----
 [^1]: Parshin Shojaee, Iman Mirzadeh, Keivan Alizadeh, Maxwell Horton, Samy Bengio, and Mehrdad Farajtabar, ["The Illusion of Thinking: Understanding the Strengths and Limitations of Reasoning Models via the Lens of Problem Complexity,"](https://ml-site.cdn-apple.com/papers/the-illusion-of-thinking.pdf) Apple Machine Learning Research, June 7, 2025.
