@@ -41,11 +41,10 @@ As Chalmers suggests, with our understanding of neural networks and how even com
 
 If, in every experience, there is some element of transcendence (because the subject of the experience is transcendent), there should be ample, transcendent subject-matter for scientists to study. What prevents them? We have shown its falsifiability, after all. Recall that we have only shown the falsifiability of the *fact* of transcendent experiences (i.e. that they are real). Transcendent reality is as much a fact as time or light, but this does not mean that science can explore their contents as it does the properties of time or light. (A topic for a future essay.) What can be expected and even demanded is a mutual nod, an acknowledgment of each other that neither encroaches upon nor dismisses their respective domains.
 
-One of the greatest scientists of the last century, who may even be called the creator of quantum mechanics[^2], said it beautifully:
+One of the greatest scientists of the last century, who may even be called the creator of quantum mechanics[^3], said it beautifully:
 > In the history of science, ever since the famous trial of Galileo, it has repeatedly been claimed that scientific truth cannot be reconciled with the religious interpretation of the world. Although I am now convinced that scientific truth is unassailable in its own field, I have never found it possible to dismiss the content of religious thinking as simply part of an outmoded phase in the consciousness of mankind, a part we shall have to give up from now on. Thus in the course of my life I have repeatedly been compelled to ponder on the relationship of these two regions of thought, for I have never been able to doubt the reality of that to which they point.
 > Werner Hisenberg
 
 [^1]: Contorting the phenomenon of 'dying for one's beloved' to 'genetically disposed to ensure success of the offspring' would be an example of a comical explanation. Anyone in love knows it has nothing to do with whether the beloved has children or not! Reduction to material causes is simply not possible. Note that "material cause" in this essay does not refer to the Aristotelian notion but precisely to "matter or energy".
 [^2]: David J. Chalmers, *The Conscious Mind: In Search of a Fundamental Theory* (New York: Oxford University Press, 1996), 25.
-[^3]: Chalmers, *The Conscious Mind*, 46.
-[^4]: https://www.nobelprize.org/prizes/physics/1932/heisenberg/facts/
+[^3]: https://www.nobelprize.org/prizes/physics/1932/heisenberg/facts/
