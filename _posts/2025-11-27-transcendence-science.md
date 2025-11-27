@@ -3,7 +3,8 @@ title: The Scientific Acknowledgement of the Transcendent
 version: v1.0
 author: Rev. Thomas J. Pulickal
 tags:
-- phenomenology
+- transcendence
+- consciousness
 ---
 
 ## What is real?
