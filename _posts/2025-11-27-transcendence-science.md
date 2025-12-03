@@ -44,7 +44,7 @@ If, in every experience, there is some element of transcendence (because the sub
 
 One of the greatest scientists of the last century, who may even be called the creator of quantum mechanics[^3], said it beautifully:
 > In the history of science, ever since the famous trial of Galileo, it has repeatedly been claimed that scientific truth cannot be reconciled with the religious interpretation of the world. Although I am now convinced that scientific truth is unassailable in its own field, I have never found it possible to dismiss the content of religious thinking as simply part of an outmoded phase in the consciousness of mankind, a part we shall have to give up from now on. Thus in the course of my life I have repeatedly been compelled to ponder on the relationship of these two regions of thought, for I have never been able to doubt the reality of that to which they point.
-> Werner Hisenberg
+> - Werner Heisenberg
 
 ---
 
