@@ -1,41 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="/style.css">
-    {% include head-custom.html %}
+<html lang="{{ site.lang | default: " en-US" }}">
 
-{% seo %}
-  </head>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+  <link rel="stylesheet" href="/style.css">
+  {% include head-custom.html %}
+  {% seo %}
+</head>
 
-  <body>
-
-    <header>
-      <div class="container">
+<body>
+  <header>
+    <div class="container" style="display: flex; height: 100px">
+      <div style="width: 80%">
         <a id="a-title" href="{{ '/' | relative_url }}">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
         </a>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
       </div>
-    </header>
+      <a href="https://mailchi.mp/amorischristi.org/seektruthone">
+        <img src="./media/Subscribe.png" class="zoom-hover" style="width: 150px; position: relative; top: -25px; height: 138px">
+      </a>
+    </div>
+  </header>
 
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
-    </div>
-    <br>
-    <div class="container">
-      <section id="footer_content">
-        <hr>
-        © 2025. All works are openly licensed via <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. seek(truth₁) is a free and honest inquiry into the real. It is sponsored by Amoris Christi.<br><br>
-        <a href="https://mailchi.mp/amorischristi.org/seektruthone">Subscribe here</a> to get notified of new essays. We value engagement. Please share your thoughts with us by emailing 
-        <a href="mailto:dialogue@seektruth.one">dialogue@seektruth.one</a>. If mutually agreeable, we will add your insights to the bottom of the essay.
-        <hr>
-      </section>
-    </div>
-  </body>
+  <div class="container">
+    <section id="main_content">
+      {{ content }}
+    </section>
+  </div>
+  <br>
+  <div class="container">
+    <section id="footer_content">
+      <hr>
+      © 2025. All works are openly licensed via <a href="http://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+      seek(truth₁) is a free and honest inquiry into the real. It is sponsored by Amoris Christi.<br><br>
+      <a href="https://mailchi.mp/amorischristi.org/seektruthone">Subscribe here</a> to get notified of new essays. We
+      value engagement. Please share your thoughts with us by emailing
+      <a href="mailto:dialogue@seektruth.one">dialogue@seektruth.one</a>. If mutually agreeable, we will add your
+      insights to the bottom of the essay.
+      <hr>
+    </section>
+  </div>
+</body>
+
 </html>
