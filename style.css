@@ -10,3 +10,25 @@ strong {
 .zoom-hover:hover {
   transform: scale(1.08);        /* enlarge 8% – looks natural */
 }
+
+.top-right-logo {  /* Replace with your actual class/ID, e.g., .header-logo */
+  max-width: 100%;      /* Prevents overflow on small screens */
+  height: auto;         /* Maintains aspect ratio (width scales, height adjusts) */
+  width: 150px;         /* Base size for PCs; adjust as needed */
+  object-fit: contain;  /* Keeps image fully visible without cropping */
+  position: relative;
+  top: -25px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {  /* Tablets and phones */
+  .top-right-logo {
+    width: 150px;         /* Smaller on phones */
+  }
+}
+
+@media (max-width: 480px) {  /* Small phones */
+  .top-right-logo {
+    width: 118px;         /* Even smaller for tiny screens */
+  }
+}
