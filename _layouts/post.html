@@ -22,12 +22,17 @@ layout: default
       </small>
 {% endif %}
 
+<style>
+mjx-container, mjx-container * {
+    color: #5babff !important;
+}
+</style>
 <script>
     MathJax = {
         tex: {
-            inlineMath: [['$', '$'], ['\$$ ', '\ $$']]
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
         }
     };
 </script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>

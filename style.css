@@ -32,3 +32,12 @@ strong {
     width: 118px;         /* Even smaller for tiny screens */
   }
 }
+img { 
+  display: block; 
+  margin: 0 auto 
+}
+img + em { 	
+  display: block; 
+  text-align: center; 
+  color: rgb(119 157 49);
+}
