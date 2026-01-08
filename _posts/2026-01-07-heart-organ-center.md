@@ -1,6 +1,7 @@
 ---
 title: "What makes the heart so special?"
 author: Rev. Thomas J. Pulickal
+version: v1.0b
 tags:
 - heart
 ---
@@ -42,7 +43,7 @@ In this graph, the peaks are when the heart is pumping most slowly (i.e. long ga
 *Figure 3 - Intervals between heart beats overlaid with a fitted curve*
 
 **Note:** the red line is a periodic, fitted curve to show the remarkable rhythmicity of the heart during a breathing pattern. This wave can be expressed approximately as 
-$r(n)=r_0-\frac{2}{3} s \cdot sin(\frac{2 \pi n}{P})+s \cdot cos(\frac{4 \pi n}{P})$, where $r_0$ is the average interval between heart beats, $P$ is the number of heart beats per respiratory cycle, $s$ is some scaling factor (in this case about 100), and $n$ is the variable representing the beat number (not time). Curves will of course look differently for different people and at different times/situations even when following the same breathing pattern. For certain people, the asphyxiation reflex may dip lower (reducing the $\frac{2}{3} s$ coefficient) and the exhalation peak may climb higher than the holding-breath-peak (adding a phase shifted first order sin wave), which could be represented simply by: $r(n)=r_0-sin(\frac{2 \pi n}{P})-\frac{2}{3} s \cdot sin(\frac{2 \pi (n-2)}{P})+s \cdot cos(\frac{4 \pi n}{P})$.
+$r(n)=r_0-\frac{2}{3} s \cdot sin(\frac{2 \pi n}{P})+s \cdot cos(\frac{4 \pi n}{P})$, where $r_0$ is the average interval between heart beats, $P$ is the number of heart beats per respiratory cycle, $s$ is some scaling factor (in this case about 100), and $n$ is the variable representing the beat number (not time). Curves will of course look differently for different people and at different times/situations even when following the same breathing pattern. For certain people, (1) the asphyxiation reflex may dip lower and (2) the exhalation peak may climb higher than the holding-breath-peak. These two facets can be modeled by (1) adding an inversely signed first-order sine wave and (2) phase-shifting the original first order sine wave. It could be represented simply by: $r(n)=r_0-\frac{2}{3} s \cdot sin(\frac{2 \pi (n-2)}{P})+\frac{1}{3} s \cdot sin(\frac{2 \pi n}{P})+s \cdot cos(\frac{4 \pi n}{P})$.
 
 ## The bilateral arrangement between your heart and your emotions
 So far we have spoken about the heart as the bellwether of one's emotions. The relationship is more complex. Just as the heart rate is partly a symptom of the level of one's fear or excitement, one's fear or excitement is also partly a symptom of one's heart rate. This likely happens through interoception. Your brain senses your heart rate and adjusts your felt emotional state. Reducing one's heart rate therefore leads to greater emotional calm.[^4]
