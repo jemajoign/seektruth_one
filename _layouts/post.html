@@ -5,7 +5,7 @@ layout: default
 <small style="color: rgb(119 157 49)">{{ page.date | date: "%B %-d, %Y" }}, {{ page.version | default: "v1.0" }}</small>
 <h1>{{ page.title }}</h1>
 
-<p class="view" style="color: rgb(119 157 49)">{{ page.author }}</p>
+<p class="view" style="color: rgb(119 157 49)"><a href="/interlocutors.html#{{ page.author }}">{{ page.author }}</a></p>
 
 {{content}}
 

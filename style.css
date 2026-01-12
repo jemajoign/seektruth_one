@@ -41,3 +41,6 @@ img + em {
   text-align: center; 
   color: rgb(119 157 49);
 }
+a:not([href]) {
+  color: #b5e853;
+}
