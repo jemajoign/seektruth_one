@@ -30,6 +30,6 @@ From a theological perspective, the power of spoken words is deeply affirmed in 
 [^2]: Kross, E., Berman, M. G., Mischel, W., Smith, E. E., & Wager, T. D. (2011). Social rejection shares somatosensory representations with physical pain. Proceedings of the National Academy of Sciences of the United States of America, 108(15), 6270–6275.[https://doi.org/10.1073/pnas.1102693108](https://doi.org/10.1073/pnas.1102693108)  
 [^3]: Ferenczi, A., Mirnics, Z., & Kövi, Z. (2021). Relations between God-Images and Early Maladaptive Schemas. Psychiatria Danubina, 33(Suppl 4), 833–843.  
 [^4]: Roberts, B. R. T., Hu, Z. S., Curtis, E., Bodner, G. E., McLean, D., & MacLeod, C. M. (2024). Reading text aloud benefits memory but not comprehension. Memory & cognition, 52(1), 57–72.[https://doi.org/10.3758/s13421-023-01442-2](https://doi.org/10.3758/s13421-023-01442-2)  
-[^5]: **McLaughlin‑Sheasby, A.** (2024). *Proclamation and power: Toward a phenomenology of preaching and its affects*. **Religions, 15**, 392\. https://doi.org/10.3390/rel15040392
+[^5]: McLaughlin‑Sheasby, A. (2024). *Proclamation and power: Toward a phenomenology of preaching and its affects*. Religions, 15, 392\. https://doi.org/10.3390/rel15040392
 
  
