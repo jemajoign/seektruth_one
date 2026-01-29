@@ -1,7 +1,7 @@
 ---
 title: "What makes the heart so special?"
 author: Rev. Thomas J. Pulickal
-version: v1.0c
+version: v2.0 (2026-01-28)
 tags:
 - heart
 ---
@@ -27,7 +27,7 @@ Of course, there are many other "dimensions" to emotional reactions than cardiac
 Clearly then, the heart stands out among all the organs as the most representative and truthful expression of what one is feeling. It is understandable therefore how it was supposed to be the origin or seat of emotions, morality, decisions, and even thought.
 
 ## The fine resolution of the heart
-Is your heart pounding like a drum? If so, it is probably under the reigns of your sympathetic nervous system (SNS - i.e. fight or flight system), as opposed to your parasympathetic nervous system (PNS - i.e. rest and digest system). Your SNS drives your heart whenever there is need for immediate action, such as when you spot the snake on your path, and your body needs to get high amounts of oxygen everywhere in case you need to run or fight. The PNS comes alive when you are safe and can relax at equilibrium. Remarkably, the SNS and PNS do not just switch on or off in extreme circumstances but have continuous, fine-grained resolution of the heart. In fact, the SNS gets your heart pumping faster *every time you breathe in*. Ordinarily, assuming you are not under stress, the PNS sends a constant "take it easy" signal to your heart's internal pacemaker (Sinoatrial node). But when you breathe in, receptors in your lungs notify the brain stem, which immediately inhibits this calming effect of the PNS. What results is a mild fight or flight response that triggers the rapid pumping of blood until you start exhaling.
+Is your heart pounding like a drum? If so, it is probably under the reigns of your sympathetic nervous system (SNS - i.e. fight or flight system), as opposed to your parasympathetic nervous system (PNS - i.e. rest and digest system). Your SNS drives your heart whenever there is need for immediate action, such as when you spot the snake on your path, and your body needs to get high amounts of oxygen everywhere in case you need to run or fight. The PNS comes alive when you are safe and can relax at equilibrium. Remarkably, the SNS and PNS do not just switch on or off in extreme circumstances but have continuous, fine-grained resolution of the heart. In fact, the SNS gets your heart pumping faster *every time you breathe in*. Ordinarily, assuming you are not under stress, the PNS sends a constant "take it easy" signal to your heart's internal pacemaker (Sinoatrial node). But when your lungs are stretched, receptors in your lungs keep pinging your brain stem to inhibit the calming effect of the PNS. What results is a mild fight or flight response that triggers the rapid pumping of blood.
 
 An electrocardiogram records the electrical signals of the heart's internal pacemaker. The spikes in the following image capture the main pumping action that we refer to as our heartbeat or pulse.
 
@@ -39,13 +39,21 @@ Looking closely, you will see that the spacing between the peaks varies. The tim
 ![RR Intervals]({{ site.media }}./rr_intervals.png)
 *Figure 2 - Intervals between heartbeats*
 
-Interestingly, when you first hold your breath, your heartbeat intervals get longer as expected, but after a few seconds, you experience an asphyxiation reflex and your SNS initiates a faster heart rate. If you follow a breathing pattern such as the Weil method (also called "4-7-8": inhale for 4 seconds/counts, hold for 7 seconds, exhale for 8 seconds), you may notice the asphyxiation reflex after holding your breath for just a few seconds. This SNS activation from asphyxiation subsides as soon as you start to release your breath because exhalation activates the PNS. In our way of plotting the intervals, this may appear as a dip in the middle of the otherwise rising interval durations. Notice the M-like shape that can occur due to this dip.
+Interestingly, when you first hold your breath, your heartbeat intervals get longer as expected, but after a few seconds, you experience an asphyxiation reflex and your SNS initiates a faster heart rate. If you follow a breathing pattern such as the Weil method (also called "4-7-8": inhale for 4 seconds/counts, hold for 7 seconds, exhale for 8 seconds), you may notice the asphyxiation reflex at a relatively consistent point in the cycle. In the diagram below, it occurs during the initial portion of the exhalations. However, as your lungs deflate, those stretch receptors stop putting your brain on alert and the PNS comes back in control. In our way of plotting the intervals, this may appear as a dip in the middle of the otherwise rising interval durations. Notice the M-like shape that can occur due to this dip.
 
 ![RR Intervals with holding breath]({{ site.media }}./4-7-8_rr.png)
 *Figure 3 - Intervals between heartbeats overlaid with a fitted curve*
 
 **Note:** the red line is a periodic, fitted curve to show the remarkable rhythmicity of the heart during a breathing pattern. This wave can be expressed approximately as 
 $r(n)=r_0-\frac{2}{3} s \cdot sin(\frac{2 \pi n}{P})+s \cdot cos(\frac{4 \pi n}{P})$, where $r_0$ is the average interval between heartbeats, $P$ is the number of heartbeats per respiratory cycle, $s$ is some scaling factor (in this case about 100), and $n$ is the variable representing the beat number (not time). Curves will of course look differently for different people and at different times/situations even when following the same breathing pattern. For certain people, (1) the asphyxiation reflex may dip lower and (2) the exhalation peak may climb higher than the holding-breath peak. These two facets can be modeled by (1) adding an inversely-signed, first-order sine wave and (2) phase shifting the original first-order sine wave. It could be represented simply by: $r(n)=r_0-\frac{2}{3} s \cdot sin(\frac{2 \pi (n-2)}{P})+\frac{1}{3} s \cdot sin(\frac{2 \pi n}{P})+s \cdot cos(\frac{4 \pi n}{P})$.
+
+As mentioned above, the dip -- the increased heart rate -- is caused by the asphyxiation reflex, which, in this case, occurs in the middle of exhalation. (Note: if the breathing pattern involved a longer hold, it would occur during the hold.) This is shown in greater detail below. 
+
+In the following diagram:
+* green=inhalation: speeding up
+* red=holding: slowing down
+* blue=exhalation: speeding up and then slowing down
+![RR Intervals with holding breath]({{ site.media }}./4-7-8_rr_close.png)
 
 ## The bilateral arrangement between your heart and your emotions
 So far we have spoken about the heart as the bellwether of one's emotions. The relationship is more complex. Just as the heart rate is partly a symptom of the level of one's fear or excitement, one's fear or excitement is also partly a symptom of one's heart rate. This likely happens through interoception. Your brain senses your heart rate and regulates your felt emotional state. Reducing one's heart rate can therefore lead to greater emotional calm.[^4]
