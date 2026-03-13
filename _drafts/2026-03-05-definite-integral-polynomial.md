@@ -98,28 +98,28 @@ $$
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} \sum_{\lambda=1}^{(b-a)/\Delta} \Delta\, \binom{P}{\beta} (\lambda \Delta)^{P-\beta} a^\beta
 $$
 
-Then, we move out factors that do not depend upon $\lambda$ out of the inner summation, except for $\Delta$ for reasons that will become clear.
+Then, we move out factors that do not depend upon $\lambda$ out of the inner summation.
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \sum_{\lambda=1}^{(b-a)/\Delta} \lambda^{P-\beta} \Delta^{P-\beta+1} 
+\lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \Delta^{P-\beta+1}  \sum_{\lambda=1}^{(b-a)/\Delta} \lambda^{P-\beta} 
 $$
 
-We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). This gives us:
+We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). We'll also move the $\delta$ back to the right. This gives us:
 
 $$
 \displaystyle
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j \frac{(b-a)^{P-\beta+1-j}}{\Delta^{P-\beta+1-j}} \Delta^{P-\beta+1}
 $$
 
-Admittedly, this seems way more complicated, but the $\Delta$'s do something very nice on the right side of the equation.
+Admittedly, this seems way more complicated, but this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Additionally, the $\Delta$'s do something very nice on the right side of the equation.
 
 $$
 \displaystyle
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j (b-a)^{P-\beta+1-j} \Delta^{j}
 $$
 
-Now, if $j=0$, $\Delta^j=1$, but if $j$ is anything else, $\Delta^j \to 0$ because $\Delta \to 0$. This $\Delta \to 0$ in the numerator multiplies itself with everything else and disappears. So this lengthy second summation is reduced to only its first time, $j=0$.
+Now, if $j=0$, $\Delta^j=1$, but if $j$ is anything else, $\Delta^j \to 0$ because $\Delta \to 0$. This $\Delta \to 0$ in the numerator multiplies itself with everything else and disappears. So this lengthy second summation is reduced to only its first term, $j=0$.
 
 $$
 \displaystyle
@@ -146,7 +146,7 @@ $$
 }
 $$
 
-If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But we have a solution that you could do by hand in a few minutes. Let us try it out on our initial problem, just for fun.
+If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. (The heart sings with thanksgiving!) Let us try it out on our initial problem, just for fun.
 
 ### Brief Excursion - Try out the finite expression
 In our initial problem, the accelerating car, $P=2$, $a=1$, $b=2$. Plugging that in, we get:
@@ -159,6 +159,274 @@ $$
 }
 $$
 
-And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, I feel inclined to sing God's praises and move on to other marvels... but I can't. Because I would like to see if we can eliminate the summation as well -- that is -- if there is a simpler expression. This expression has as $P+1$ terms, which is very manageable. But if you are curious about how to reduce this further, buckle up!
+And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, I feel inclined to move on to other *Mirabilia Dei*... but I can't. Because I would like to see if we can eliminate the summation as well -- that is -- if there is a simpler expression. This expression has as $P+1$ terms, which is very manageable. But if you are curious about how to reduce this further, buckle up!
 
-## Expanding and recombining $(b-a)^P$
+## Expanding and recombining $(b-a)^{P-\beta+1}$
+As we've seen, we have a simple summation of $P+1$ terms now. However, if we do not plug in $a$ and $b$'s values and try to simplify this more generally, $(b-a)^{P-\beta+1}$ expands in a larger number of terms. Using [binomial expansion](#binomial-expansion) once again, we get:
+
+$$
+\displaystyle
+\displaylines {
+\sum_{\beta=0}^{P} \binom{P}{\beta} \frac{a^\beta (b-a)^{P-\beta+1}}{P-\beta+1} = \\\\
+\sum_{\beta=0}^{P} \binom{P}{\beta} \frac{a^\beta}{P-\beta+1} \sum_{k=0}^{P-\beta+1} \binom{P-\beta+1}{k}b^{P-\beta+1-k} (-a)^k
+}
+$$
+
+Combining the $a$ factors and separating out the $(-1)^k$, we get:
+
+$$
+\displaystyle
+\sum_{\beta=0}^{P} \sum_{k=0}^{P-\beta+1} \frac{(-1)^k}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{k} b^{P-\beta+1-k} (a)^{\beta+k}
+$$
+
+What does this mean? Each $\beta$ represents a polynomial of order $P-\beta+1$. The $k$ represents the terms within each polynomial. For example, if $P=2$, such as in our original example, this would expand as follows.
+
+The first polynomial ($\beta=0$):
+
+$$
+\displaystyle
+\frac{1}{3} b^{3} + 
+\frac{-1}{3} 3 b^{2} a +
+\frac{1}{3} 3 b a^{2} +
+\frac{-1}{3} a^{3}
+$$
+
+The second polynomial ($\beta=1$):
+
+$$
+\displaystyle
+\frac{1}{2} 2 b^{2}a +
+\frac{-1}{2} 2 \cdot 2 ba^{2} +
+\frac{1}{2} 2 a^3
+$$
+
+The third polynomial ($\beta=2$):
+
+$$
+\displaystyle
+ba^{2} +
+-a^{3}
+$$
+
+This is what our present summation represents. But notice that we can sum them differently, as we would if we were simplifying this expression. We would add up the coefficients of all the terms with $ba^2$, for example, and so on for each kind of term. If we simplified the expression in that way, we would end up with $P+2$ terms, which are fully present only in the highest order expression when $\beta=0$. We can call these terms, in the order provided by $\beta=0$, $\tau_0,...,\tau_{P+1}$. Let us call their coefficients $\delta_0,...,\delta_{P+1}$.
+
+For the example of $P=2$, the summation of the coefficients would be done vertically on the following table.
+
+| $b^3$ | $b^2 a$ | $b a^2$ | $a^3$ |
+|---|---|---|---|
+|$1/3$|$-1$|$1$|$-1/3$|
+||$1$|$-2$|$1$|
+|||$1$|$-1$|
+
+Adding up the columns, we see that the result is indeed $\frac{b^3}{3}-\frac{a^3}{3}$. But do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$.
+
+Let $t$ be the index of term $\tau_t$. Eventually, the outer summation should be $\tau_0+\tau_1+..+\tau_{P+1}$, but we need a few steps to get there. 
+
+The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. For example, $t=0$ just includes the $\beta=0$, $k=0$ term. $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) ter, $t=2$ is the ($k=2$, $\beta=0$) term + the ($k=1$, $\beta=1$) term + the ($k=0$, $\beta=2$) term. As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $t-\beta$. Because the second summation began at $k=0$ -> $t-\beta=0$ -> $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ -> $t-\beta=P-\beta+1$ -> $t=P+1$. Therefore, we can rephrase the summation as follows:
+
+$$
+\displaystyle
+\sum_{\beta=0}^{P} \sum_{t=\beta}^{P+1} \frac{(-1)^{t-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{t-\beta} b^{P-t+1} a^{t}
+$$
+
+This means that the $\beta=0$ involves the summation of all its $b^{P+1}a^0$, $b^{P}a^1$, ..., $b^0 a^{P+1}$ terms, whereas $\beta=P$ involves only the summation of its $b a^{P}$ and $b^0 a^{P+1}$ terms. As mentioned earlier, now we would like to reorient the summation "column-wise". 
+
+In our current summations, for each $\beta$, $t$ goes from that $\beta$ all the way to $P+1$. Notice that:
+1. When $\beta=0$, $t$ starts at 0. For all other $\beta$, $t$ cannot be 0. 
+2. When $\beta=1$, $t$ starts at 1. For all other $\beta>1$, $t$ cannot be 1.
+
+If we think about this backwards,
+1. When $t=0$, $\beta$ does not just start at 0, it can only be 0. 
+2. When $t=1$, $\beta$, again, does not start at 1. It ends at 1. It can be 0 or 1. 
+
+With this in mind, we can write the summations. (Because $\beta$ only goes up to $P$, but $t$ goes up to $P+1$, we will separate out the $t=P+1$ out.)
+
+$$
+\displaystyle
+\sum_{t=0}^{P} \sum_{\beta=0}^{t} \frac{(-1)^{t-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{t-\beta} b^{P-t+1} a^{t} +
+\sum_{\beta=0}^{t} \frac{(-1)^{P+1-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{P-\beta+1} b^{0} a^{P+1}
+$$
+
+If we also separate out $t=0$, we get:
+
+$$
+\displaystyle
+\tau_0 = \frac{b^{P+1}}{P+1}
+$$
+
+$$
+\displaystyle
+\tau_1 + ... + \tau_P = \sum_{t=1}^{P} \sum_{\beta=0}^{t} \frac{(-1)^{t-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{t-\beta} b^{P-t+1} a^{t}
+$$
+
+$$
+\displaystyle
+\tau_{P+1} = \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} a^{P+1}
+$$
+
+Our table above suggests that, somehow, $\tau_{m}=0$ (for all $m$, $1<=m<=P$) and $\tau_{P+1}=\frac{-a^2}{P+1}$. Why this works is not immediately obvious. Even in the table above, it seems odd that the columns $b^2a$ and $ba^2$ just happen to add up to $0$ and the $a^3$ column adds up to $-1/3$. Our next step is to see whether we can derive these results in general.
+
+## The easy odd terms
+
+To gain more intuition, let us expand the table above for the $P=3$ case (i.e. we are considering the infinite summation of the area under the curve $x^3$ between $x=a$ and $x=b$).
+
+| $\tau_0$ | $\tau_1$ | $\tau_2$ | $\tau_3$ | $\tau_4$ |
+| $b^4$ | $b^3 a$ | $b^2 a^2$ | $b a^3$ | $a^4$ |
+|---|---|---|---|---|
+|$1/4$|$-1$|$3/2$|$-1$|$1/4$|
+||$1$|$-3$|$3$|$-1$|
+|||$3/2$|$-3$|$3/2$|
+||||$1$|$-1$|
+
+The odd terms, $\tau_1$ and $\tau_3$ follow a simple pattern. As you move in from the top and the bottom, the two cancel each other out by having opposite signs. We can discover this pattern mathematically to see how it occurs in general. Because $\tau_4$ ($\tau_{P+1}$) is a little different (it has one less row), we will analyze all the odd terms except the last term (which, in general, may be odd or even).
+
+First, we know that, for any given $m$, $1<=m<=P$:
+
+$$
+\displaystyle
+\tau_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} b^{P-m+1} a^{m}
+$$
+
+Before we go further, let us isolate and simplify its coefficient $\delta_m$ ($\tau_m$ = $\delta_m \cdot b^{P-m+1} a^{m}$). We begin by [expanding the combination operators](#nCr). It gets messier before it gets cleaner.
+
+$$
+\displaylines {
+\delta_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} \\\\
+= \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \frac{P!}{\beta!(P-\beta)!} \frac{(P-\beta+1)!}{(m-\beta)!(P-\beta+1-m+\beta)!} \\\\
+= \sum_{\beta=0}^{m} (-1)^{m-\beta} \frac{(P-\beta+1)!}{P-\beta+1} \frac{1}{\beta!(m-\beta)!} \frac{P!}{(P-m+1)!}\frac{1}{(P-\beta)!}
+}
+$$
+
+A few things to note:
+* $P-\beta+1$ in the denominator will cancel out the first factor of $(P-\beta+1)!$, making it $(P-\beta)!$, which gets cancelled out by the very last factor in the expression above.
+* $(P-m+1)$ in the denominator can be rewritten as $(P-m+1)(P-m)!$. And now $\frac{P!}{(P-m)!}$ is *almost* $\binom{P}{m}$. We just need to multiply top and bottom by $m!$ and we will get $m!\binom{P}{m}$.
+* If we move that extra $m!$ in the numerator over that $\beta!(m-\beta)!$ in the denominator, we get $\binom{m}{\beta}$. Putting this altogether, we get:
+
+$$
+\delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
+$$
+
+WOW, how can you not be filled with wonder!
+
+
+Now, let us go ahead and assume that $m$ is additionally an odd number. Recalling that $\beta$ represents the rows in the table above, we can see what happens when we add the first row and the last row ($\beta=0$ and $\beta=m$) or more generally the $i$th row from the top and bottom of the table ($\beta=i$ and $\beta=m-i$). We believe that they will be equal and opposite. Let us see. If we add the $\beta=i$ component of $\delta_m$ with its $\beta=m-i$ component, we get:
+
+$$
+\displaylines {
+\frac{1}{P-m+1} \binom{P}{m} (-1)^{m-i} \binom{m}{i} + \frac{1}{P-m+1} \binom{P}{m} (-1)^{m-(m-i)} \binom{m}{m-i} \\\\
+= \frac{1}{P-m+1} \binom{P}{m} \left( (-1)^{m-i} \binom{m}{i} + (-1)^{i} \binom{m}{m-i} \right) \\\\
+= \frac{(-1)^{-i}}{P-m+1} \binom{P}{m} \left( (-1)^{m} \binom{m}{i} + (-1)^{2i} \binom{m}{m-i} \right)
+}
+$$
+
+Since $m$ is odd and $2i$ is even by definition,
+
+$$
+= \frac{(-1)^{-i}}{P-m+1} \binom{P}{m} \left( -\binom{m}{i} + \binom{m}{m-i} \right)
+$$
+
+$\binom{m}{i} = \frac{m!}{i!(m-i)!}$ and $\binom{m}{m-i} = \frac{m!}{(m-i)!(m-(m-i)!)}$, so they are equal. Therefore,
+
+$$
+\delta_m = \frac{(-1)^{-i}}{P-m+1} \binom{P}{m} \left( -\binom{m}{i} + \binom{m}{m-i} \right) = 0
+$$
+
+And $\tau_m = 0$ for all odd $m$.
+
+## The not-so-easy even terms
+If you scroll up to the $P=3$ table above, $\tau_2$ also adds up to $0$ but in a less straightforward way: $\frac{3}{2} - 3 + \frac{3}{2} = 0$. How does this happen? First of all, we can't use the simple idea of adding the $i$th element from the top and the bottom because, in this case, they will have the same sign. 
+
+When the [nCr](#nCr) values arranged to form a triangle (Pascal's triangle), with each row number representing $n$, you notice that two elements of the row $n-1$ sum to a value in the row $n$.
+![Pascal's Triangle](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
+*By [Hersfold](https://commons.wikimedia.org/w/index.php?curid=3902538) - Own work, Public Domain*
+
+We can show this mathematically.
+
+### The mathematics of Pascal's triangle
+We want to derive the entries in row $m$ of the triangle based on the entries in row $m-1$, where $m$ is even and so must be $>=2$. Assume $1<=\beta<=m-1$. If we add two adjacent entries in row $m-1$:
+$$
+\displaylines{
+\binom{m-1}{\beta-1}+\binom{m-1}{\beta} \\\\
+= \frac{(m-1)!}{(\beta-1)!(m-\beta)!} + \frac{(m-1)!}{\beta!(m-1-\beta)!} \\\\
+= \frac{\beta}{\beta} \cdot \frac{(m-1)!}{(\beta-1)!(m-\beta)!} + \frac{(m-\beta)}{(m-\beta)} \cdot \frac{(m-1)!}{\beta!(m-\beta-1)!} \\\\
+= \frac{\beta(m-1)! + (m-\beta)(m-1)!}{\beta!(m-\beta)!} \\\\
+= \frac{m(m-1)!}{\beta!(m-\beta)!} \\\\
+= \frac{m!}{\beta!(m-\beta)!} \\\\
+= \binom{m}{\beta}
+}
+$$
+
+Thus, for $m>=2$ and $1<=\beta<=m-1$, $\binom{m}{\beta} = \binom{m-1}{\beta-1}+\binom{m-1}{\beta}$.
+
+### Applying Pascal's triangle to the even terms problem
+So far we have:
+
+$$
+\delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
+$$
+
+But now we can apply the Pascal's triangle rule to this for even $m$, where we we substitute $\binom{m}{\beta} = \binom{m-1}{\beta-1}+\binom{m-1}{\beta}$. However, our rule only applies for $1<=\beta<=m-1$, so we have to split off the $\beta=0$ and $\beta=m$ terms as well.
+
+$$
+\displaylines {
+\delta_m = \frac{1}{P-m+1} \binom{P}{m} + \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=1}^{m-1} (-1)^{m-\beta} \left( \binom{m-1}{\beta-1} + \binom{m-1}{\beta} \right) +
+\frac{1}{P-m+1} \binom{P}{m}
+}
+$$
+
+In expanded notation, we get
+
+$$
+\displaylines {
+\delta_m = \frac{1}{P-m+1} \binom{P}{m} \left[1
+-\left( \binom{m-1}{0} + \binom{m-1}{1} \right) +
+\left( \binom{m-1}{1} + \binom{m-1}{2} \right)
+-\left( \binom{m-1}{2} + \binom{m-1}{3} \right)
++...
+-\left( \binom{m-1}{m-2} + \binom{m-1}{m-1} \right) +
+1 \right] \\\\
+= \frac{1}{P-m+1} \binom{P}{m} \left[1
+-\binom{m-1}{0} -\binom{m-1}{1}
++ \binom{m-1}{1} + \binom{m-1}{2} 
+-\binom{m-1}{2} -\binom{m-1}{3}
++...
+-\binom{m-1}{m-2} -\binom{m-1}{m-1} +
+1 \right] \\\\
+= \frac{1}{P-m+1} \binom{P}{m} \left[1
+-\binom{m-1}{0} + \left( -\binom{m-1}{1}
++ \binom{m-1}{1}\right) + \left(\binom{m-1}{2} 
+-\binom{m-1}{2}\right) +...
+-\binom{m-1}{m-1} +
+1 \right] \\\\
+= \frac{1}{P-m+1} \binom{P}{m} \left[1
+-1 + 0 + 0 +...
+-1 +
+1 \right] \\\\
+= 0
+}
+$$
+
+Therefore, even for even $m$, $\delta_m=0$, $\tau_m=0$. 
+
+## The final term
+
+Now, for anyone keeping score, we only have on term left to derive -- the last column of our table, $\tau_{P+1}$. From what we derived earlier,
+
+$$
+\displaystyle
+\tau_{P+1} = \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} a^{P+1}
+$$
+
+With a few simple operations, we can simplify the coefficient $\delta_{P+1}$.
+
+$$
+\displaylines {
+\delta_{P+1} = \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} \\\\
+= \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \frac{P!}{\beta!(P-\beta)!} \\\\
+= \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{1}{\beta!(P+1-\beta)(P-\beta)!} \cdot \frac{P!}{1} \\\\
+= \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{(P+1)!}{(P+1)!} \cdot \frac{1}{\beta!(P+1-\beta)!} \cdot \frac{P!}{1} \\\\
+= \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{(P+1)!}{\beta!(P+1-\beta)!} \cdot \frac{P!}{(P+1)!} \\\\
+= \frac{1}{P+1}\sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \binom{P+1}{\beta}
+}
+$$
+
