@@ -6,13 +6,13 @@ tags:
 ---
 
 ## Intuition
-Suppose you are timing a car with a stopwatch. It starts at rest and accelerates at a steady rate. At one minute, you clock it at a speed of 1 mile per minute. 30 seconds later, you clock it going 2.25 miles per minute. And another 30 seconds later, it is going 4 miles per minute (240 mph -- it's a very special car). Now you want to determine how much distance it crossed between minutes 1 and 2. If it was moving a constant speed, this would be easy. For example, a car that travels 1 mile per minute for 10 minutes travels a total of 10 miles (10x1). When the speed is changing smoothly, it is more difficult to determine the total distance. 
+Suppose you are timing a car with a stopwatch. It starts at rest and accelerates at a steady rate. At one minute, you clock it at a speed of 1 mile per minute. 30 seconds later, you clock it going 2.25 miles per minute. And another 30 seconds later, it is going 4 miles per minute (240 mph -- it's a very special car). Now you want to determine how much distance it crossed between minutes 1 and 2. If it was moving at a constant speed, this would be easy. For example, a car that travels 1 mile per minute for 10 minutes travels a total of 10 miles (10x1). When the speed is changing smoothly, it is more difficult to determine the total distance. 
 
 For simplicity, you could pretend that its speed changed in discrete steps. When you clocked it at 1 minute going 1 mile per minute, you assume it was going 1 mile per minute up until that moment. When you clocked it going 2.25 miles per minute at 1:30, you assume it was moving at that speed for the last 30 seconds. Finally, when you measured its speed as 4 miles per minute at minute 2, you assume that from 1:30-2:00, it was moving steadily at 4 miles per minute. What distance did it travel between minutes 1 and 2? 0.5 minutes x 2.25 miles per minutes + 0.5 minutes x 4 miles per minute = 3.125 miles. 
 
-Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed after each time chunk, and then assumed a constant speed for the duration of that time chunk: 0.5 minutes x speed1 + 0.5 minutes x speed2. And what is speed1 and speed2? Speed1 is the speed at time 1 minute (start time) + 0.5 minutes (time chunk size) x 1 (chunk number) = speed at 1:30. Speed2 is the speed at time 1 minute (start time) + 0.5 minutes (time chunk size) x 2 (chunk number) = speed at 2:00. In general, the *n*th speed = the speed at (start_time + chunk_size x chunk_number). Let us call the time in minutes $t$, the speed at that time $f(t)$, the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. In that case, the $\lambda$th speed is $f(a + \Delta \cdot \lambda)$. To get an estimate of distance, we just need to multiply these speeds with the chunk size across the time interval from $a$ to $b$. Moreover, if we make the chunk sizes smaller, we will get a more accurate estimate because that will be the equivalent of measuring the speed more frequently during the 1 minute.
+Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed after each time chunk, and then assumed a constant speed for the duration of that time chunk: 0.5 minutes x speed1 + 0.5 minutes x speed2. And what is speed1 and speed2? Speed1 is the speed at the following time: 1 minute (start time) + 0.5 minutes (time chunk size) x 1 (chunk number) = 1:30. Speed2 is the speed at the time: 1 minute (start time) + 0.5 minutes (time chunk size) x 2 (chunk number) = 2:00. In general, the *n*th speed = the speed at (start_time + chunk_size x chunk_number). Let us call the time in minutes $t$, the speed at that time $f(t)$, the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. In that case, the $\lambda$th speed is $f(a + \Delta \cdot \lambda)$. To get an estimate of distance, we just need to multiply these speeds with the chunk size across the time interval from $a$ to $b$. Moreover, if we make the chunk size smaller, we will get a more accurate estimate because that will be the equivalent of measuring the speed more frequently during the 1 minute.
 
-I've setup the problem so that the speed of the car is the square of the time (in minutes). Speed at minute 1 = 1 mile per minute, at minute 2 = 4 miles per minute. speed = $f(t) = t^2$. Graphically, the distance we are looking for is the "area under the curve" between $a$ and $b$. Notice the $\Delta$, which is the chunk size, is multiplied by the height of the function, which is the speed, to get the approximate distance for each chunk.
+I've setup the problem so that the speed of the car is the square of the time (in minutes). Speed at minute 1 = 1 mile per minute, at minute 2 = 4 miles per minute. speed = $f(t) = t^2$. Graphically, the distance we are looking for is the "area under the curve" $x^2$ between $x=1$ and $x=2$. Notice the $\Delta$, which is the chunk size, is multiplied by the height of the function, which is the speed, to get the approximate area or distance for each chunk.
 
 ![x squared between a and b - in two]({{ site.media }}./area-under-curve-in-two.drawio.png)
 
@@ -24,9 +24,7 @@ This is the equivalent of clocking the speed approximately every 7.5 seconds (0.
 
 ![x squared between a and b - in many chunks]({{ site.media }}./area-under-curve-small-delta.drawio.png)
 
-How beautiful! *Deo gratias!* With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? Once again, *Deo gratias!*
-
- To get to this perfect solution, we must make $\Delta$ as small as possible...
+How beautiful! With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? All we can say is, we can: *Deo gratias!* To get to this perfect solution, we must make $\Delta$ as small as possible.
 
 ## Setting up the problem
 The exact need described above, to reduce $\Delta$ and add the speed x time_chunks together can be represented mathematically in the following way:
@@ -36,10 +34,10 @@ $$
 \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} f(\lambda \Delta + a) \,\Delta = \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^2 \,\Delta
 $$
 
-This is nothing fancy. We have the summation ($\Sigma$) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiply it by the small chunk size $\Delta$. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller. This is what is meant by the definite integral: $ \int_{a}^{b} x^{2} \, dx$.
+This is nothing fancy. We have the summation ($\Sigma$) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiply it by the small chunk size $\Delta$. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller. This is indicated by $\lim_{\Delta \to 0}$. By the way, if you were not aware, the solution to this is exactly what is meant by the definite integral: $ \int_{a}^{b} x^{2} \, dx$.
 
 
-The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. To do so, we will make use of three helpful formulas.
+The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out *approximately*. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. To do so, we will make use of three helpful formulas.
 
 ### Formulas
 
@@ -147,7 +145,9 @@ $$
 }
 $$
 
-If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. And then we can pause there in awe! Let us try it out on our initial problem, just for fun.
+If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. Yes, I think we must pause there in awe...
+
+Let us try it out on our initial problem, just for fun.
 
 ### Brief Excursion - Try out the finite expression
 In our initial problem, the accelerating car, $P=2$, $a=1$, $b=2$. Plugging that in, we get:
@@ -209,7 +209,7 @@ ba^{2} +
 -a^{3}
 $$
 
-This is what our present summation represents. But notice that we can sum them differently, as we would if we were simplifying this expression by hand. We would add up the coefficients of all the terms with $ba^2$, for example, and so on for each kind of term. If we simplified the expression in that way, we would end up with $P+2$ terms, but only the $\beta=0$ would have a non-zero coefficient for all $P+2$ terms. We can call these terms, in the order that the summations give them to us, as: $\tau_0,...,\tau_{P+1}$. Let us call their coefficients $\delta_0,...,\delta_{P+1}$. In words, $\tau_t = \delta \cdot b^{(P+1-t)} \cdot a^{t}$.
+This is what our present summation represents. But notice that we can sum them differently, as we would if we were simplifying this expression by hand, adding the polynomials above together. We would, for example, add up the coefficients of all the terms with $ba^2$, and then do the same for every other kind of term. If we simplified the expression in that way, we would end up with $P+2$ terms, but only the $\beta=0$ would have a non-zero coefficient for all $P+2$ terms. Let us call these terms, in the order that the summations give them to us: $\tau_0,...,\tau_{P+1}$. Let us call their coefficients $\delta_0,...,\delta_{P+1}$, where $\tau_t = \delta_t \cdot b^{(P+1-t)} \cdot a^{t}$.
 
 For the example of $P=2$, the summation of the coefficients would be done vertically on the following table.
 
@@ -219,11 +219,16 @@ For the example of $P=2$, the summation of the coefficients would be done vertic
 ||$1$|$-2$|$1$|
 |||$1$|$-1$|
 
-Adding up the columns, we see that the result is $\frac{b^3}{3}-\frac{a^3}{3}$. But how do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$.
+Adding up the columns, we see that the result is $\frac{b^3}{3}-\frac{a^3}{3}$. But how do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$. So, eventually, the outer summation should be $\tau_0+\tau_1+..+\tau_{P+1}$, but we need a few steps to get there. 
 
-Let $t$ be the index of term $\tau_t$. Eventually, the outer summation should be $\tau_0+\tau_1+..+\tau_{P+1}$, but we need a few steps to get there. 
+Let $t$ be the index of term $\tau_t$. The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. 
 
-The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. For example, $t=0$ just includes the ($\beta=0$, $k=0$) term. $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) term, $t=2$ is the ($k=2$, $\beta=0$) term + the ($k=1$, $\beta=1$) term + the ($k=0$, $\beta=2$) term. As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $[t-\beta]$. Because the second summation began at $k=0$ &rarr; $[t-\beta]=0$ &rarr; $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ &rarr; $[t-\beta]=P-\beta+1$ &rarr; $t=P+1$. Therefore, we can rephrase the summation as follows:
+For example, 
+* $t=0$ just includes the ($\beta=0$, $k=0$) term
+* $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) term
+* $t=2$ is the sum of the ($k=2$, $\beta=0$) term and the ($k=1$, $\beta=1$) term and the ($k=0$, $\beta=2$) term
+
+As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $[t-\beta]$. Because the second summation began at $k=0$ &rarr; $[t-\beta]=0$ &rarr; $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ &rarr; $[t-\beta]=P-\beta+1$ &rarr; $t=P+1$. Therefore, we can rephrase the summation as follows:
 
 $$
 \displaystyle
