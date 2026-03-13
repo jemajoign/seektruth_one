@@ -36,7 +36,7 @@ $$
 \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} f(\lambda \Delta + a) \,\Delta = \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^2 \,\Delta
 $$
 
-This is nothing fancy. We have summation (\Sigma) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(a-b)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiple it by the small chunk size \Delta. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller.
+This is nothing fancy. We have summation (\Sigma) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiple it by the small chunk size \Delta. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller.
 
 The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. The "solution" was already stated at the beginning, but we want to find it ourselves. To do so, we will make use of three helpful formulas.
 
@@ -72,7 +72,7 @@ Rather than solve this just for $x^2$, we will do it more generally for $x^P$ wh
 
 With that, we have everything we need. Here we go!
 
-## Step 1 - Eliminate the Limit
+## Eliminate the Limit
 We are attempting to determine what the summation approaches as $\Delta$ approaches 0 and there are infinitely many rectangles.
 
 $$
@@ -266,6 +266,38 @@ $$
 
 Our table above suggests that, somehow, $\tau_{m}=0$ (for all $m$, $1<=m<=P$) and $\tau_{P+1}=\frac{-a^2}{P+1}$. Why this works is not immediately obvious. Even in the table above, it seems odd that the columns $b^2a$ and $ba^2$ just happen to add up to $0$ and the $a^3$ column adds up to $-1/3$. Our next step is to see whether we can derive these results in general.
 
+## Simplify the middle terms
+
+First, we know that, for any given $m$, $1<=m<=P$:
+
+$$
+\displaystyle
+\tau_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} b^{P-m+1} a^{m}
+$$
+
+Let us isolate and simplify its coefficient $\delta_m$ ($\tau_m$ = $\delta_m \cdot b^{P-m+1} a^{m}$). We begin by [expanding the combination operators](#nCr). It gets messier before it gets cleaner.
+
+$$
+\displaylines {
+\delta_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} \\\\
+= \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \frac{P!}{\beta!(P-\beta)!} \frac{(P-\beta+1)!}{(m-\beta)!(P-\beta+1-m+\beta)!} \\\\
+= \sum_{\beta=0}^{m} (-1)^{m-\beta} \frac{(P-\beta+1)!}{P-\beta+1} \frac{1}{\beta!(m-\beta)!} \frac{P!}{(P-m+1)!}\frac{1}{(P-\beta)!}
+}
+$$
+
+A few things to note:
+* $P-\beta+1$ in the denominator will cancel out the first factor of $(P-\beta+1)!$, making it $(P-\beta)!$, which gets cancelled out by the very last factor in the expression above.
+* $(P-m+1)$ in the denominator can be rewritten as $(P-m+1)(P-m)!$. And now $\frac{P!}{(P-m)!}$ is *almost* $\binom{P}{m}$. We just need to multiply top and bottom by $m!$ and we will get $m!\binom{P}{m}$.
+* If we move that extra $m!$ in the numerator over that $\beta!(m-\beta)!$ in the denominator, we get $\binom{m}{\beta}$. Putting this altogether, we get
+
+<a name="simplified-delta-m">**Simplified $\delta_m$:**</a>
+
+$$
+\delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
+$$
+
+WOW, now *that* is beauty!
+
 ## The easy odd terms
 
 To gain more intuition, let us expand the table above for the $P=3$ case (i.e. we are considering the infinite summation of the area under the curve $x^3$ between $x=a$ and $x=b$).
@@ -280,36 +312,7 @@ To gain more intuition, let us expand the table above for the $P=3$ case (i.e. w
 
 The odd terms, $\tau_1$ and $\tau_3$ follow a simple pattern. As you move in from the top and the bottom, the two cancel each other out by having opposite signs. We can discover this pattern mathematically to see how it occurs in general. Because $\tau_4$ ($\tau_{P+1}$) is a little different (it has one less row), we will analyze all the odd terms except the last term (which, in general, may be odd or even).
 
-First, we know that, for any given $m$, $1<=m<=P$:
-
-$$
-\displaystyle
-\tau_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} b^{P-m+1} a^{m}
-$$
-
-Before we go further, let us isolate and simplify its coefficient $\delta_m$ ($\tau_m$ = $\delta_m \cdot b^{P-m+1} a^{m}$). We begin by [expanding the combination operators](#nCr). It gets messier before it gets cleaner.
-
-$$
-\displaylines {
-\delta_m = \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{m-\beta} \\\\
-= \sum_{\beta=0}^{m} \frac{(-1)^{m-\beta}}{P-\beta+1} \frac{P!}{\beta!(P-\beta)!} \frac{(P-\beta+1)!}{(m-\beta)!(P-\beta+1-m+\beta)!} \\\\
-= \sum_{\beta=0}^{m} (-1)^{m-\beta} \frac{(P-\beta+1)!}{P-\beta+1} \frac{1}{\beta!(m-\beta)!} \frac{P!}{(P-m+1)!}\frac{1}{(P-\beta)!}
-}
-$$
-
-A few things to note:
-* $P-\beta+1$ in the denominator will cancel out the first factor of $(P-\beta+1)!$, making it $(P-\beta)!$, which gets cancelled out by the very last factor in the expression above.
-* $(P-m+1)$ in the denominator can be rewritten as $(P-m+1)(P-m)!$. And now $\frac{P!}{(P-m)!}$ is *almost* $\binom{P}{m}$. We just need to multiply top and bottom by $m!$ and we will get $m!\binom{P}{m}$.
-* If we move that extra $m!$ in the numerator over that $\beta!(m-\beta)!$ in the denominator, we get $\binom{m}{\beta}$. Putting this altogether, we get:
-
-$$
-\delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
-$$
-
-WOW, how can you not be filled with wonder!
-
-
-Now, let us go ahead and assume that $m$ is additionally an odd number. Recalling that $\beta$ represents the rows in the table above, we can see what happens when we add the first row and the last row ($\beta=0$ and $\beta=m$) or more generally the $i$th row from the top and bottom of the table ($\beta=i$ and $\beta=m-i$). We believe that they will be equal and opposite. Let us see. If we add the $\beta=i$ component of $\delta_m$ with its $\beta=m-i$ component, we get:
+Recalling that $\beta$ represents the rows in the table above, we can see what happens when we add the first row and the last row ($\beta=0$ and $\beta=m$) or more generally the $i$th row from the top and bottom of the table ($\beta=i$ and $\beta=m-i$). We believe that they will be equal and opposite. Let us see. If we add the $\beta=i$ component of $\delta_m$ with its $\beta=m-i$ component, we get:
 
 $$
 \displaylines {
@@ -399,7 +402,7 @@ $$
 -\binom{m-1}{m-1} +
 1 \right] \\\\
 = \frac{1}{P-m+1} \binom{P}{m} \left[1
--1 + 0 + 0 +...
+-1 + 0 + ... + 0
 -1 +
 1 \right] \\\\
 = 0
@@ -426,7 +429,53 @@ $$
 = \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{1}{\beta!(P+1-\beta)(P-\beta)!} \cdot \frac{P!}{1} \\\\
 = \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{(P+1)!}{(P+1)!} \cdot \frac{1}{\beta!(P+1-\beta)!} \cdot \frac{P!}{1} \\\\
 = \sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \frac{(P+1)!}{\beta!(P+1-\beta)!} \cdot \frac{P!}{(P+1)!} \\\\
-= \frac{1}{P+1}\sum_{\beta=0}^{P} (-1)^{P-\beta+1} \cdot \binom{P+1}{\beta}
+= \frac{1}{P+1}\sum_{\beta=0}^{P} (-1)^{P+1-\beta} \cdot \binom{P+1}{\beta}
+}
+
+
+$$
+
+### Odd $P+1$
+Notice that this looks similar to the <a href="simplified-delta-m">simplified $\delta_m$</a>. In fact, we already know that, for odd $m$, $\sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}=0$. Our current expression has *almost* the same form, if you replace $P+1$ with $m$ or some new variable. The one difference is that summation stops at ${P}$ rather than at ${P+1}$. To make it match what we derived earlier, we will extend the summation by 1 and then substract it.
+
+$$
+\displaylines {
+\delta_m = \frac{1}{P+1}\sum_{\beta=0}^{P+1} (-1)^{P+1-\beta} \cdot \binom{P+1}{\beta} - \frac{(-1)^{0} \cdot \binom{P+1}{P+1}}{P+1} \\\\
+= 0 - \frac{1}{P+1}
 }
 $$
 
+This means that if $P+1$ is odd, $\tau_{P+1}$ = $-\frac{a^{P+1}}{P+1}$. You can see how this works in the $P=2$ table above. All the $\beta$ rows cancel each other out except for $\beta=0$, which, unlike in the other terms, has no complement.
+
+### Even $P+1$
+Now for when $P+1$ is even, which once again does not work out so easily, but it does follow the same pattern as our even terms approach above. If $P+1$ is even:
+
+$$
+\displaylines {
+\delta_{P+1} = \frac{1}{P+1} \left[ (-1)^{P+1-0} + \sum{\beta=1}^{P} (-1)^{P+1-\beta} \binom{P+1}{\beta} \right] \\\\
+= \frac{1}{P+1} \left[1 + -\left( \binom{P}{0}+\binom{P}{1} \right) + \left( \binom{P}{1}+\binom{P}{2} \right) -...-\left( \binom{P}{P-1}+\binom{P}{P} \right)  \right] \\\\
+= \frac{1}{P+1} \left[1 + -\binom{P}{0} + \left(-\binom{P}{1} + \binom{P}{1} \right) +...+ -\binom{P}{P} \right] \\\\
+= \frac{1}{P+1} \left[1 - 1 + 0 + ... + 0 - 1 \right] \\\\
+= \frac{1}{P+1} \cdot -1
+}
+$$
+
+Therefore, for even $P+1$ as well, $\tau_{P+1}=-\frac{a^{P+1}}{P+1}$.
+
+## Conclusion
+We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing at every infinitesimal moment*? But this is the beauty of mathematics. God has allowed us to briefly step into the infinite, so long as we promptly return to the finite. We transformed the infinite to something manageable with the help of Faulhaber's theorem and by canceling out the terms that went to $0$.
+
+To review our steps:
+
+$$
+\displaylines{
+\int_{a}^{b} x^{P} \, dx \\\\
+= \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^P \,\Delta \\\\
+= \sum_{\beta=0}^{P} \binom{P}{\beta} \frac{a^\beta (b-a)^{P-\beta+1}}{P-\beta+1} \\\\
+= \frac{b^{P+1}}{P+1} + \left[ \sum_{t=1}^{P} \sum_{\beta=0}^{t} \frac{(-1)^{t-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{t-\beta} b^{P-t+1} a^{t} \right] + \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} a^{P+1} \\\\
+= \frac{b^{P+1}}{P+1} - \frac{a^{P+1}}{P+1} \\\\
+= \left.\frac{x^{P+1}}{P+1}\right|_{a}^{b}
+}
+$$
+
+I hope you too may be filled with songs of praise!
