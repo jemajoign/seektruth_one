@@ -6,17 +6,17 @@ tags:
 ---
 
 ## Intuition
-We are told that $ \int_{a}^{b} x^{2} \, dx  = \frac{b^3}{3} - \frac{a^3}{3} $. The question I wrestle with is what this really means and how we arrive at this. One way to approach it is to just reverse the derivative, but this assumes a lot and does not flow from intuition. Suppose we abandon all of this and start from scratch. What is the problem we are trying to solve?
+Suppose you are timing a car with a stopwatch. It starts at rest and accelerates at a steady rate. At one minute, you clock it at a speed of 1 mile per minute. 30 seconds later, you clock it going 2.25 miles per minute. And another 30 seconds later, it is going 4 miles per minute (240 mph -- it's a very special car). Now you want to determine how much distance it crossed between minutes 1 and 2. If it was moving a constant speed, this would be easy. For example, a car that travels 1 mile per minute for 10 minutes travels a total of 10 miles (10x1). When the speed is changing smoothly, it is more difficult to determine the total distance. 
 
-Suppose you are timing a car with a stopwatch. It starts at rest and the accelerates at a steady rate. You clock it moving it at a speed of 1 mile per minute after the first minute, a speed of 2.2.25 miles per minute 30 seconds later, and then 4 miles per minute at the second minute (240 mph -- it's a very special car). Now you want to determine how much distance it crossed between minutes 1 and 2. If it was moving a constant speed, this would be easy. For example, a car that travels 1 mile each minute for 10 minutes travels a total of 10 miles (10x1). When the speed is changing, it is more difficult to determine the total distance. 
+For simplicity, you could pretend that its speed changed in discrete steps. When you clocked it at 1 minute going 1 mile per minute, you assume it was going 1 mile per minute up until that moment. When you clocked it going 2.25 miles per minute at 1:30, you assume it was moving at that speed for the last 30 seconds. Finally, when you measured its speed as 4 miles per minute at minute 2, you assume that from 1:30-2:00, it was moving steadily at 4 miles per minute. What distance did it travel between minutes 1 and 2? 0.5 minutes x 2.25 miles per minutes + 0.5 minutes x 4 miles per minute = 3.125 miles. 
 
-For simplicity, you could pretend that it traveled at 1 mile per minute for the first 30 seconds until you measured it 30 seconds later, at which point it jumped to 2.25 miles per minute and then it jumped 4 miles per minute. One estimate of the distance of the traveled, therefore, would be 0.5 minutes x 1 mile per hour + 0.5 minutes x 2.25 miles per hour = 1.625 miles. In reality, it traveled farther because it was going 4 miles per minute by the end of minute 1, not 2.25 miles per minute, as we assume here. You can also overshoot the estimate by using 2.25 miles per minute for the first 30 seconds and 4 miles per minute for the second 30 seconds. This would give you 3.125 miles. That is a big difference, but the answer lies somewhere between the two. Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed again after each time chunk, and then assumed a constant speed for the duration of that time chunk. This could be expressed mathematically as 0.5 minutes x speed1 + 0.5 minutes x speed2. In our overestimation, we used speed1 = speed at 1.5 minutes = 2.25 miles per minute and speed2 = speed at 2 minutes = 4 miles per minute. Why 1.5 minutes? That is 1 chunk size (0.5 minutes) after our start time (1 minute). Why 2 seconds? That is 2 chunk sizes (0.5 minutes x 2 = 1 minute) after our start time (1 minute). In general, the *n*th speed speed_n = the speed at (start_time + chunk_size x chunk_number). Let us call the time in minutes $t$, the speed $f(t)$ the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. To get an estimate of distance, we just need to add speed1 x chunk_size + speed2 * chunk_size + ... = $ f(a + \Delta \cdot \lambda) $ for the time interval between $a$ and $b$.  Moreover, if we make the chunk sizes smaller, we will get a more accurate estimate because that will be equivalent of measuring the speed more frequently during the 1 minute.
+Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed after each time chunk, and then assumed a constant speed for the duration of that time chunk: 0.5 minutes x speed1 + 0.5 minutes x speed2. And what is speed1 and speed2? Speed1 is the speed at time 1 minute (start time) + 0.5 minutes (time chunk size) x 1 (chunk number) = speed at 1:30. Speed2 is the speed at time 1 minute (start time) + 0.5 minutes (time chunk size) x 2 (chunk number) = speed at 2:00. In general, the *n*th speed = the speed at (start_time + chunk_size x chunk_number). Let us call the time in minutes $t$, the speed at that time $f(t)$, the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. In that case, the $\lambda$th speed is $f(a + \Delta \cdot \lambda)$. To get an estimate of distance, we just need to multiply these speeds with the chunk size across the time interval from $a$ to $b$. Moreover, if we make the chunk sizes smaller, we will get a more accurate estimate because that will be the equivalent of measuring the speed more frequently during the 1 minute.
 
-This problem is set up nicely so that the speed is the square of the minute we are in. Speed at minute 1 = 1 mile per minute, at minute 2 = 4 miles per minute. speed = $f(t) = t^2$. Graphically, the distance we are looking for is the "area under the curve" between $a$ and $b$, which makes sense if you consider the overestimation we made with two chunks.
+I've setup the problem so that the speed of the car is the square of the time (in minutes). Speed at minute 1 = 1 mile per minute, at minute 2 = 4 miles per minute. speed = $f(t) = t^2$. Graphically, the distance we are looking for is the "area under the curve" between $a$ and $b$. Notice the $\Delta$, which is the chunk size, is multiplied by the height of the function, which is the speed, to get the approximate distance for each chunk.
 
 ![x squared between a and b - in two]({{ site.media }}./area-under-curve-in-two.drawio.png)
 
-The red shows our overestimation of the distance, using 2.25 miles per minute for the first 30 seconds gives 2.25 x 0.5 minutes = 1.125 miles. And then 4 miles per minute for the second 30 seconds gives 4 miles x 0.5 minutes = 2 miles. This gives you a total of 3.125 miles, which we know to be too high, just as there is too much red on overlaying the graph. We mentioned that we can get a better estimate if we reduce the chunk size.
+The red shows our overestimation of the distance, using 2.25 miles per minute for the first 30 seconds gives 2.25 x 0.5 minutes = 1.125 miles. And then 4 miles per minute for the second 30 seconds gives 4 miles x 0.5 minutes = 2 miles. This gives you a total of 3.125 miles, which we know to be too high, just as there is too much red overlaying the graph. We mentioned that we can get a better estimate if we reduce the chunk size.
 
 ![x squared between a and b - in more chunks]({{ site.media }}./area-under-curve-medium-delta.png)
 
@@ -24,9 +24,9 @@ This is the equivalent of clocking the speed approximately every 7.5 seconds (0.
 
 ![x squared between a and b - in many chunks]({{ site.media }}./area-under-curve-small-delta.drawio.png)
 
-Isn't this beautiful? *Deo gratias!* With just a bunch of silly rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. We can be filled with greater wonder because our approximations can get better and better to the point that they give us the $exact answer$. Math gives us wings to soar above the earth and ask the almost supernatural question -- what would happen if the chunks were infinitely small. We can know that? Once again, *Deo gratias!*
+How beautiful! *Deo gratias!* With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? Once again, *Deo gratias!*
 
- To get to this perfect solution, we must make $\Delta$ as small as possible, which will make make more and more chunks that have to be multiplied by speed and added together.
+ To get to this perfect solution, we must make $\Delta$ as small as possible...
 
 ## Setting up the problem
 The exact need described above, to reduce $\Delta$ and add the speed x time_chunks together can be represented mathematically in the following way:
@@ -36,9 +36,10 @@ $$
 \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} f(\lambda \Delta + a) \,\Delta = \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^2 \,\Delta
 $$
 
-This is nothing fancy. We have summation (\Sigma) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiple it by the small chunk size \Delta. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller.
+This is nothing fancy. We have the summation ($\Sigma$) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiply it by the small chunk size $\Delta$. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller. This is what is meant by the definite integral: $ \int_{a}^{b} x^{2} \, dx$.
 
-The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. The "solution" was already stated at the beginning, but we want to find it ourselves. To do so, we will make use of three helpful formulas.
+
+The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. To do so, we will make use of three helpful formulas.
 
 ### Formulas
 
@@ -58,7 +59,7 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     $$
 
-3. <a href="Faulhaber">Faulhaber's formula</a> - To sum the first n natural numbers raised to a power P, such as $1^3+2^3+3^3+4^3+...+100^3$
+3. <a id="Faulhaber">Faulhaber's formula</a> - To sum the first n natural numbers raised to a power P, such as $1^3+2^3+3^3+4^3+...+100^3$
 
     $$
 
@@ -68,12 +69,12 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     Here, $B_j$ refers to Bernoulli numbers, which are a sequence of numbers. The only one of interest to us will be the first one, $B_0=1$
 
-Rather than solve this just for $x^2$, we will do it more generally for $x^P$ where $P$ is any positive integer. This will allow us to ascertain the definite integral or "area under the curve" for any polynomial. 
+Rather than solve our problem just for $x^2$, we will do it more generally for $x^P$ where $P$ is any positive integer. This will allow us to ascertain the definite integral or "area under the curve" of any polynomial. 
 
 With that, we have everything we need. Here we go!
 
 ## Eliminate the Limit
-We are attempting to determine what the summation approaches as $\Delta$ approaches 0 and there are infinitely many rectangles.
+We are attempting to determine what the summation (e.g. distance) approaches as $\Delta$ (e.g. time chunk size) approaches 0.
 
 $$
 \displaystyle
@@ -82,9 +83,9 @@ $$
 
 ($P$ is a positive integer.)
 
-Note that this leaves a lot of terms. First of all, $(\lambda \Delta + a)^P$ will have $P+1$ terms (e.g. $(y+z)^3=y^3+3y^2 z + 3yz^2 + z^3$). And then we have one of those for every chunk, with the number of chunks approaching infinity.
+Note that this leaves a lot of terms. First of all, $(\lambda \Delta + a)^P$ will have $P+1$ terms (e.g. $(y+z)^3=y^3+3y^2 z + 3yz^2 + z^3$). And then we have one of those for every chunk, with the number of chunks approaching infinity!
 
-Using [binomial expansion](#binomial-expansion), we get 
+Using [binomial expansion](#binomial-expansion), we can rewrite this as: 
 
 $$
 \displaystyle
@@ -105,21 +106,21 @@ $$
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \Delta^{P-\beta+1}  \sum_{\lambda=1}^{(b-a)/\Delta} \lambda^{P-\beta} 
 $$
 
-We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). We'll also move the $\delta$ back to the right. This gives us:
+We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\delta$ back to the right. This gives us:
 
 $$
 \displaystyle
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j \frac{(b-a)^{P-\beta+1-j}}{\Delta^{P-\beta+1-j}} \Delta^{P-\beta+1}
 $$
 
-Admittedly, this seems way more complicated, but this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Additionally, the $\Delta$'s do something very nice on the right side of the equation.
+Admittedly, this seems way more complicated, and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). The "infinitude" $(b-a)/\Delta$ is, however, distributed into each of these terms. Additionally, the $\Delta$'s do something very nice on the right side of the equation.
 
 $$
 \displaystyle
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j (b-a)^{P-\beta+1-j} \Delta^{j}
 $$
 
-Now, if $j=0$, $\Delta^j=1$, but if $j$ is anything else, $\Delta^j \to 0$ because $\Delta \to 0$. This $\Delta \to 0$ in the numerator multiplies itself with everything else and disappears. So this lengthy second summation is reduced to only its first term, $j=0$.
+Now, if $j=0$, $\Delta^j=1$, but if $j$ is anything else, $\Delta^j \to 0$ because $\Delta \to 0$. This $\Delta^j \to 0$ in the numerator multiplies itself with everything else and disappears. So every term except the one where $j=0$ vanishes!
 
 $$
 \displaystyle
@@ -146,7 +147,7 @@ $$
 }
 $$
 
-If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. (The heart sings with thanksgiving!) Let us try it out on our initial problem, just for fun.
+If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. And then we can pause there in awe! Let us try it out on our initial problem, just for fun.
 
 ### Brief Excursion - Try out the finite expression
 In our initial problem, the accelerating car, $P=2$, $a=1$, $b=2$. Plugging that in, we get:
@@ -159,10 +160,10 @@ $$
 }
 $$
 
-And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, I feel inclined to move on to other *Mirabilia Dei*... but I can't. Because I would like to see if we can eliminate the summation as well -- that is -- if there is a simpler expression. This expression has as $P+1$ terms, which is very manageable. But if you are curious about how to reduce this further, buckle up!
+And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, I feel inclined to move on to other *Mirabilia Dei*... but I can't. Because I would like to see if we can eliminate the summation as well -- that is -- if there is greater simplification ahead. The expression as it stands has $P+1$ terms, which is very manageable. But if you are curious about how to reduce this further, buckle up!
 
 ## Expanding and recombining $(b-a)^{P-\beta+1}$
-As we've seen, we have a simple summation of $P+1$ terms now. However, if we do not plug in $a$ and $b$'s values and try to simplify this more generally, $(b-a)^{P-\beta+1}$ expands in a larger number of terms. Using [binomial expansion](#binomial-expansion) once again, we get:
+As we've seen, we have a simple summation of $P+1$ terms now. However, if we do not yet plug in $a$ and $b$'s values and try to simplify it, $(b-a)^{P-\beta+1}$ expands in a larger number of terms. Using [binomial expansion](#binomial-expansion) once again, we get:
 
 $$
 \displaystyle
@@ -208,7 +209,7 @@ ba^{2} +
 -a^{3}
 $$
 
-This is what our present summation represents. But notice that we can sum them differently, as we would if we were simplifying this expression. We would add up the coefficients of all the terms with $ba^2$, for example, and so on for each kind of term. If we simplified the expression in that way, we would end up with $P+2$ terms, which are fully present only in the highest order expression when $\beta=0$. We can call these terms, in the order provided by $\beta=0$, $\tau_0,...,\tau_{P+1}$. Let us call their coefficients $\delta_0,...,\delta_{P+1}$.
+This is what our present summation represents. But notice that we can sum them differently, as we would if we were simplifying this expression by hand. We would add up the coefficients of all the terms with $ba^2$, for example, and so on for each kind of term. If we simplified the expression in that way, we would end up with $P+2$ terms, but only the $\beta=0$ would have a non-zero coefficient for all $P+2$ terms. We can call these terms, in the order that the summations give them to us, as: $\tau_0,...,\tau_{P+1}$. Let us call their coefficients $\delta_0,...,\delta_{P+1}$. In words, $\tau_t = \delta \cdot b^{(P+1-t)} \cdot a^{t}$.
 
 For the example of $P=2$, the summation of the coefficients would be done vertically on the following table.
 
@@ -218,11 +219,11 @@ For the example of $P=2$, the summation of the coefficients would be done vertic
 ||$1$|$-2$|$1$|
 |||$1$|$-1$|
 
-Adding up the columns, we see that the result is indeed $\frac{b^3}{3}-\frac{a^3}{3}$. But do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$.
+Adding up the columns, we see that the result is $\frac{b^3}{3}-\frac{a^3}{3}$. But how do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$.
 
 Let $t$ be the index of term $\tau_t$. Eventually, the outer summation should be $\tau_0+\tau_1+..+\tau_{P+1}$, but we need a few steps to get there. 
 
-The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. For example, $t=0$ just includes the $\beta=0$, $k=0$ term. $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) ter, $t=2$ is the ($k=2$, $\beta=0$) term + the ($k=1$, $\beta=1$) term + the ($k=0$, $\beta=2$) term. As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $t-\beta$. Because the second summation began at $k=0$ -> $t-\beta=0$ -> $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ -> $t-\beta=P-\beta+1$ -> $t=P+1$. Therefore, we can rephrase the summation as follows:
+The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. For example, $t=0$ just includes the ($\beta=0$, $k=0$) term. $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) term, $t=2$ is the ($k=2$, $\beta=0$) term + the ($k=1$, $\beta=1$) term + the ($k=0$, $\beta=2$) term. As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $[t-\beta]$. Because the second summation began at $k=0$ &rarr; $[t-\beta]=0$ &rarr; $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ &rarr; $[t-\beta]=P-\beta+1$ &rarr; $t=P+1$. Therefore, we can rephrase the summation as follows:
 
 $$
 \displaystyle
@@ -239,7 +240,7 @@ If we think about this backwards,
 1. When $t=0$, $\beta$ does not just start at 0, it can only be 0. 
 2. When $t=1$, $\beta$, again, does not start at 1. It ends at 1. It can be 0 or 1. 
 
-With this in mind, we can write the summations. (Because $\beta$ only goes up to $P$, but $t$ goes up to $P+1$, we will separate out the $t=P+1$ out.)
+With this in mind, we can write the summations. (Because $\beta$ only goes up to $P$, but $t$ goes up to $P+1$, we will separate out the $t=P+1$.)
 
 $$
 \displaystyle
@@ -290,13 +291,13 @@ A few things to note:
 * $(P-m+1)$ in the denominator can be rewritten as $(P-m+1)(P-m)!$. And now $\frac{P!}{(P-m)!}$ is *almost* $\binom{P}{m}$. We just need to multiply top and bottom by $m!$ and we will get $m!\binom{P}{m}$.
 * If we move that extra $m!$ in the numerator over that $\beta!(m-\beta)!$ in the denominator, we get $\binom{m}{\beta}$. Putting this altogether, we get
 
-<a name="simplified-delta-m">**Simplified $\delta_m$:**</a>
+<a id="simplified-delta-m">**Simplified $\delta_m$:**</a>
 
 $$
 \delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
 $$
 
-WOW, now *that* is beauty!
+Nifty!
 
 ## The easy odd terms
 
@@ -328,18 +329,18 @@ $$
 = \frac{(-1)^{-i}}{P-m+1} \binom{P}{m} \left( -\binom{m}{i} + \binom{m}{m-i} \right)
 $$
 
-$\binom{m}{i} = \frac{m!}{i!(m-i)!}$ and $\binom{m}{m-i} = \frac{m!}{(m-i)!(m-(m-i)!)}$, so they are equal. Therefore,
+And since $\binom{m}{i} = \frac{m!}{i!(m-i)!}$ and $\binom{m}{m-i} = \frac{m!}{(m-i)!(m-(m-i)!)}$, they are equal. Therefore,
 
 $$
 \delta_m = \frac{(-1)^{-i}}{P-m+1} \binom{P}{m} \left( -\binom{m}{i} + \binom{m}{m-i} \right) = 0
 $$
 
-And $\tau_m = 0$ for all odd $m$.
+Thus, $\tau_m = 0$ for all odd $m$.
 
 ## The not-so-easy even terms
 If you scroll up to the $P=3$ table above, $\tau_2$ also adds up to $0$ but in a less straightforward way: $\frac{3}{2} - 3 + \frac{3}{2} = 0$. How does this happen? First of all, we can't use the simple idea of adding the $i$th element from the top and the bottom because, in this case, they will have the same sign. 
 
-When the [nCr](#nCr) values arranged to form a triangle (Pascal's triangle), with each row number representing $n$, you notice that two elements of the row $n-1$ sum to a value in the row $n$.
+When the [nCr](#nCr) values are arranged in the form of a triangle (Pascal's triangle), with each row number representing $n$, we notice that two elements of the row $n-1$ sum to a value in the row $n$.
 ![Pascal's Triangle](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 *By [Hersfold](https://commons.wikimedia.org/w/index.php?curid=3902538) - Own work, Public Domain*
 
@@ -368,7 +369,7 @@ $$
 \delta_m = \frac{1}{P-m+1} \binom{P}{m} \sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}
 $$
 
-But now we can apply the Pascal's triangle rule to this for even $m$, where we we substitute $\binom{m}{\beta} = \binom{m-1}{\beta-1}+\binom{m-1}{\beta}$. However, our rule only applies for $1<=\beta<=m-1$, so we have to split off the $\beta=0$ and $\beta=m$ terms as well.
+But now we can apply the Pascal's triangle rule to this for even $m$, by substituting $\binom{m}{\beta} = \binom{m-1}{\beta-1}+\binom{m-1}{\beta}$. However, our rule only applies for $1<=\beta<=m-1$, so we have to split off the $\beta=0$ and $\beta=m$ terms as well. The summation is in the middle.
 
 $$
 \displaylines {
@@ -413,7 +414,7 @@ Therefore, even for even $m$, $\delta_m=0$, $\tau_m=0$.
 
 ## The final term
 
-Now, for anyone keeping score, we only have on term left to derive -- the last column of our table, $\tau_{P+1}$. From what we derived earlier,
+Now, for anyone keeping score, we only have one term left to derive -- the last column of our table, $\tau_{P+1}$. From what we derived earlier,
 
 $$
 \displaystyle
@@ -436,7 +437,7 @@ $$
 $$
 
 ### Odd $P+1$
-Notice that this looks similar to the <a href="simplified-delta-m">simplified $\delta_m$</a>. In fact, we already know that, for odd $m$, $\sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}=0$. Our current expression has *almost* the same form, if you replace $P+1$ with $m$ or some new variable. The one difference is that summation stops at ${P}$ rather than at ${P+1}$. To make it match what we derived earlier, we will extend the summation by 1 and then substract it.
+Notice that this looks similar to the <a href="#simplified-delta-m">simplified $\delta_m$</a>. In fact, we already know that, for odd $m$, $\sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta}=0$. Our current expression has *almost* the same form, if you replace $P+1$ with $m$ or some new variable. The one difference is that the summation stops at ${P}$ rather than at ${P+1}$. To make it match what we derived earlier, we will extend the summation by 1 and then substract it.
 
 $$
 \displaylines {
@@ -445,7 +446,7 @@ $$
 }
 $$
 
-This means that if $P+1$ is odd, $\tau_{P+1}$ = $-\frac{a^{P+1}}{P+1}$. You can see how this works in the $P=2$ table above. All the $\beta$ rows cancel each other out except for $\beta=0$, which, unlike in the other terms, has no complement.
+This means that if $P+1$ is odd, $\tau_{P+1}$ = $-\frac{a^{P+1}}{P+1}$. You can see how this works in the $P=2$ table above. All the $\beta$ rows cancel each other out except for $\beta=0$, which, unlike in the odd $\tau_m$ terms, has no complement.
 
 ### Even $P+1$
 Now for when $P+1$ is even, which once again does not work out so easily, but it does follow the same pattern as our even terms approach above. If $P+1$ is even:
@@ -463,7 +464,7 @@ $$
 Therefore, for even $P+1$ as well, $\tau_{P+1}=-\frac{a^{P+1}}{P+1}$.
 
 ## Conclusion
-We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing at every infinitesimal moment*? But this is the beauty of mathematics. God has allowed us to briefly step into the infinite, so long as we promptly return to the finite. We transformed the infinite to something manageable with the help of Faulhaber's theorem and by canceling out the terms that went to $0$.
+We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem, God permits us briefly to step into the infinite and there to make a few maneuvers before returning to earth. To solve a finitely bounded problem, we made it infinitely complex, and then made it finite again. You have to laugh....
 
 To review our steps:
 
@@ -478,4 +479,4 @@ $$
 }
 $$
 
-I hope you too may be filled with songs of praise!
+May we never cease to be in amazement and gratitude and awe!
