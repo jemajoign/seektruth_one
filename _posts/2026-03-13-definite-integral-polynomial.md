@@ -221,7 +221,7 @@ For the example of $P=2$, the summation of the coefficients would be done vertic
 
 Adding up the columns, we see that the result is $\frac{b^3}{3}-\frac{a^3}{3}$. But how do we get there in general? We need to rewrite our summation to be column-wise. We need it to sum the coefficients for each unique combination $b^?a^?$. So, eventually, the outer summation should be $\tau_0+\tau_1+..+\tau_{P+1}$, but we need a few steps to get there. 
 
-Let $t$ be the index of term $\tau_t$. The summation of each term involves more and more coefficients as $t$ increases, as seen in the table below. 
+Let $t$ be the index of term $\tau_t$. The summation of each term involves more and more coefficients as $t$ increases, as seen in the table above. 
 
 For example, 
 * $t=0$ just includes the ($\beta=0$, $k=0$) term
@@ -469,7 +469,7 @@ $$
 Therefore, for even $P+1$ as well, $\tau_{P+1}=-\frac{a^{P+1}}{P+1}$.
 
 ## Conclusion
-We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem, God permits us briefly to step into the infinite and there to make a few maneuvers before returning to earth. To solve a finitely bounded problem, we made it infinitely complex, and then made it finite again. You have to laugh....
+We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem that God briefly permits us to step into the infinite, and there to make a few maneuvers, before having to return to earth. To solve a finitely bounded problem, we first made it infinitely complex. Then, we did a bunch of mathematical gymnastics to bring it down to finitude again, and we were satisfied with the solution. How curious!
 
 To review our steps:
 
@@ -484,4 +484,4 @@ $$
 }
 $$
 
-May we never cease to be in amazement and gratitude and awe!
+May we never cease, for as long as we live, to be in amazement and gratitude and awe!
