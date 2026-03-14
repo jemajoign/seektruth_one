@@ -8,15 +8,15 @@ tags:
 ## Intuition
 Suppose you are timing a car with a stopwatch. It starts at rest and accelerates at a steady rate. At one minute, you clock it at a speed of 1 mile per minute. 30 seconds later, you clock it going 2.25 miles per minute. And another 30 seconds later, it is going 4 miles per minute (240 mph -- it's a very special car). Now you want to determine how much distance it crossed between minutes 1 and 2. If it was moving at a constant speed, this would be easy. For example, a car that travels 1 mile per minute for 10 minutes travels a total of 10 miles (10x1). When the speed is changing smoothly, it is more difficult to determine the total distance. 
 
-For simplicity, you could pretend that its speed changed in discrete steps. When you clocked it at 1 minute going 1 mile per minute, you assume it was going 1 mile per minute up until that moment. When you clocked it going 2.25 miles per minute at 1:30, you assume it was moving at that speed for the last 30 seconds. Finally, when you measured its speed as 4 miles per minute at minute 2, you assume that from 1:30-2:00, it was moving steadily at 4 miles per minute. What distance did it travel between minutes 1 and 2? 0.5 minutes x 2.25 miles per minutes + 0.5 minutes x 4 miles per minute = 3.125 miles. 
+For simplicity, you could pretend that its speed changed in discrete steps. When you clocked it at 1 minute going 1 mile per minute, you assume it was going 1 mile per minute up until that moment. When you clocked it going 2.25 miles per minute at 1:30, you assume it was moving at that speed for the last 30 seconds. Finally, when you measured its speed as 4 miles per minute at minute 2, you assume that from 1:30-2:00, it was moving steadily at 4 miles per minute. What distance did it travel between minutes 1 and 2? 0.5 minutes &times; 2.25 miles per minutes + 0.5 minutes &times; 4 miles per minute = 3.125 miles. 
 
-Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed after each time chunk, and then assumed a constant speed for the duration of that time chunk: 0.5 minutes x speed1 + 0.5 minutes x speed2. And what is speed1 and speed2? Speed1 is the speed at the following time: 1 minute (start time) + 0.5 minutes (time chunk size) x 1 (chunk number) = 1:30. Speed2 is the speed at the time: 1 minute (start time) + 0.5 minutes (time chunk size) x 2 (chunk number) = 2:00. In general, the *n*th speed = the speed at (start_time + chunk_size x chunk_number). Let us call the time in minutes $t$, the speed at that time $f(t)$, the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. In that case, the $\lambda$th speed is $f(a + \Delta \cdot \lambda)$. To get an estimate of distance, we just need to multiply these speeds with the chunk size across the time interval from $a$ to $b$. Moreover, if we make the chunk size smaller, we will get a more accurate estimate because that will be the equivalent of measuring the speed more frequently during the 1 minute.
+Notice what we did here. We divided the time into even chunks of 30 seconds, measured the speed after each time chunk, and then assumed a constant speed for the duration of that time chunk: 0.5 minutes &times; speed1 + 0.5 minutes &times; speed2. And what is speed1 and speed2? Speed1 is the speed at the following time: 1 minute (start time) + 0.5 minutes (time chunk size) &times; **1** (chunk number) = 1:30. Speed2 is the speed at the time: 1 minute (start time) + 0.5 minutes (time chunk size) &times; **2** (chunk number) = 2:00. In general, the *n*th speed = the speed at (start_time + chunk_size &times; chunk_number). Let us call the time in minutes $t$, the speed at that time $f(t)$, the start time $a$, the end time $b$, the chunk size $\Delta$, and the chunk number $\lambda$. In that case, the $\lambda$th speed is $f(a + \Delta \cdot \lambda)$. To get an estimate of distance, we just need to multiply these speeds with the chunk size across the time interval from $a$ to $b$. Moreover, if we make the chunk size smaller, we will get a more accurate estimate because that will be the equivalent of measuring the speed more frequently during the 1 minute.
 
 I've setup the problem so that the speed of the car is the square of the time (in minutes). Speed at minute 1 = 1 mile per minute, at minute 2 = 4 miles per minute. speed = $f(t) = t^2$. Graphically, the distance we are looking for is the "area under the curve" $x^2$ between $x=1$ and $x=2$. Notice the $\Delta$, which is the chunk size, is multiplied by the height of the function, which is the speed, to get the approximate area or distance for each chunk.
 
 ![x squared between a and b - in two]({{ site.media }}./area-under-curve-in-two.drawio.png)
 
-The red shows our overestimation of the distance, using 2.25 miles per minute for the first 30 seconds gives 2.25 x 0.5 minutes = 1.125 miles. And then 4 miles per minute for the second 30 seconds gives 4 miles x 0.5 minutes = 2 miles. This gives you a total of 3.125 miles, which we know to be too high, just as there is too much red overlaying the graph. We mentioned that we can get a better estimate if we reduce the chunk size.
+The red shows our overestimation of the distance, using 2.25 miles per minute for the first 30 seconds gives 2.25 &times; 0.5 minutes = 1.125 miles. And then 4 miles per minute for the second 30 seconds gives 4 miles &times; 0.5 minutes = 2 miles. This gives you a total of 3.125 miles, which we know to be too high, just as there is too much red overlaying the graph. We mentioned that we can get a better estimate if we reduce the chunk size.
 
 ![x squared between a and b - in more chunks]({{ site.media }}./area-under-curve-medium-delta.png)
 
@@ -27,7 +27,7 @@ This is the equivalent of clocking the speed approximately every 7.5 seconds (0.
 How beautiful! With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? All we can say is, we can: *Deo gratias!* To get to this perfect solution, we must make $\Delta$ as small as possible.
 
 ## Setting up the problem
-The exact need described above, to reduce $\Delta$ and add the speed x time_chunks together can be represented mathematically in the following way:
+The exact need described above, to reduce $\Delta$ and add the speed &times; time_chunks together can be represented mathematically in the following way:
 
 $$
 \displaystyle
@@ -104,14 +104,14 @@ $$
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \Delta^{P-\beta+1}  \sum_{\lambda=1}^{(b-a)/\Delta} \lambda^{P-\beta} 
 $$
 
-We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\delta$ back to the right. This gives us:
+We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\Delta$ back to the right. This gives us:
 
 $$
 \displaystyle
 \lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j \frac{(b-a)^{P-\beta+1-j}}{\Delta^{P-\beta+1-j}} \Delta^{P-\beta+1}
 $$
 
-Admittedly, this seems way more complicated, and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). The "infinitude" $(b-a)/\Delta$ is, however, distributed into each of these terms. Additionally, the $\Delta$'s do something very nice on the right side of the equation.
+Admittedly, this seems way more complicated, and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) infinitely large terms containing $(b-a)^?/\Delta^?$. Additionally, since we moved the $\Delta$'s over to the right, they do something wonderful:
 
 $$
 \displaystyle
@@ -145,7 +145,7 @@ $$
 }
 $$
 
-If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" x "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. Yes, I think we must pause there in awe...
+If we pause to think about this, it is extraordinary. We started with an infinite problem: add together the "width" &times; "height" of an infinite number of infinitely narrow rectangles. We mere mortals could never do that. But now we have a solution that you could do by hand in a few minutes. Yes, I think we must pause there in awe...
 
 Let us try it out on our initial problem, just for fun.
 
