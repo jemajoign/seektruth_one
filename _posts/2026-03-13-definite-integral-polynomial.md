@@ -228,7 +228,7 @@ For example,
 * $t=1$ is the sum of the ($k=1$, $\beta=0$) term and the ($k=0$, $\beta=1$) term
 * $t=2$ is the sum of the ($k=2$, $\beta=0$) term and the ($k=1$, $\beta=1$) term and the ($k=0$, $\beta=2$) term
 
-As we see, $k+\beta=t$. So, with the outer summation across $t$ and the inner summation across $\beta$, we can eliminate $k$, if we swap all $k$ with $[t-\beta]$. Because the second summation began at $k=0$ &rarr; $[t-\beta]=0$ &rarr; $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ &rarr; $[t-\beta]=P-\beta+1$ &rarr; $t=P+1$. Therefore, we can rephrase the summation as follows:
+As we see, $k+\beta=t$. So, with the goal of getting the outer summation to run across $t$ and the inner summation across $\beta$, we can first eliminate $k$, if we swap all $k$ with $[t-\beta]$. Because the second summation began at $k=0$ &rarr; $[t-\beta]=0$ &rarr; $t = \beta$ becomes the starting value. The summation goes to $k=P-\beta+1$ &rarr; $[t-\beta]=P-\beta+1$ &rarr; $t=P+1$. Therefore, we can rephrase the summation as follows:
 
 $$
 \displaystyle
