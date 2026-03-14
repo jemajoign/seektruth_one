@@ -469,7 +469,7 @@ $$
 Therefore, for even $P+1$ as well, $\tau_{P+1}=-\frac{a^{P+1}}{P+1}$.
 
 ## Conclusion
-We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem that God briefly permits us to step into the infinite, and there to make a few maneuvers, before having to return to earth. To solve a finitely bounded problem, we first made it infinitely complex. Then, we did a bunch of mathematical gymnastics to bring it down to finitude again, and we wer satisfied with the solution. How curious!
+We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem that God briefly permits us to step into the infinite, and there to make a few maneuvers, before having to return to earth. To solve a finitely bounded problem, we first made it infinitely complex. Then, we did a bunch of mathematical gymnastics to bring it down to finitude again, and we were satisfied with the solution. How curious!
 
 To review our steps:
 
