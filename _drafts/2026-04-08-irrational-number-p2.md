@@ -16,9 +16,9 @@ Let's introduce another a unit of measure, an American one, the foot (here calle
 
 It is like this. Imagine if you have a paper split into 3 even parts by lines and you shade in the first third. Now, with a red pen, you draw an additional line to divide the paper in two. If you keep dividing the paper in two, will a red line ever mark the shaded-in boundary?
 
-![Thirds and Halves]({{ site.media }}./thirds-halves.png)
+![Thirds and Halves]({{ site.media }}./thirds-halves.gif)
 
-
+As you can see, it will always either overshoot or undershoot the line that marks the third. This means that a third cannot be represented in binary (because we are splitting in twos) with a finite number of digits. It looks like this $\approx 0.010101$. Or, precisely, it is written as $0.\overline{01}$. The digits make perfect sense. It's saying: "When you first divide it in half, choose the first half. On the next cut, choose the second half. On the next cut, choose the first half again. *Ad infinitum.*"
 
 
 
