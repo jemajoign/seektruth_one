@@ -61,4 +61,12 @@ Now back to the analogy. It is not an uncommon thing for two ordinary minds to c
 
 We all suffer from these pitfalls of finite ordered thinking in varying degrees and types. Genuine encounter with another can help set us free. Rather than going on in circles, we can opt to never walk the same way twice by **seeking truth collaboratively**. Every step forward is a step into unchartered territory because one's thought is reflected back in an altogether different way by the other person, which is then modified and reflected back yet again, and this process is never-ending. For this to work, we need sufficient diversity. We need to rotate along different axes from each other. We must surround ourselves with people whose thoughts take us off our beaten paths and have us applying our skills in new domains. 
 
-The diversity is not randomness or chaos, nor is it relativistic. Our differences must be rooted in a more fundamental and unified frame of reference. A person cannot seek truth with another who first seeks power. A person cannot seek beauty and order with someone who idolizes comfort. This would be chaos. The diversity that produces infinite possibilities, on the other hand, only materializes constructively because of a mysterious current that moves us all towards greater being. The nexus of the universal meaning of all things is Christ, the meek and gentle face of truth, whose love draws all people together into the synergistic communion of his body.
+The diversity is not randomness or chaos. Our differences must be rooted in a more fundamental and unified frame of reference. There is a playing field that makes playing possible. A person cannot seek truth with another who first seeks power. A person cannot seek beauty and order with someone who doesn't believe they exist. Attempting to do so is a destructive waste of energy. The diversity that unleashes infinite possibilities, on the other hand, functions constructively because of a mysterious current that moves us all towards greater being. The nexus of the universal meaning of all things is found in that meek and gentle face of truth, in Christ, whose love draws all people together into the synergistic communion of one body.
+
+> I have no better expression than "religious" for this confidence in the rational nature of reality and in its being accessible, to some degree, to human reason. When this feeling is missing, science degenerates into mindless empiricism.
+> - Albert Einstein[^1]
+
+
+---
+
+[^1]: Walter Isaacson, Einstein: His Life and Universe (New York: Simon & Schuster, 2007), chap. 20, “Quantum Entanglement, 1935.”
