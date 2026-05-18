@@ -54,7 +54,7 @@ $$
 As you multiply $AB$ with itself, you find that it never returns to the identity matrix ($I$).
 
 ## Irrationals again
-The infinitude is connected to the phenomena of irrational numbers, which we've pondered in two prior essays. Just like when you make steps forward and two steps to the right, you find yourself at an irrational number of steps away from your starting point, when you spin 90 degrees around the x-axis and 60 degrees around the y-axis, you find yourself spinning an irrational number of degrees around a diagonal line. An irrational number times an integer will never give you an integer. So no matter how many times you spin, you will never quite land on a multiple of 360 degrees to return to your starting point. If you track a single point as it makes such a rotation, it will look something like this:
+The infinite order is connected to the phenomena of irrational numbers, which we've pondered in two prior essays. When you take two steps forward and three steps to the right, you find yourself an irrational number of steps away from your starting point along some diagonal line. Similarly, when you spin 90 degrees around the x-axis and 60 degrees around the y-axis, you find yourself spinning an irrational number of degrees around some diagonal line. An irrational number multiplied by an integer will never give you an integer. So no matter how many times you spin, you will never quite land on a multiple of 360 degrees; you will never return to your starting point. If you track a single point as it makes such a rotation, it will look something like this:
 
 ![Infinite Order Rotation]({{ site.media }}./infinite-order-rotation.gif)
 
