@@ -484,7 +484,7 @@ $$
 }
 $$
 
-> NB: Even better, these results could be generalized to any polynomial. The reason is that if, instead of $x^P$ you had some multiple like $5x^P$, you can factor out the $5$ and follow the same process. Instead of $5$, let's use a more generic $c$. If $f(x)=cx^2$, the first step above would be $\lim_{n \to \infty} \sum_{\lambda=1}^{n} c \, \left(\lambda \frac{b-a}{n} + a\right)^P \,\left(\frac{b-a}{n}\right)$. The $c$ can be factored out of the summation and limit and tagged back on at the end. So the final solution would be $c\,\cdot \frac{x^{P+1}}{P+1}\|_{a}^{b}$ Easy. Likewise, if you have a polynomial that involves many terms, you can solve each term individually and then add them up at the end.
+> NB: Even better, these results could be generalized to any polynomial. The reason is that if, instead of $x^P$ you had some multiple like $5x^P$, you can factor out the $5$ and follow the same process. Instead of $5$, let's use a more generic $c$. If $f(x)=cx^P$, the first step above would be $\lim_{n \to \infty} \sum_{\lambda=1}^{n} c \, \left(\lambda \frac{b-a}{n} + a\right)^P \,\left(\frac{b-a}{n}\right)$. The $c$ can be factored out of the summation and limit and tagged back on at the end. So the final solution would be $c\,\cdot \frac{x^{P+1}}{P+1}\|_{a}^{b}$. Easy. Likewise, if you have a polynomial that involves many terms, you can solve each term individually and then add them up at the end.
 
 
 May we never cease, for as long as we live, to be in amazement and gratitude and awe!
