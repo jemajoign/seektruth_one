@@ -35,12 +35,13 @@ Even though a map loses information, it still represents the reality accurately.
 ## Mathematical Maps
 In mathematics, a map is usually defined from one set to another. For example, you could create a map from all integers to the powers of 2 (...,1/4, 1/2, 1, 2, 4, 8, ...). You could design the map in the following way. Take whichever integer is provided, say $n$, and spew out $2^{n}$. Let's call the map $\phi$. So, $\phi(5)$ would give you $2^5=32$. Here are a few random examples of the map $\phi$ from integers to powers of 2:
 
-| Integer | Powers of 2 |
+| $n$ | $\phi(n)$ |
+| --- | --- |
 | $3$ | $8$ |
 | $4$ | $16$ |
 | $-2$ | $\frac{1}{4}$ |
 
-You might ask, does this map lose any information? The map from New York City to a foldable page loses lots of information, but what about this map, $\phi$? The simple way we know that it *does not* lose information is that you can reverse the map and get back to exactly where you started. If I tell you that $64$ is a power of 2, you could tell me exactly which number to provide to $\phi$ to get $64$: $\phi{6}=64$. The map works backwards and forwards perfectly well. This is unlike the foldable map of New York City. If you had never been to New York, seeing the map would not give you enough information to visualize New York because the map is a reduction with information loss.
+The map from New York City to a foldable page loses lots of information. What about this map, $\phi$? The simple way we know that it *does not* lose information is that you can reverse the map and get back to exactly where you started. If I tell you that $64$ is a power of 2, you could tell me exactly which number to provide to $\phi$ to get $64$: $\phi{6}=64$. The map works backwards and forwards perfectly well. This is unlike the foldable map of New York City. If you had never been to New York, seeing the map would not give you enough information to visualize New York because the map is a reduction with information loss.
 
 When a map can be reversed (inverted) cleanly, it is called an *injective* map. In an injective map, $\phi(x)=y$ means that $\phi^{-1}(y)=x$.
 
@@ -50,10 +51,12 @@ When a map is not injective, its inverse has many possibilities. Thus, $\pi^{-1}
 
 # Using Maps in our Thinking
 ## Revisiting the animal example
-Returning to our animal "love" for a moment, suppose you heard someone describe his pet saying, "She loves me." The next day, you heard him the say the same about his wife: "She loves me." Or consider any other statement like, "He's intelligent." Presumably listeners know how to interpret these statements differently depending on whether we are talking about an animal or a person. We must map the concepts to their respective co-domains in order that they might be helpful.
+Returning to our "animal love" for a moment, suppose you heard someone describe his pet saying, "She loves me." The next day, you heard him the say the same about his wife: "She loves me." Or consider any other statement like, "He's intelligent." Presumably listeners know how to interpret these statements differently depending on whether we are talking about an animal or a person. We must map the concepts to their respective co-domains in order for them to make sense. This seems easy enough.
 
 ## Getting uncomfortable with maps
-Sometimes maps like this are seamless. Other times, they make us uncomfortable. Years ago, I remember being shocked that companies have a position called "Product Evangelist." An evangelist is someone who spreads the Gospel. I suppose they believed that their product was truly good and salvific news! Maps do not even have to use the same words like "evangelist". It can be a map of the basic notion.
+Sometimes maps make us uncomfortable. Years ago, I remember being shocked that software companies had a position called "Product Evangelist." An evangelist is supposed to be someone who spreads the Gospel. They must really believe in their software! This is an obvious case of a map between disparate realities because the religious word is used in the secular context. Maps do not have to use the same words to be real. They can be maps of notions or archetypical roles, for example.
 
-There are a few examples of this we can see between the language of faith and that of the corporate world. In the Christian sense, faith is (in part) "seeing" that which cannot be physically seen and being certain of it. This concept maps rather neatly to "vision" in the corporate space. The visionary sees something that is not visible or even seemingly in the realm of possibilities. In both cases, by their conviction in this respect, they achieve great results. Jesus says, "If you have faith the size of a mustard seed, you will say to this mountain be uprooted and thrown into the sea and it will be done for you." In the corporate world, this is "visioneering", envisioning something into existence. Uncomfortable yet?
+In the Christian sense, faith is (in part) "seeing" that which cannot be physically seen and being certain of it. This concept maps rather neatly to "vision" in the corporate and nonprofit worlds. The visionary sees something that is not visible or even seemingly in the realm of possibilities. In both cases, by their conviction in this respect, they achieve great results. Jesus says, "If you have faith the size of a mustard seed, you will say to this mountain be uprooted and thrown into the sea and it will be done for you." In corporate lingo, this is "visioneering" or envisioning something into existence. 
+
+What other uncomfortable maps can we draw?
 

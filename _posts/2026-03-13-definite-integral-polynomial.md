@@ -1,6 +1,7 @@
 ---
 title: "Intuition and Proof for Area Under a Polynomial"
 author: Rev. Thomas J. Pulickal
+version: v2.0 (2026-07-03)
 tags:
 - math
 ---
@@ -27,7 +28,7 @@ This is the equivalent of clocking the speed approximately every 7.5 seconds (0.
 How beautiful! With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? All we can say is, we can: *Deo gratias!* To get to this perfect solution, we must make $\Delta$ as small as possible.
 
 ## Setting up the problem
-The exact need described above, to reduce $\Delta$ and add the speed &times; time_chunks together can be represented mathematically. To make $\Delta$ smaller and smaller, let us have $\Delta=(b-a)/n$, i.e. divide $(b-a)$ into $n$ chunks, and then we'll make $n$ approach infinity. So, substituting $\Delta$ with $(b-a)/n$, $f(a + \Delta \lambda)$ from earlier now becomes $f(a + \frac{\lambda(b-a)}{n})$. And the whole expression is as follows:
+The exact need described above, to reduce $\Delta$ and add the speed &times; time_chunks together can be represented mathematically. To make $\Delta$ smaller and smaller, let us have $\Delta=(b-a)/n$, i.e. let $\Delta$ be $\frac{1}{n}$th of $(b-a)$, while we keep increasing $n$ all the way to infinity. So, substituting $\Delta$ with $(b-a)/n$, $f(a + \Delta \lambda)$ from earlier now becomes $f(a + \frac{\lambda(b-a)}{n})$. And the whole expression is as follows:
 
 $$
 \displaystyle
@@ -109,13 +110,13 @@ $$
 \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, n^{(P-\beta)+1-j}\, \left(\frac{b-a}{n}\right)^{P-\beta+1}
 $$
  
-Admittedly, this seems way more complicated and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{n}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) infinitely large terms containing $n^?$. Additionally, since we moved the $\Delta$s or $\frac{b-a}{n}$ over to the right, the $n$s do something wonderful.
+Admittedly, this seems way more complicated and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{n}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) terms that contain $n$ (which goes to infinity). Additionally, since we moved the $\Delta$'s ($\frac{b-a}{n}$) over to the right, the $n$'s do something wonderful.
 
 $$
 \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, (b-a)^{P-\beta+1} \, \frac{1}{n^j}
 $$
 
-Keep your eye on that $n^j$ in the denominator. If $j=0$, $\frac{1}{n^j}=1$, but if $j$ is anything else, $\frac{1}{n^j} \to 0$ because $n \to \infty$. Fortunately, this $\frac{1}{n^j} \to 0$ multiplies itself with everything else and they all disappear. So every term except the one where $j=0$ vanishes! And we've just eliminated an entire summation.
+That $n^j$ in the denominator catches my eye. If $j=0$, $\frac{1}{n^j}=1$, but if $j$ is anything else, $\frac{1}{n^j} \to 0$ because $n \to \infty$. And if $\frac{1}{n^j} \to 0$, so does everything else it is multiplied with. That means *every term* except the one where $j=0$ vanishes! And we've just eliminated an entire summation.
 
 $$
 \displaystyle
@@ -129,7 +130,7 @@ $$
 \lim_{n \to \infty} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (b-a)^{P-\beta+1}
 $$
 
-That simplification is pretty amazing. But notice in particular that $n$ is no longer part of the expression. That means that *nothing changes as $n \to \infty$*! We have a static solution.
+Wow, pretty amazing! What is most amazing, in fact, is that $n$ is no longer part of the expression. That means that *nothing changes as $n \to \infty$*! We have a static solution.
 
 So, we are left with:
 
@@ -157,9 +158,9 @@ $$
 }
 $$
 
-And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, we have already solved the problem in a finite and computable way. We are done! 
+And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, we have solved the problem in a finite and computable way. We are done! 
 
-I feel inclined to move on now to other *Mirabilia Dei*, but I can't just yet... I would like to see if we can eliminate this last summation as well -- that is -- if there is greater simplification to be found ahead. The expression as it stands has $P+1$ terms, which is of course very manageable. But if you are curious about how to reduce this expression even more, buckle up! The remaining sections are more technical and optional: they show *why* this finite expression collapses into the familiar antiderivative formula. 
+I feel inclined to move on now to other *Mirabilia Dei*, but I can't just yet... I would like to see if we can eliminate this last summation as well -- that is -- if there is some greater simplification further down the road. The expression as it stands has $P+1$ terms, which is of course very manageable. But if you are curious about how to reduce this expression even more, buckle up! The remaining sections are more technical and optional: they show *why* this finite expression collapses into the familiar antiderivative formula. 
 
 ## Expanding and recombining $(b-a)^{P-\beta+1}$
 As we've seen, we have a simple summation of $P+1$ terms now. However, if we do not yet plug in $a$ and $b$'s values and try to simplify it, $(b-a)^{P-\beta+1}$ expands in a larger number of terms. Using [binomial expansion](#binomial-expansion) once again, we get:
@@ -488,6 +489,9 @@ $$
 
 May we never cease, for as long as we live, to be in amazement and gratitude and awe!
 
-**A note of gratitude**: I'm deeply grateful to [Rafael Souza](https://www.linkedin.com/in/rafael-souza-59b402279) for his review of this essay and his corrections and suggestions. 
+
+----
+
+**A special note of gratitude**: I'm deeply grateful to [Rafael Souza](https://www.linkedin.com/in/rafael-souza-59b402279) for his review of this essay and his corrections and suggestions. 
 
 In addition to the changes I incorporated, Rafael pointed out that the standard identity $\sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta} = (1-1)^m = 0$ would have simplified my proof significantly. Being an amateur myself, I had been curious about why those middle terms disappeared while working on this problem. I've decided to leave in my tedious process of arriving at the solution for those who find themselves in a similar predicament of untrained curiosity.
