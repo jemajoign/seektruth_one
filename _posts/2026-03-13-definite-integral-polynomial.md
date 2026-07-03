@@ -27,17 +27,17 @@ This is the equivalent of clocking the speed approximately every 7.5 seconds (0.
 How beautiful! With just a bunch of plain rectangles, we can approximate the distance traveled really well, even though the speed of the car is constantly changing. I give thanks to God for such simplicity and beauty. And we can be filled with even greater wonder because our approximations can get better and better -- to the point that they give us the *exact answer*. That should be impossible. Apparently, Math gives us wings to soar above the earth and ask the almost supernatural question: *what would happen if the chunks were* **infinitely** *small and we added up* **infinitely** *many of them*? How on earth could we know that? All we can say is, we can: *Deo gratias!* To get to this perfect solution, we must make $\Delta$ as small as possible.
 
 ## Setting up the problem
-The exact need described above, to reduce $\Delta$ and add the speed &times; time_chunks together can be represented mathematically in the following way:
+The exact need described above, to reduce $\Delta$ and add the speed &times; time_chunks together can be represented mathematically. To make $\Delta$ smaller and smaller, let us have $\Delta=(b-a)/n$, i.e. divide $(b-a)$ into $n$ chunks, and then we'll make $n$ approach infinity. So, substituting $\Delta$ with $(b-a)/n$, $f(a + \Delta \lambda)$ from earlier now becomes $f(a + \frac{\lambda(b-a)}{n})$. And the whole expression is as follows:
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} f(\lambda \Delta + a) \,\Delta = \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^2 \,\Delta
+\lim_{n \to \infty} \sum_{\lambda=1}^{n} f\left(a + \frac{\lambda(b-a)}{n}\right) \,\left(\frac{b-a}{n}\right) = \lim_{n \to \infty} \sum_{\lambda=1}^{n} \left(a + \frac{\lambda(b-a)}{n}\right)^2 \,\left(\frac{b-a}{n}\right)
 $$
 
-This is nothing fancy. We have the summation ($\Sigma$) of many chunks of size $\Delta$. How many chunks do we need? Enough to cover the interval from $a$ to $b$, so $(b-a)/\Delta$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiply it by the small chunk size $\Delta$. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller. This is indicated by $\lim_{\Delta \to 0}$. By the way, if you were not aware, the solution to this is exactly what is meant by the definite integral: $ \int_{a}^{b} x^{2} \, dx$.
+This is nothing fancy. We have the summation ($\Sigma$) of $n$-many chunks of size $\Delta=(b-a)/n$. Then we use the formula we derived above for speed_n = $f(\lambda \Delta + a)$ and multiply it by the small chunk size $\Delta$. Finally, we want to drive that $\Delta$ to 0, to make it as small as possible, and see if we can tell what happens as it gets smaller and smaller. This is indicated by $\lim_{n \to \infty}$. By the way, if you were not aware, the solution to this is exactly what is meant by the definite integral: $ \int_{a}^{b} x^{2} \, dx$.
 
 
-The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out *approximately*. You can plug in any small number into $\Delta$, like 0.001, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $\Delta=0.001$, you will need to add up $(b-a)/\Delta = 1/0.001 = 1000$ terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. To do so, we will make use of three helpful formulas.
+The rest of this essay will be devoted to figuring this out. In some sense, it is already figured out *approximately*. You can make the $\Delta$ chunk size really small by choosing a large $n$, like 1000, and get a very good estimate. We wanted to know the distance traveled between minutes 1 and 2, so $a=1$ and $b=2$. If we set to $n=1000$, you will need to add up 1000 terms. That might take you a while. We want to see if we can simplify this. It turns out we can -- *a lot*. To do so, we will make use of three helpful formulas.
 
 ### Formulas
 
@@ -67,80 +67,77 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     Here, $B_j$ refers to Bernoulli numbers, which are a sequence of numbers. The only one of interest to us will be the first one, $B_0=1$
 
-Rather than solve our problem just for $x^2$, we will do it more generally for $x^P$ where $P$ is any positive integer. This will allow us to ascertain the definite integral or "area under the curve" of any polynomial. 
-
 With that, we have everything we need. Here we go!
 
 ## Eliminate the Limit
-We are attempting to determine what the summation (e.g. distance) approaches as $\Delta$ (e.g. time chunk size) approaches 0.
+We are attempting to determine what the summation (e.g. distance) approaches as $n$ (e.g. the number of chunks) approaches infinity. And rather than solve our problem just for $x^2$, we might as well do so more generally for $x^P$ where $P$ is any positive integer. This will allow us to ascertain the definite integral or "area under the curve" of any polynomial. 
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^P \,\Delta
+\lim_{n \to \infty} \sum_{\lambda=1}^{n} \left(\frac{\lambda(b-a)}{n} + a\right)^P \,\left(\frac{b-a}{n}\right)
 $$
 
 ($P$ is a positive integer.)
 
-Note that this leaves a lot of terms. First of all, $(\lambda \Delta + a)^P$ will have $P+1$ terms (e.g. $(y+z)^3=y^3+3y^2 z + 3yz^2 + z^3$). And then we have one of those for every chunk, with the number of chunks approaching infinity!
+Note that this leaves a lot of terms. First of all, $\left(\frac{\lambda(b-a)}{n} + a\right)^P$ will have $P+1$ terms (e.g. $(y+z)^3=y^3+3y^2 z + 3yz^2 + z^3$). And then we have one of those for every chunk, with the number of chunks approaching infinity!
 
 Using [binomial expansion](#binomial-expansion), we can rewrite this as: 
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} \sum_{\beta=0}^{P} \Delta\, \binom{P}{\beta} (\lambda \Delta)^{P-\beta} a^\beta
+\lim_{n \to \infty} \sum_{\lambda=1}^{n} \sum_{\beta=0}^{P} \left(\frac{b-a}{n}\right)\,  \binom{P}{\beta} \left(\frac{\lambda(b-a)}{n}\right)^{P-\beta} a^\beta
 $$
 
 First, we swap the order of summation.
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} \sum_{\lambda=1}^{(b-a)/\Delta} \Delta\, \binom{P}{\beta} (\lambda \Delta)^{P-\beta} a^\beta
+\lim_{n \to \infty} \sum_{\beta=0}^{P} \sum_{\lambda=1}^{n}  \left(\frac{b-a}{n}\right)\,  \binom{P}{\beta} \left(\frac{\lambda(b-a)}{n}\right)^{P-\beta} a^\beta
 $$
 
 Then, we move out factors that do not depend upon $\lambda$ out of the inner summation.
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \Delta^{P-\beta+1}  \sum_{\lambda=1}^{(b-a)/\Delta} \lambda^{P-\beta} 
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left(\frac{b-a}{n}\right)^{P-\beta+1} \sum_{\lambda=1}^{n} \lambda^{P-\beta}
 $$
 
-We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\Delta$ back to the right. This gives us:
-
-$$
-\displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j \frac{(b-a)^{P-\beta+1-j}}{\Delta^{P-\beta+1-j}} \Delta^{P-\beta+1}
-$$
-
-Admittedly, this seems way more complicated, and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{(b-a)/\Delta}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) infinitely large terms containing $(b-a)^?/\Delta^?$. Additionally, since we moved the $\Delta$'s over to the right, they do something wonderful:
+We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\Delta$ (i.e. $\frac{b-a}{n}$) back to the right. This gives us:
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j (b-a)^{P-\beta+1-j} \Delta^{j}
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, n^{(P-\beta)+1-j}\, \left(\frac{b-a}{n}\right)^{P-\beta+1}
+$$
+ 
+Admittedly, this seems way more complicated and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{n}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) infinitely large terms containing $n^?$. Additionally, since we moved the $\Delta$s or $\frac{b-a}{n}$ over to the right, the $n$s do something wonderful.
+
+$$
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, (b-a)^{P-\beta+1} \, \frac{1}{n^j}
 $$
 
-Now, if $j=0$, $\Delta^j=1$, but if $j$ is anything else, $\Delta^j \to 0$ because $\Delta \to 0$. This $\Delta^j \to 0$ in the numerator multiplies itself with everything else and disappears. So every term except the one where $j=0$ vanishes!
+Keep your eye on that $n^j$ in the denominator. If $j=0$, $\frac{1}{n^j}=1$, but if $j$ is anything else, $\frac{1}{n^j} \to 0$ because $n \to \infty$. Fortunately, this $\frac{1}{n^j} \to 0$ multiplies itself with everything else and they all disappear. So every term except the one where $j=0$ vanishes! And we've just eliminated an entire summation.
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (-1)^0 \binom{P-\beta+1}{0} B_0 (b-a)^{P-\beta+1-0} \Delta^{0}
+\lim_{n \to \infty} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (-1)^0 \binom{P-\beta+1}{0} B_0 (b-a)^{P-\beta+1} \frac{1}{n^0}
 $$
 
 Since $(-1)^0$, $\binom{P-\beta+1}{0}$, and $B_0$ are all equal to 1, this simplifies to:
 
 $$
 \displaystyle
-\lim_{\Delta \to 0} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (b-a)^{P-\beta+1}
+\lim_{n \to \infty} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (b-a)^{P-\beta+1}
 $$
 
-$\Delta$ is no longer part of the expression! So nothing happens to this expression as $\Delta \to 0$, it stays exactly the same.
+That simplification is pretty amazing. But notice in particular that $n$ is no longer part of the expression. That means that *nothing changes as $n \to \infty$*! We have a static solution.
 
 So, we are left with:
 
 $$
 \displaystyle
 \displaylines {
-\int_{a}^{b} x^{2} \, dx = \\\\
-\lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^P \,\Delta = \\\\
+\int_{a}^{b} x^{P} \, dx = \\\\
+\lim_{n \to \infty} \sum_{\lambda=1}^{n} \left(\frac{\lambda(b-a)}{n} + a\right)^P \,\left(\frac{b-a}{n}\right) = \\\\
 \sum_{\beta=0}^{P} \binom{P}{\beta} \frac{a^\beta (b-a)^{P-\beta+1}}{P-\beta+1}
 }
 $$
@@ -160,7 +157,9 @@ $$
 }
 $$
 
-And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, I feel inclined to move on to other *Mirabilia Dei*... but I can't. Because I would like to see if we can eliminate the summation as well -- that is -- if there is greater simplification ahead. The expression as it stands has $P+1$ terms, which is very manageable. But if you are curious about how to reduce this further, buckle up!
+And that's it! The car traveled *exactly* $2\frac{1}{3}$ miles between minutes 1 and 2. At this point, we have already solved the problem in a finite and computable way. We are done! 
+
+I feel inclined to move on now to other *Mirabilia Dei*, but I can't just yet... I would like to see if we can eliminate this last summation as well -- that is -- if there is greater simplification to be found ahead. The expression as it stands has $P+1$ terms, which is of course very manageable. But if you are curious about how to reduce this expression even more, buckle up! The remaining sections are more technical and optional: they show *why* this finite expression collapses into the familiar antiderivative formula. 
 
 ## Expanding and recombining $(b-a)^{P-\beta+1}$
 As we've seen, we have a simple summation of $P+1$ terms now. However, if we do not yet plug in $a$ and $b$'s values and try to simplify it, $(b-a)^{P-\beta+1}$ expands in a larger number of terms. Using [binomial expansion](#binomial-expansion) once again, we get:
@@ -270,7 +269,7 @@ $$
 \tau_{P+1} = \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} a^{P+1}
 $$
 
-Our table above suggests that, somehow, $\tau_{m}=0$ (for all $m$, $1<=m<=P$) and $\tau_{P+1}=\frac{-a^2}{P+1}$. Why this works is not immediately obvious. Even in the table above, it seems odd that the columns $b^2a$ and $ba^2$ just happen to add up to $0$ and the $a^3$ column adds up to $-1/3$. Our next step is to see whether we can derive these results in general.
+Our table above suggests that, somehow, $\tau_{m}=0$ (for all $m$, $1<=m<=P$) and $\tau_{P+1}=\frac{-a^{P+1}}{P+1}$. Why this works is not immediately obvious. Even in the table above, it seems odd that the columns $b^2a$ and $ba^2$ just happen to add up to $0$ and the $a^3$ column adds up to $-1/3$. Our next step is to see whether we can derive these results in general.
 
 ## Simplify the middle terms
 
@@ -469,14 +468,14 @@ $$
 Therefore, for even $P+1$ as well, $\tau_{P+1}=-\frac{a^{P+1}}{P+1}$.
 
 ## Conclusion
-We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem that God briefly permits us to step into the infinite, and there to make a few maneuvers, before having to return to earth. To solve a finitely bounded problem, we first made it infinitely complex. Then, we did a bunch of mathematical gymnastics to bring it down to finitude again, and we were satisfied with the solution. How curious!
+We began by trying to ask a question that, in a sense, shouldn't be asked! How can we know the distance the car will travel between minutes 1 and 2 if *the speed is increasing a tiny bit at every infinitesimal moment*? But this is the beauty of mathematics. It would seem that God briefly permits us to step into the infinite, and there to make a few maneuvers, before having to return to earth. To solve a finitely bounded problem, we first made it infinitely complex. Then, we did a bunch of mathematical gymnastics to bring it down to finitude again, and we were satisfied with the solution. How curious! The remaining steps allowed us to simplify every solution to just two terms.
 
 To review our steps:
 
 $$
 \displaylines{
 \int_{a}^{b} x^{P} \, dx \\\\
-= \lim_{\Delta \to 0} \sum_{\lambda=1}^{(b-a)/\Delta} (\lambda \Delta + a)^P \,\Delta \\\\
+= \lim_{n \to \infty} \sum_{\lambda=1}^{n} \left(\lambda \frac{b-a}{n} + a\right)^P \,\left(\frac{b-a}{n}\right) \\\\
 = \sum_{\beta=0}^{P} \binom{P}{\beta} \frac{a^\beta (b-a)^{P-\beta+1}}{P-\beta+1} \\\\
 = \frac{b^{P+1}}{P+1} + \left[ \sum_{t=1}^{P} \sum_{\beta=0}^{t} \frac{(-1)^{t-\beta}}{P-\beta+1} \binom{P}{\beta} \binom{P-\beta+1}{t-\beta} b^{P-t+1} a^{t} \right] + \sum_{\beta=0}^{P} \frac{(-1)^{P-\beta+1}}{P-\beta+1} \binom{P}{\beta} a^{P+1} \\\\
 = \frac{b^{P+1}}{P+1} - \frac{a^{P+1}}{P+1} \\\\
@@ -484,4 +483,11 @@ $$
 }
 $$
 
+> NB: Even better, these results could be generalized to any polynomial. The reason is that if, instead of $x^P$ you had some multiple like $5x^P$, you can factor out the $5$ and follow the same process. Instead of $5$, let's use a more generic $c$. If $f(x)=cx^2$, the first step above would be $\lim_{n \to \infty} \sum_{\lambda=1}^{n} c \, \left(\lambda \frac{b-a}{n} + a\right)^P \,\left(\frac{b-a}{n}\right)$. The $c$ can be factored out of the summation and limit and tagged back on at the end. So the final solution would be $c\,\cdot \frac{x^{P+1}}{P+1}\|_{a}^{b}$ Easy. Likewise, if you have a polynomial that involves many terms, you can solve each term individually and then add them up at the end.
+
+
 May we never cease, for as long as we live, to be in amazement and gratitude and awe!
+
+**A note of gratitude**: I'm deeply grateful to [Rafael Souza](https://www.linkedin.com/in/rafael-souza-59b402279) for his review of this essay and his corrections and suggestions. 
+
+In addition to the changes I incorporated, Rafael pointed out that the standard identity $\sum_{\beta=0}^{m} (-1)^{m-\beta} \binom{m}{\beta} = (1-1)^m = 0$ would have simplified my proof significantly. Being an amateur myself, I had been curious about why those middle terms disappeared while working on this problem. I've decided to leave in my tedious process of arriving at the solution for those who find themselves in a similar predicament of untrained curiosity.
