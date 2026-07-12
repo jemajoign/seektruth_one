@@ -17,7 +17,7 @@ Is it problematic to take the concept of "love", which is human, and **map** it 
 
 > Love never ends. As for prophecies, they will pass away; as for tongues, they will cease; as for knowledge, it will pass away. For we know in part and we prophesy in part, but when the perfect comes, the partial will pass away. (1 Cor 13:8-10)
 
-We may notice that whatever aspects of love that we find in animals, we also find in human beings. The reverse is not true. There is therefore a *reduction* of the concept of love when we take it from human to animal. Reducing "love" in this way can make us uncomfortable, like me with my mom. I wanted to ask, "Are you saying that love is just an animal instinct?"
+Notice that whatever aspects of love that we find in animals, we also find in human beings, whereas the reverse is not true. There is therefore a *reduction* of the concept of love when we take it from human to animal. Reducing "love" in this way can make us uncomfortable, like me with my mom. I wanted to ask, "Are you saying that love is just an animal instinct?"
 
 This is where the concept of a **map** (i.e. a mapping) can be helpful. Once you recognize that you are employing a map, you do not mind the reductions as much. In fact, you might even enjoy them. They bring to light all kinds of symmetries in disparate "regions" of reality. They allow the wisdom of one reality to be applied to another. And they contribute to the beauty of the (phenomenal) world. Before going further, let's explain what we mean by a map.
 
