@@ -80,6 +80,7 @@ To take another example, people sometimes say that we are "programmed to [X]," w
 1. A reductive map is used to (unwittingly) reduce human behavior to the co-domain of behaviorism. 
 2. Another map is used to locate the equivalent capability in computers.
 3. People celebrate the equivalence of human behavior and computer code.
+
 But if the map is employed correctly, i.e. if it is recognized as reductive in the first place, it can be very helpful.
 
 # How Maps Fail Us
