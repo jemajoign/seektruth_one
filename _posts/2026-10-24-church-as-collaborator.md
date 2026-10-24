@@ -1,3 +1,11 @@
+---
+title: The Church as Collaborator in the Human Project
+author: Rev. Thomas J. Pulickal
+tags:
+- faith
+- science
+---
+
 # To be Forward Thinking 
 
 I am on onboard with the human project. I am excited about every scientific and technological advancement. Even more, I am grateful for the depths of reality that we have been able to plumb in this potent sliver of human history that began with the Renaissance. For the first time, we are beginning to understand the interior structure and dynamism by which [inanimate matter becomes living](https://www.google.com/search?q=spudcell) and interactive. Imagine! It is scary. It is amazing. Whatever it is, it is *real*, and our foremost allegiance is to the real and *not* to the ideological. It is because all of this is real that we are interested in shaping it for the good. For we must now grapple in a new way with our perennial, existential questions in this freshly unveiled universe, in order that we may walk in it by the undying light of Wisdom. 
