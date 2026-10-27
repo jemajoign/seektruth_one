@@ -1,0 +1,22 @@
+# Interlocutors, in display order. `slug` is the URL of the author's page (seektruth.one/<slug>).
+# `name` must match the `author:` field in post front matter exactly.
+- name: Jolly John
+  slug: john
+  description: >-
+    Jolly is devoted to the integration of psychology and spirituality both at a theoretical level and in clinical practice. As a Doctor of Medical Sciences specializing in psychiatry, as well as a Physician Assistant, she employs a holistic approach grounded in the bio-psycho-social-spiritual model. She loves helping people work through depression, anxiety, bipolar disorder, ADHD, and more. She also serves as a spiritual director and is currently pursuing a Doctor in Ministry with a specialization in the Spiritual Exercises of St. Ignatius of Loyola.
+- name: Anthony Kunnumpurath
+  slug: kunnumpurath
+  description: >-
+    Anthony is an inquisitive and methodic researcher who holds an indefatigable love for the poor. Nearing the end of his seminary formation and theological studies, he serves as an internal medicine physician in his free time and is an active contributor to the Catholic Medical Association. He is passionate about listening, empathy, and the integrative meaning of "healing" involving the whole human person.
+- name: Rev. Jose E. Lopez
+  slug: lopez
+  description: >-
+    Fr. Jose has the kind of mind that pursues multiple lines of thought in parallel and finds associations between the most disparate siloes. He is passionate about helping man rediscover his transcendent calling and reposition transcendent values at the center of human society. A skilled teacher, he references patristic theology, holding a Licentiate in Sacred Theology, as effortlessly as he delves into consciousness, anthropology, biology, and more.
+- name: Sunil Nadarajan
+  slug: nadarajan
+  description: >-
+    Sunil has been plumbing the mystery of the human person since he was young. Formerly a significant contributor to a major tech startup, he now serves a non-profit executive director, spiritual director, and speaker. He is highly skilled at accompanying people to interior freedom and is especially interested in questions about shame, self-awareness, and self-possession. Having completed a masters in theology, he is pursuing a doctorate in ministry specializing in spiritual leadership.
+- name: Rev. Thomas J. Pulickal
+  slug: pulickal
+  description: >-
+    Fr. Thomas began programming at age 8 with GW-BASIC and has continued writing software throughout his life, including during the advent of the world wide web. He enjoys contemplating the beauty of God in all creation, especially in Mary, and offering Mass for the good of humanity. He is a science enthusiast, interested in topics such as evolution, cognitive science, relativity, quantum uncertainty, the hard problem of consciousness, and more.

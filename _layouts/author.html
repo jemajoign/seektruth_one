@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{% assign author = site.data.authors | where: "slug", page.slug | first %}
+{% assign author_posts = site.posts | where: "author", author.name %}
+
+<h2>Essays by {{ author.name }}</h2>
+
+{% if author_posts.size > 0 %}
+<ul>
+{% for post in author_posts %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a><br>{{ post.date | date: "%Y-%m-%d" }}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No essays yet.</p>
+{% endif %}
+
+<hr>
+<h3><a href="/interlocutors.html#{{ author.name }}">{{ author.name }}</a></h3>
+<blockquote>{{ author.description | markdownify }}</blockquote>

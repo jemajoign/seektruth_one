@@ -5,7 +5,8 @@ layout: default
 <small style="color: rgb(119 157 49)">{{ page.date | date: "%B %-d, %Y" }}, {{ page.version | default: "v1.0" }}</small>
 <h1>{{ page.title }}</h1>
 
-<p class="view" style="color: rgb(119 157 49)"><a href="/interlocutors.html#{{ page.author }}">{{ page.author }}</a></p>
+{% assign post_author = site.data.authors | where: "name", page.author | first %}
+<p class="view" style="color: rgb(119 157 49)"><a href="{% if post_author %}/{{ post_author.slug }}.html{% else %}/interlocutors.html#{{ page.author }}{% endif %}">{{ page.author }}</a></p>
 
 {{content}}
 <hr>
