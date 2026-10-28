@@ -184,6 +184,93 @@ $$
 
 Considering that you start with \\$1 and you end with about \\$2.44 *per game*, playing this game is not a bad idea at all. Despite all its risks, you will, on average, more than double your money each time you play.
 
+# Play the Game
+
+Play the game a bunch of times and see what your average comes out to!
+
+<div id="coin-game" style="font-family: sans-serif; max-width: 420px; margin: 1em auto; padding: 20px; border: 1px solid #ccc; border-radius: 12px; text-align: center;">
+  <h3>🪙 The Double-or-Half Game</h3>
+  <p>Toss the coin 4 times. Each toss doubles or halves your money.</p>
+
+  <div style="font-size: 14px; color: #666;">YOUR MONEY</div>
+  <div id="money" style="font-size: 42px; font-weight: bold; margin: 8px;">$1.00</div>
+  <div id="progress" style="margin: 10px;">Toss 0 of 4</div>
+
+  <div id="coin" style="font-size: 64px; margin: 16px;">🪙</div>
+  <div id="result" style="min-height: 48px; font-size: 18px; margin: 12px;"></div>
+
+  <button id="toss" style="font-size: 18px; padding: 12px 24px; cursor: pointer; border: 0; border-radius: 8px; background: #176b45; color: white;">
+    Toss the Coin
+  </button>
+  <button id="reset" style="font-size: 16px; padding: 10px 18px; cursor: pointer; border: 1px solid #aaa; border-radius: 8px; background: white; color: #222; display: none;">
+    Play Again
+  </button>
+
+  <div id="history" style="margin-top: 18px; font-size: 14px; color: #555;"></div>
+</div>
+
+<script>
+(() => {
+  const game = document.getElementById("coin-game");
+  const moneyEl = game.querySelector("#money");
+  const progressEl = game.querySelector("#progress");
+  const coinEl = game.querySelector("#coin");
+  const resultEl = game.querySelector("#result");
+  const tossBtn = game.querySelector("#toss");
+  const resetBtn = game.querySelector("#reset");
+  const historyEl = game.querySelector("#history");
+
+  let money, tosses, history;
+
+  function reset() {
+    money = 1;
+    tosses = 0;
+    history = [];
+    moneyEl.textContent = "$1.00";
+    progressEl.textContent = "Toss 0 of 4";
+    coinEl.textContent = "🪙";
+    resultEl.textContent = "Will you double your money or lose half?";
+    resultEl.style.color = "";
+    historyEl.textContent = "";
+    tossBtn.style.display = "inline-block";
+    resetBtn.style.display = "none";
+  }
+
+  tossBtn.addEventListener("click", () => {
+    // Fair coin: 50% chance of heads or tails.
+    const heads = Math.random() < 0.5;
+    tosses++;
+
+    if (heads) {
+      money *= 2;
+      coinEl.textContent = "🪙";
+      resultEl.textContent = "HEADS! Your money doubles!";
+      resultEl.style.color = "#176b45";
+    } else {
+      money /= 2;
+      coinEl.textContent = "🪙";
+      resultEl.textContent = "TAILS! Your money is cut in half.";
+      resultEl.style.color = "#b42318";
+    }
+
+    moneyEl.textContent = "$" + money.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
+    progressEl.textContent = `Toss ${tosses} of 4`;
+    history.push(`${tosses}. ${heads ? "Heads: ×2" : "Tails: ÷2"}`);
+    historyEl.innerHTML = "<strong>Your tosses</strong><br>" + history.join("<br>");
+
+    if (tosses === 4) {
+      tossBtn.style.display = "none";
+      resetBtn.style.display = "inline-block";
+      resultEl.textContent += ` Final amount: $${money.toFixed(4).replace(/0+$/, "").replace(/\.$/, "")}!`;
+    }
+  });
+
+  resetBtn.addEventListener("click", reset);
+  reset();
+})();
+</script>
+
+
 # Connecting this to the Binomial Theorem
 The [binomial theorem](https://en.wikipedia.org/wiki/Binomial_theorem) provides us with the general expansion of $(x+y)^n$. For example, $(x+y)^3 = x^3 + 3x^2 y + 3x y^2 + y^3$. With all that we've done so far, it is very easy to see where this comes from. Just replace $x$ and $y$ with $h$ and $t$!
 
