@@ -142,7 +142,7 @@ $$
 
 If we look back at our graph, we will see that each possible outcome is uniquely determined by it's $\hat{h}$ component. Intuitively, this means that if, in a game of 4 tosses, you landed 0 heads, we know that you left with exactly \\$0.0625. If you flipped two heads, that would be \\$1. Using $\phi_n(H)$, we can determine the probability of each outcome by iterating over all possible values of $H$. 
 
-![Double or Half Game Cartoon]({{ site.media }}./double-half-4-toss-rotated-counts.png)
+![Double or Half Game Cartoon]({{ site.media }}./double-half-4-toss-rotated-h.png)
 
 ## 2c. The dollar amount for each $H$
 We mentioned that by looking at the graph, we know that if you only got two heads, you would leave with \\$1. How can we obtain this result formulaically? Let us develop another function to give us the dollar amount based on the number of heads.
