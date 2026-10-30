@@ -58,6 +58,8 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     $$
 
+    (See a derivation of the binomial expansion [here]({% post_url 2026-10-28-deriving-binomial-theorem %}).)
+
 3. <a id="Faulhaber">Faulhaber's formula</a> - To sum the first n natural numbers raised to a power P, such as $1^3+2^3+3^3+4^3+...+100^3$
 
     $$
