@@ -58,7 +58,7 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     $$
 
-    (See a derivation of the binomial expansion [here]({% post_url 2026-10-28-deriving-binomial-theorem %}).)
+    (See how I derived the binomial expansion [here]({% post_url 2026-10-28-deriving-binomial-theorem %}).)
 
 3. <a id="Faulhaber">Faulhaber's formula</a> - To sum the first n natural numbers raised to a power P, such as $1^3+2^3+3^3+4^3+...+100^3$
 
@@ -68,7 +68,9 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     $$
 
-    Here, $B_j$ refers to Bernoulli numbers, which are a sequence of numbers. The only one of interest to us will be the first one, $B_0=1$
+    Here, $B_j$ refers to Bernoulli numbers, which are a sequence of numbers. The only one of interest to us will be the first one, $B_0=1$. 
+    
+    (See how I derived the sum of squares [here]({% post_url 2026-11-01-deriving-sum-of-squares %}).)
 
 With that, we have everything we need. Here we go!
 
