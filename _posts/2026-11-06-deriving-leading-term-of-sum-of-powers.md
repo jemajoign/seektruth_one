@@ -6,13 +6,13 @@ tags:
 ---
 
 # Problem
-The goal of this essay is to derive the term $a_0 n^m$ for any natural number $p$, where:
+The goal of this essay is to derive the term $a_0\, n^m$ for any natural number $p$, where:
 
 $$
 \sum_{i=1}^{n} i^p = 1^p + 2^p + ... + n^p = a_0 n^m + a_1 n^{m-1} + ... + a_{m+1}n^0
 $$
 
-**Brief background**: After the blessing of [Deriving the Sum of Squares]({% post_url 2026-11-01-deriving-sum-of-squares %}) a few days ago, I set out to search for *what is the leading term of the sum of powers*. In an arbitrary polynomial like $5x^5+2x^4+3x^2$, the leading term in $5x^5$. The reason I need this is because it would allow me to complete my [proof for the area under a polynomial]({% post_url 2026-03-13-definite-integral-polynomial %}) without assuming Faulhaber's formula, as I had originally done. I decided to pursue this using the same approach that gave me the general form of the [the sum of squares]({% post_url 2026-11-01-deriving-sum-of-squares %}), which was based on how I [derived the binomial theorem]({% post_url 2026-10-28-deriving-binomial-theorem %}). I have no idea how others derive this, and I can only assume that others may consider this a long and convoluted approach. But it is full of wonder to me because it came through contemplation, determination, and prayer!
+**Brief background**: After the blessing of [Deriving the Sum of Squares]({% post_url 2026-11-01-deriving-sum-of-squares %}) a few days ago, I set out to search for *what is the leading term of the sum of powers*. The 'leading term' is just the first term in any polynomial, when ordered from the highest order to the lowest. So, for example, the leading term of $9x^5+2x^3+3x^2$ is $9x^5$. The reason I need this is because it would allow me to complete my [proof for the area under a polynomial]({% post_url 2026-03-13-definite-integral-polynomial %}) without assuming Faulhaber's formula, as I had originally done. I decided to pursue this using the same approach that gave me the general form of the [the sum of squares]({% post_url 2026-11-01-deriving-sum-of-squares %}), using the [binomial theorem]({% post_url 2026-10-28-deriving-binomial-theorem %}). I have no idea how others derive this, and I would not be surprised if others who can see more clearly than I do find this route tedious and convoluted. But it is full of *wonder* for me because it came through my own patient contemplation, determination, and prayer!
 
 # Sum of Cubes
 Let us begin by expanding the sum of cubes using our binomial expansion method. The goal in this case is not to derive the formula for the sum of cubes but to notice if any pattern emerges. To get enough data, let's take the sum of the first four cubes.
@@ -21,7 +21,7 @@ $$
 \sum_{i=1}^{4} i^3 = 1^3 + 2^3 + 3^3 + 4^3 = 1^3 + (1+1)^3 + (1 + (1+1))^3 + (1 + (1 + (1 + 1)))^3
 $$
 
-As we break this down, I will begin coloring things to make the pattern more obvious. (This is what I did with my highlighters on paper.)
+As we break this down, I will begin coloring things to make the pattern more obvious. (I originally did this with highlighters on paper.)
 
 $$
 1^3 = 1
@@ -31,7 +31,7 @@ $$
 2^3 = (1 + 1)^3 = {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 $$
 
-In next two expansions, notice how the $(1 + 1)^3$ reappears at the end.
+In the next two expansions, notice how the $(1 + 1)^3$ reappears at the end.
 
 $$
 \displaylines{
@@ -97,7 +97,7 @@ $$
 \sum_{i=1}^{n} i^3 = \sum_{i=1}^{n} i \left[ \binom{3}{0} + \binom{3}{1} (n-i) +  {\color{orange} \binom{3}{2}n^2} + {\color{orange} (-2)\binom{3}{2}ni} + {\color{pink} \binom{3}{2}i^2}  \right]
 $$
 
-Why are these highlighted terms the only ones of interest? The first one is obvious, it is the highest ordered term in the expression. Let us separate that out and compute its summation. We will hide the rest of the expression in a term called $Q_0(i)$. 
+What makes these particular terms the ones of interest? The first one is obvious, it is the highest ordered term in the expression, and we are searching for the leading term. Let us separate that out and compute its summation. We will hide the rest of the expression in a term called $Q_0(i)$. 
 
 *(Note that the sum of natural numbers is $\frac{n(n+1)}{2}$, and the sum of squares is $\frac{2n^3 + 3n^2 + n}{6}$. These are derived in the [previous essay]({% post_url 2026-11-01-deriving-sum-of-squares %}).)*
 
@@ -110,7 +110,7 @@ $$
 }
 $$
 
-As we can see, this term contributes to the leading coefficient. Now let us look at the second highlighted term above, ${\color{orange} (-2)\binom{3}{2}ni}$. We will again clear out the rest of the equation.
+As we can see, this 4th ordered term will contribute to the leading term. Now let us look at the second highlighted term above, ${\color{orange} (-2)\binom{3}{2}ni}$. As before, we will clear out the rest of the equation again.
 
 $$
 \displaylines{
@@ -182,11 +182,11 @@ With the work we have done so far, we already know the leading terms of the foll
 
  We will therefore use induction to prove that the leading term of the sum of any power is $\frac{n^{p+1}}{p+1}$.
 
-1. Let P(p) be the statement "For all positive integers $n$, the leading term of $\sum_{i=1}^{n} i^p$ is $\frac{n^{p+1}}{p+1}$ for $p>1$.
+1. Let P(p) be the statement "For all positive integers $n$, the leading term of the polynomial representation of $\sum_{i=1}^{n} i^p$ is $\frac{n^{p+1}}{p+1}$ for $p>1$.
 2. Base case: we know this to be true for $p=1$.
 3. The inductive step: the rest of this essay! 
 
-If you're not familiar, the way induction works is that whenever we encounter some $\sum_{i=1}^{n} i^q$ below, where $q<p$, we will assume that its leading term is $\frac{n^{q+1}}{q+1}$. Our goal will be to prove that if P is true for all $q<p$, then P is true for $p$. If we prove that, it means -- by "chain reaction" -- that P is true for all $p$ greater than 1.
+If you're not familiar, the way induction works is that whenever we encounter some $\sum_{i=1}^{n} i^q$ below, where $q<p$, we will assume that its leading term is $\frac{n^{q+1}}{q+1}$. Our goal will be to prove that if P is true for all $q<p$, then P must be true for $p$. If we prove that, it means -- by "chain reaction" -- that P is true for all $p$ greater than 1.
 
 ## Filtering out lower terms
 
@@ -218,15 +218,15 @@ Just as above, we subtract the last term from both sides. (Note that subtracting
 
 $$
 \displaylines{
-(1 + (-1)^p\cdot p) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}{\color{orange}\sum_{i=1}^{n} i} - \binom{p-1}{1}n^{p-2}{\color{orange}\sum_{i=1}^{n} i^2} + ... + (-1)^{p-2}\binom{p-1}{p-2}{\color{orange}\sum_{i=1}^{n} i^{p-1}} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
+(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}{\color{lime}\sum_{i=1}^{n} i} - \binom{p-1}{1}n^{p-2}{\color{lime}\sum_{i=1}^{n} i^2} + ... + (-1)^{p-2}\binom{p-1}{p-2}{\color{lime}\sum_{i=1}^{n} i^{p-1}} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
 }
 $$
 
-Great! Notice all those highlighted summations on the right hand side, they are all ripe for picking by our induction assumption. That is, each one is of the form $\sum_{i=1}^{n} i^q$, where $q<p$. And since we are only interested in the leading coefficients, we do not need to bother with the other terms. (We can let them collect in our $Q(i)$ waste basket!).
+Great! Notice all those highlighted summations on the right hand side, they are all ripe for picking by our induction assumption. That is, each one is of the form ${\color{lime} \sum_{i=1}^{n} i^q}$, where $q<p$. And since we are only interested in the leading coefficients, we do not need to bother with the other terms. (We can let them collect in our $Q(i)$ waste basket!).
 
 $$
 \displaylines{
-(1 + (-1)^p\cdot p) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\cdot {\color{orange}\frac{n^2}{2}} - \binom{p-1}{1}n^{p-2}\cdot {\color{orange}\frac{n^3}{3}} + ... + (-1)^{p-2}\binom{p-1}{p-2}\cdot {\color{orange}\frac{n^{p}}{p}} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)}
+(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\cdot {\color{lime}\frac{n^2}{2}} - \binom{p-1}{1}n^{p-2}\cdot {\color{lime}\frac{n^3}{3}} + ... + (-1)^{p-2}\binom{p-1}{p-2}\cdot {\color{lime}\frac{n^{p}}{p}} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)}
 }
 $$
 
@@ -243,7 +243,7 @@ So, we already know that the leading term has order $p+1$ and is of the form $a_
 
 
 ## Capturing our Results so Far
-We will now find a more concise way to capture what we have so far and do a little arithmetic on it.
+We will now find a more concise way to capture what we have so far.
 
 $$
 a_0 = \frac{p}{1 + (-1)^p\cdot p}\left[ \frac{\binom{p-1}{0}}{2} - \frac{\binom{p-1}{1}}{3} + ... + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p} \right]
@@ -284,7 +284,7 @@ $$
 
 Not bad! This, I think, is an elegant way to capture what we have arrived at so far, even though we will expand it again slightly in the next section.
 
-So now, all we have to do is show that this elegant sum, when divided by $1 + (-1)^p\cdot p$, *somehow* yields a very clean $\frac{1}{p+1}$. I repeatedly say it is elegant because the expansion is quite wonderful! Try it with $p=4$.
+So now all we have to do is show that this elegant sum, when divided by $1 + (-1)^p\cdot p$, *somehow* yields a very clean $\frac{1}{p+1}$. I repeatedly say it is elegant because the expansion is quite wonderful! Try it with $p=4$.
 
 $$
 \displaylines{
@@ -309,13 +309,13 @@ b_0 = \sum_{k=1}^{5-1} \frac{(-1)^{k+1} k}{k+1} \binom{5}{k} \\\
 }
 $$
 
-Plugging in $b_0$ into $a_0$, we get $a_0=\frac{\frac{-2}{3}}{1-5}=\frac{-2}{-4\cdot 3}=\frac{1}{6}$. Once again, it works! That is amazing... and honestly kind of weird. Now we'll have to prove that this works for all $p$ and hopefully make more sense of it.
+Plugging in $b_0$ into $a_0$, we get $a_0=\frac{\frac{-2}{3}}{1-5}=\frac{-2}{-4\cdot 3}=\frac{1}{6}$. Once again, it works! That is amazing... and honestly kind of weird. Now we'll have to prove that this works for all $p$ and hopefully make more sense of it in the process.
 
 # The Final Frontier: the Elegant Sum
 It is beautiful to see that the elegant $b_0$ sum seems to work, but now let us strive to understand *why* it works. This part stumped me for a while. I thank the Holy Spirit for inspiring me in prayer this morning because that is when it *hit me*. And then when I saw it starting to come together on paper, I could barely believe my eyes. *What a gift to be able to explore mathematics and this great world God has created for us in Love.*
 
 
-As promised, I begin by ruining our elegant sum a little:
+As promised, I begin by disrupting the elegance of our summation a little:
 
 $$
 \displaylines{
@@ -362,11 +362,11 @@ b_0 = \frac{1}{p+1}\sum_{k=1}^{p-1} (-1)^{k+1} k \left[ \binom{p}{k} + \binom{p}
 }
 $$
 
-If we look at this in expanded form, we will see how the terms collapse into each other quite nicely. But to do so, let us take the even powers and odd powers separately.
+If we look at this in expanded form, we will find that the terms collapse into each other quite nicely. But to do so, let us take the even powers and odd powers separately.
 
 ## Even Powers
 
-As we expand this, assuming $p$ is even, the last term ends up positive. *Look how incredibly these terms simplify!*
+Since $p$ is even, the last term of the summation is positive. Now, *watch how incredibly these terms simplify!*
 
 $$
 \displaylines{
@@ -404,7 +404,7 @@ $$
 \sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + ... + \binom{p}{p} = (1 + (-1))^m = 0^m = 0
 $$
 
-Now, let us return to where we left off.
+Now let us return to where we left off.
 
 $$
 \displaylines{
@@ -412,7 +412,7 @@ b_0 = \frac{1}{p+1} \left[ {\color{white} \binom{p}{1} - \binom{p}{2} + ... + \b
 }
 $$
 
-The part of the expression in white is almost like the summation we just considered. It is only missing $\binom{p}{0}$ and $\binom{p}{p}$ and the signs are all opposite. The white part of the expression can therefore be rewritten as follows:
+The part of the expression in white is almost like the summation we just considered. It is only missing $\binom{p}{0}$ and $\binom{p}{p}$ and the signs are all opposite. This part of the expression can therefore be rewritten as follows:
 
 $$
 {\color{white} \binom{p}{1} - \binom{p}{2} + ... + \binom{p}{p-1}} = -\left( \sum_{m=0}^{p} (-1)^m \binom{p}{m} -\binom{p}{0} - \binom{p}{p} \right) = -\left(0 - 1 - 1 \right)
@@ -504,6 +504,6 @@ $$
 # Conclusion
 And there we have it. It feels like a miracle, but we have finally, *somehow* reached the shore. The leading term of the sum of powers $1^p+2^p+...+n^p$ is $\frac{n^{p+1}}{p+1}$. 
 
-I set out on this crazy quest to close the final gap in my proof for the area under a polynomial. When I set sail, I had absolutely *no idea* how to get there.
+I set out on this crazy quest to close the final gap in my proof for the area under a polynomial, even though, when I began, I had *absolutely no idea* how to get there.
 
 *Heavenly Father, I thank you for having revealed these things to little ones like me. You sent your Son into the world because you wanted us to know you, to be with you, and to share in your glory. I see your glory, and words cannot express my gratitude and praise. You are **all** to me!*

@@ -60,17 +60,18 @@ The rest of this essay will be devoted to figuring this out. In some sense, it i
 
     (See how I derived the binomial expansion [here]({% post_url 2026-10-28-deriving-binomial-theorem %}).)
 
-3. <a id="Faulhaber">Faulhaber's formula</a> - To sum the first n natural numbers raised to a power P, such as $1^3+2^3+3^3+4^3+...+100^3$
+3. <a id="SumOfPowers">Leading Coefficient of Sum of Powers</a> - When we add the first n natural numbers raised to a power $p$, such as $1^3+2^3+3^3+4^3+...+100^3$, we get:
+
 
     $$
 
-    \sum_{k=1}^{n} k^{p} = \frac{1}{p+1} \sum_{j=0}^{p} \binom{p+1}{j} B_{j} \, n^{p+1-j}
+    \sum_{k=1}^{n} k^{p} = \frac{n^{p+1}}{p+1} + W
 
     $$
 
-    Here, $B_j$ refers to Bernoulli numbers, which are a sequence of numbers. The only one of interest to us will be the first one, $B_0=1$. 
-    
-    (See how I derived the sum of squares [here]({% post_url 2026-11-01-deriving-sum-of-squares %}).)
+    The sum comes out to $\frac{n^{p+1}}{p+1} + a_1 n^p + ... + a_0 n^0$, but we will only end up needing the first term, $\frac{n^{p+1}}{p+1}$. We therefore let $W$ be some  polynomial of order of $p$.
+
+    (See how I proved/derived this [here]({% post_url 2026-11-06-deriving-leading-term-of-sum-of-powers %}).)
 
 With that, we have everything we need. Here we go!
 
@@ -107,36 +108,61 @@ $$
 \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left(\frac{b-a}{n}\right)^{P-\beta+1} \sum_{\lambda=1}^{n} \lambda^{P-\beta}
 $$
 
-We notice that the second summation can be rewritten using [Faulhaber's formula](#Faulhaber) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\Delta$ (i.e. $\frac{b-a}{n}$) back to the right. This gives us:
+We notice that the second summation can be rewritten using the [Sum of Powers Formula](#SumOfPowers) because it is the sum of a set of natural numbers starting at 1 raised to some power (for each inner summation, $P-\beta$ is a constant). After that, we'll also move the $\Delta$ (i.e. $\frac{b-a}{n}$) back to the right. This gives us:
 
 $$
 \displaystyle
-\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, n^{(P-\beta)+1-j}\, \left(\frac{b-a}{n}\right)^{P-\beta+1}
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{n^{P-\beta+1}}{P-\beta+1} + W \right] \left(\frac{b-a}{n}\right)^{P-\beta+1}
 $$
  
-Admittedly, this seems way more complicated and not a simplification! But this transformation is key. Originally we had $\sum_{\lambda=1}^{n}$, which is the summation of infinite terms. Now, we have $\sum_{j=0}^{P-\beta}$, which is, at most, the summation of $P+1$ terms (merely 3 terms in our original example). Rather than summing infinitely many terms, we are summing just a few (${P+1}$) terms that contain $n$ (which goes to infinity). Additionally, since we moved the $\Delta$'s ($\frac{b-a}{n}$) over to the right, the $n$'s do something wonderful.
+This is excellent because now we have $n^{P-\beta+1}$ in the numerator and the denominator, and they will cancel each other out.
 
 $$
-\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{1}{P-\beta+1} \sum_{j=0}^{P-\beta} (-1)^j \binom{P-\beta+1}{j} B_j\, (b-a)^{P-\beta+1} \, \frac{1}{n^j}
+\displaylines {
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{n^{P-\beta+1}}{P-\beta+1} + W \right] \left[\frac{(b-a)^{P-\beta+1}}{n^{P-\beta+1}}\right] \\\
+
+= \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{n^{P-\beta+1}(b-a)^{P-\beta+1}}{n^{P-\beta+1}(P-\beta+1)} + \frac{W(b-a)^{P-\beta+1}}{n^{P-\beta+1}} \right] \\\
+
+= \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} + \frac{W(b-a)^{P-\beta+1}}{n^{P-\beta+1}} \right]
+}
 $$
 
-That $n^j$ in the denominator catches my eye. If $j=0$, $\frac{1}{n^j}=1$, but if $j$ is anything else, $\frac{1}{n^j} \to 0$ because $n \to \infty$. And if $\frac{1}{n^j} \to 0$, so does everything else it is multiplied with. That means *every term* except the one where $j=0$ vanishes! And we've just eliminated an entire summation.
+
+According to the [Sum of Powers Formula](#SumOfPowers), $W$ is a polynomial of order $P-\beta$. Suppose $W = a_0\, n^{P-\beta} + a_1\, n^{P-\beta-1} + ... + a_{P-\beta}\, n^{0}$. Then,
 
 $$
-\displaystyle
-\lim_{n \to \infty} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (-1)^0 \binom{P-\beta+1}{0} B_0 (b-a)^{P-\beta+1} \frac{1}{n^0}
+\displaylines{
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
++ \frac{a_0 n^{P-\beta} + a_1 n^{P-\beta-1} + ... + a_{P-\beta} n^{0}}{n^{P-\beta+1}}(b-a)^{P-\beta+1} 
+\right] \\\
+
+= \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
++ \left( \frac{a_0 n^{P-\beta}}{n^{P-\beta+1}} + \frac{a_1 n^{P-\beta-1}}{n^{P-\beta+1}} + ... + \frac{a_{P-\beta} n^0}{n^{P-\beta+1}} \right)  (b-a)^{P-\beta+1} 
+\right] \\\
+
+= \lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
++ \left( \frac{a_0}{n} + \frac{a_1}{n^2} + ... + \frac{a_{P-\beta}}{n^{P-\beta+1}} \right)  (b-a)^{P-\beta+1} 
+\right] \\\
+}
 $$
 
-Since $(-1)^0$, $\binom{P-\beta+1}{0}$, and $B_0$ are all equal to 1, this simplifies to:
+This is great news because as $n$ approaches infinity, all those terms with $n$ in the denominator approach $0$. Once we set them all to $0$, that entire term disappears. And even better, we no longer have $n$ in the equation! That means we can completely get rid of the limit.
 
 $$
-\displaystyle
-\lim_{n \to \infty} \sum_{\beta=0}^{P} \frac{a^\beta}{P-\beta+1} \, \binom{P}{\beta} (b-a)^{P-\beta+1}
+\displaylines{
+\lim_{n \to \infty} \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
++ \left( \frac{a_0}{n} + \frac{a_1}{n^2} + ... + \frac{a_{P-\beta}}{n^{P-\beta+1}} \right)  (b-a)^{P-\beta+1} 
+\right] \\\
+
+= \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \left[ \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
++ \left( 0 + 0 + ... + 0 \right)  (b-a)^{P-\beta+1} 
+\right] \\\
+
+= \sum_{\beta=0}^{P} a^\beta \, \binom{P}{\beta} \frac{(b-a)^{P-\beta+1}}{P-\beta+1} 
+}
 $$
 
-Wow, pretty amazing! What is most amazing, in fact, is that $n$ is no longer part of the expression. That means that *nothing changes as $n \to \infty$*! We have a static solution.
-
-So, we are left with:
+Wow, pretty amazing! Since $n$ is no longer part of the expression, *nothing changes as $n \to \infty$*. We have a static solution:
 
 $$
 \displaystyle
