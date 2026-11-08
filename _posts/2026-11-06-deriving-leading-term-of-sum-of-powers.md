@@ -9,7 +9,7 @@ tags:
 The goal of this essay is to derive the term $a_0\, n^m$ for any natural number $p$, where:
 
 $$
-\sum_{i=1}^{n} i^p = 1^p + 2^p + ... + n^p = a_0 n^m + a_1 n^{m-1} + ... + a_{m+1}n^0
+\sum_{i=1}^{n} i^p = 1^p + 2^p + \cdots + n^p = a_0 n^m + a_1 n^{m-1} + \cdots + a_{m+1}n^0
 $$
 
 **Brief background**: After the blessing of [Deriving the Sum of Squares]({% post_url 2026-11-01-deriving-sum-of-squares %}) a few days ago, I set out to search for *what is the leading term of the sum of powers*. The 'leading term' is just the first term in any polynomial, when ordered from the highest order to the lowest. So, for example, the leading term of $9x^5+2x^3+3x^2$ is $9x^5$. The reason I need this is because it would allow me to complete my [proof for the area under a polynomial]({% post_url 2026-03-13-definite-integral-polynomial %}) without assuming Faulhaber's formula, as I had originally done. I decided to pursue this using the same approach that gave me the general form of the [the sum of squares]({% post_url 2026-11-01-deriving-sum-of-squares %}), using the [binomial theorem]({% post_url 2026-10-28-deriving-binomial-theorem %}). I have no idea how others derive this, and I would not be surprised if others who can see more clearly than I do find this route tedious and convoluted. But it is full of *wonder* for me because it came through my own patient contemplation, determination, and prayer!
@@ -24,19 +24,26 @@ $$
 As we break this down, I will begin coloring things to make the pattern more obvious. (I originally did this with highlighters on paper.)
 
 $$
-1^3 = 1
+{\color{white} 1^3} = 1
 $$
 
-$$
-2^3 = (1 + 1)^3 = {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
-$$
-
-In the next two expansions, notice how the $(1 + 1)^3$ reappears at the end.
+Notice the recursion:
 
 $$
 \displaylines{
-3^3 = (1 + (1 + 1))^3 \\\
+{\color{white} 2^3}  = (1 + 1)^3 \\\
+= {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + {\color{white} 1^3}\\\
+= {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
+}
+$$
+
+Also notice that we are only interested in substituting the final, cubed term. By doing so, we will be defining the sum of $n$ cubes by all its lower powers.
+
+$$
+\displaylines{
+{\color{white} 3^3} = (1 + (1 + 1))^3 \\\
 = \binom{3}{0} + \binom{3}{1}(1+1) + \binom{3}{2}(1+1)^2 + \binom{3}{3}(1+1)^3 \\\
+= \binom{3}{0} + \binom{3}{1}(1+1) + \binom{3}{2}(1+1)^2 + {\color{white} 2^3} \\\
 = {\color{red} \binom{3}{0} + 2\binom{3}{1} + 2^2\binom{3}{2}} + {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 }
 $$
@@ -47,7 +54,7 @@ $$
 \displaylines{
 4^3 = (1 + (1 + (1 + 1)))^3 \\\
 = \binom{3}{0} + \binom{3}{1}(1+(1+1)) + \binom{3}{2}(1+(1+1))^2 + \binom{3}{3}(1+(1+1))^3 \\\
-= {\color{yellow} \binom{3}{0} + 3\binom{3}{1} + 3^2\binom{3}{2}} + \binom{3}{3}(1+(1+1))^3 \\\
+= {\color{yellow} \binom{3}{0} + 3\binom{3}{1} + 3^2\binom{3}{2}} + {\color{white} 3^3} \\\
 = {\color{yellow} \binom{3}{0} + 3\binom{3}{1} + 3^2\binom{3}{2}} + {\color{red} \binom{3}{0} + 2\binom{3}{1} + 2^2\binom{3}{2}} + {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 }
 $$
@@ -71,7 +78,13 @@ $$
 \sum_{i=1}^{4} i^3 = \sum_{i=1}^{4} i \sum_{j=0}^{3-1} (4-i)^j \binom{3}{j}
 $$
 
-We are going to go ahead and take a leap to recognize that this pattern in fact works for all $p$ and $n$. We can see this from way it was derived above. So, the general form of this sum of powers expression is:
+We are going to go ahead and take a leap to recognize that this pattern in fact works for all $p$ and $n$. We can see this from way it was derived above. The pattern emerges because we expand each cube to the following expression:
+
+$$
+i^p = \binom{p}{0} + (i-1)\binom{p}{1} + (i-1)^2\binom{p}{2} + \cdots + {\color{white} (i-1)^p}
+$$
+
+The last term is what makes this recursive. Once all the substitutions are made, the summation becomes:
 
 $$
 \sum_{i=1}^{n} i^p = \sum_{i=1}^{n} i \sum_{j=0}^{p-1}  \binom{p}{j} (n-i)^j
@@ -202,7 +215,7 @@ We can write this in expanded form as:
 $$
 \displaylines{
 \sum_{i=1}^{n} i^p
-= p\sum_{i=1}^{n} i \left[ \binom{p-1}{0}n^{p-1}(-i)^0 + \binom{p-1}{1}n^{p-2}(-i)^1 + ... + \binom{p-1}{p-1}n^{0}(-i)^{p-1} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
+= p\sum_{i=1}^{n} i \left[ \binom{p-1}{0}n^{p-1}(-i)^0 + \binom{p-1}{1}n^{p-2}(-i)^1 + \cdots + \binom{p-1}{p-1}n^{0}(-i)^{p-1} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
 }
 $$
 
@@ -210,7 +223,7 @@ Now we distribute the summation:
 
 $$
 \displaylines{
-\sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\sum_{i=1}^{n} i - \binom{p-1}{1}n^{p-2}\sum_{i=1}^{n} i^2 + ... {\color{pink} + (-1)^{p-1}\binom{p-1}{p-1}\sum_{i=1}^{n} i^p} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
+\sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\sum_{i=1}^{n} i - \binom{p-1}{1}n^{p-2}\sum_{i=1}^{n} i^2 + \cdots + {\color{pink} (-1)^{p-1}\binom{p-1}{p-1}\sum_{i=1}^{n} i^p} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
 }
 $$
 
@@ -218,7 +231,7 @@ Just as above, we subtract the last term from both sides. (Note that subtracting
 
 $$
 \displaylines{
-(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}{\color{lime}\sum_{i=1}^{n} i} - \binom{p-1}{1}n^{p-2}{\color{lime}\sum_{i=1}^{n} i^2} + ... + (-1)^{p-2}\binom{p-1}{p-2}{\color{lime}\sum_{i=1}^{n} i^{p-1}} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
+(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}{\color{lime}\sum_{i=1}^{n} i} - \binom{p-1}{1}n^{p-2}{\color{lime}\sum_{i=1}^{n} i^2} + \cdots + (-1)^{p-2}\binom{p-1}{p-2}{\color{lime}\sum_{i=1}^{n} i^{p-1}} \right] {\color{gray} + \sum_{i=1}^{n}Q(i)}
 }
 $$
 
@@ -226,7 +239,7 @@ Great! Notice all those highlighted summations on the right hand side, they are 
 
 $$
 \displaylines{
-(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\cdot {\color{lime}\frac{n^2}{2}} - \binom{p-1}{1}n^{p-2}\cdot {\color{lime}\frac{n^3}{3}} + ... + (-1)^{p-2}\binom{p-1}{p-2}\cdot {\color{lime}\frac{n^{p}}{p}} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)}
+(1 + {\color{pink} (-1)^p\cdot p}) \sum_{i=1}^{n} i^p = p\left[ \binom{p-1}{0}n^{p-1}\cdot {\color{lime}\frac{n^2}{2}} - \binom{p-1}{1}n^{p-2}\cdot {\color{lime}\frac{n^3}{3}} + \cdots + (-1)^{p-2}\binom{p-1}{p-2}\cdot {\color{lime}\frac{n^{p}}{p}} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)}
 }
 $$
 
@@ -234,8 +247,8 @@ And now we have something beautiful.
 
 $$
 \displaylines{
-(1 + (-1)^p\cdot p) \sum_{i=1}^{n} i^p = p\left[ \frac{\binom{p-1}{0}}{2}\cdot n^{p+1} - \frac{\binom{p-1}{1}}{3}\cdot n^{p+1} + ... + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p}\cdot n^{p+1} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)} \\\
-\sum_{i=1}^{n} i^p = \frac{p}{1 + (-1)^p\cdot p}\left[ \frac{\binom{p-1}{0}}{2} - \frac{\binom{p-1}{1}}{3} + ... + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p} \right]\cdot n^{p+1} {\color{gray} + \sum_{i=1}^{n}Q_3(i)}
+(1 + (-1)^p\cdot p) \sum_{i=1}^{n} i^p = p\left[ \frac{\binom{p-1}{0}}{2}\cdot n^{p+1} - \frac{\binom{p-1}{1}}{3}\cdot n^{p+1} + \cdots + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p}\cdot n^{p+1} \right] {\color{gray} + \sum_{i=1}^{n}Q_2(i)} \\\
+\sum_{i=1}^{n} i^p = \frac{p}{1 + (-1)^p\cdot p}\left[ \frac{\binom{p-1}{0}}{2} - \frac{\binom{p-1}{1}}{3} + \cdots + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p} \right]\cdot n^{p+1} {\color{gray} + \sum_{i=1}^{n}Q_3(i)}
 }
 $$
 
@@ -246,7 +259,7 @@ So, we already know that the leading term has order $p+1$ and is of the form $a_
 We will now find a more concise way to capture what we have so far.
 
 $$
-a_0 = \frac{p}{1 + (-1)^p\cdot p}\left[ \frac{\binom{p-1}{0}}{2} - \frac{\binom{p-1}{1}}{3} + ... + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p} \right]
+a_0 = \frac{p}{1 + (-1)^p\cdot p}\left[ \frac{\binom{p-1}{0}}{2} - \frac{\binom{p-1}{1}}{3} + \cdots + (-1)^{p-2}\frac{\binom{p-1}{p-2}}{p} \right]
 $$
 
 First, let's put it into an intuitive summation:
@@ -371,14 +384,14 @@ Since $p$ is even, the last term of the summation is positive. Now, *watch how i
 $$
 \displaylines{
 b_0 = \frac{1}{p+1}\sum_{k=1}^{p-1} (-1)^{k+1} {\color{lime} k} \left[ \binom{p}{k} + \binom{p}{k+1} \right] \\\
-= \frac{1}{p+1} \left( {\color{lime} 1}\left[ \binom{p}{1} + \binom{p}{2} \right] - {\color{lime} 2}\left[ \binom{p}{2} + \binom{p}{3} \right] + ... + {\color{lime} (p-1)}\left[ \binom{p}{p-1} + \binom{p}{p} \right] \right) \\\
+= \frac{1}{p+1} \left( {\color{lime} 1}\left[ \binom{p}{1} + \binom{p}{2} \right] - {\color{lime} 2}\left[ \binom{p}{2} + \binom{p}{3} \right] + \cdots + {\color{lime} (p-1)}\left[ \binom{p}{p-1} + \binom{p}{p} \right] \right) \\\
 = \frac{1}{p+1} \left( \binom{p}{1} 
 + \left[{\color{lime} 1}\binom{p}{2} + {\color{lime} -2} \binom{p}{2}\right]
 + \left[{\color{lime} -2}\binom{p}{3} + {\color{lime} 3} \binom{p}{3}\right]
-+ ...
++ \cdots
 + \left[{\color{lime} -(p-2)}\binom{p}{p-1} + {\color{lime} (p-1)} \binom{p}{p-1} \right]
 + {\color{lime} (p-1)}\binom{p}{p} \right) \\\
-= \frac{1}{p+1} \left[ \binom{p}{1} - \binom{p}{2} + ... + \binom{p}{p-1} + (p-1)\binom{p}{p} \right]
+= \frac{1}{p+1} \left[ \binom{p}{1} - \binom{p}{2} + \cdots + \binom{p}{p-1} + (p-1)\binom{p}{p} \right]
 }
 $$
 
@@ -387,7 +400,7 @@ Very nice!
 Let's put that equation on pause for a moment and consider the sum $\sum_{m=0}^{p} (-1)^m \binom{p}{m}$, where $p$ is still even. 
 
 $$
-\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + ... + \binom{p}{p}
+\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + \cdots + \binom{p}{p}
 $$
 
 Without changing the value at all, we can rewrite the same sum as:
@@ -401,21 +414,21 @@ $$
 You may recognize this as the standard format of a binomial expansion $(a+b)^p$, where $a=1$ and $b=-1$. Therefore, we get:
 
 $$
-\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + ... + \binom{p}{p} = (1 + (-1))^m = 0^m = 0
+\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + \cdots + \binom{p}{p} = (1 + (-1))^m = 0^m = 0
 $$
 
 Now let us return to where we left off.
 
 $$
 \displaylines{
-b_0 = \frac{1}{p+1} \left[ {\color{white} \binom{p}{1} - \binom{p}{2} + ... + \binom{p}{p-1}} + (p-1)\binom{p}{p} \right]
+b_0 = \frac{1}{p+1} \left[ {\color{white} \binom{p}{1} - \binom{p}{2} + \cdots + \binom{p}{p-1}} + (p-1)\binom{p}{p} \right]
 }
 $$
 
 The part of the expression in white is almost like the summation we just considered. It is only missing $\binom{p}{0}$ and $\binom{p}{p}$ and the signs are all opposite. This part of the expression can therefore be rewritten as follows:
 
 $$
-{\color{white} \binom{p}{1} - \binom{p}{2} + ... + \binom{p}{p-1}} = -\left( \sum_{m=0}^{p} (-1)^m \binom{p}{m} -\binom{p}{0} - \binom{p}{p} \right) = -\left(0 - 1 - 1 \right)
+{\color{white} \binom{p}{1} - \binom{p}{2} + \cdots + \binom{p}{p-1}} = -\left( \sum_{m=0}^{p} (-1)^m \binom{p}{m} -\binom{p}{0} - \binom{p}{p} \right) = -\left(0 - 1 - 1 \right)
  = {\color{white} 2}
 $$
 
@@ -448,21 +461,21 @@ In this case, however, the final term of the expansion will turn out negative.
 $$
 \displaylines{
 b_0 = \frac{1}{p+1}\sum_{k=1}^{p-1} (-1)^{k+1} {\color{lime} k} \left[ \binom{p}{k} + \binom{p}{k+1} \right] \\\
-= \frac{1}{p+1} \left( {\color{lime} 1}\left[ \binom{p}{1} + \binom{p}{2} \right] - {\color{lime} 2}\left[ \binom{p}{2} + \binom{p}{3} \right] + ... + {-\color{lime} (p-1)}\left[ \binom{p}{p-1} + \binom{p}{p} \right] \right) \\\
+= \frac{1}{p+1} \left( {\color{lime} 1}\left[ \binom{p}{1} + \binom{p}{2} \right] - {\color{lime} 2}\left[ \binom{p}{2} + \binom{p}{3} \right] + \cdots + {-\color{lime} (p-1)}\left[ \binom{p}{p-1} + \binom{p}{p} \right] \right) \\\
 = \frac{1}{p+1} \left( \binom{p}{1} 
 + \left[{\color{lime} 1}\binom{p}{2} + {\color{lime} -2} \binom{p}{2}\right]
 + \left[{\color{lime} -2}\binom{p}{3} + {\color{lime} 3} \binom{p}{3}\right]
-+ ...
++ \cdots
 + \left[{\color{lime} (p-2)}\binom{p}{p-1} + {\color{lime} -(p-1)} \binom{p}{p-1} \right]
 + {\color{lime} -(p-1)}\binom{p}{p} \right) \\\
-= \frac{1}{p+1} \left[ {\color{white}\binom{p}{1} - \binom{p}{2} + ... - \binom{p}{p-1}} - (p-1)\binom{p}{p} \right]
+= \frac{1}{p+1} \left[ {\color{white}\binom{p}{1} - \binom{p}{2} + \cdots - \binom{p}{p-1}} - (p-1)\binom{p}{p} \right]
 }
 $$
 
 Just as earlier, let us consider what happens when we sum alternating binomial operators, but this time using an odd $p$.
 
 $$
-\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + ... - \binom{p}{p}
+\sum_{m=0}^{p} (-1)^m \binom{p}{m} = \binom{p}{0} - \binom{p}{1} + \cdots - \binom{p}{p}
 $$
 
 Rewriting the sum in the format of a binomial expansion, since $(-1)^{p-m}$ now has the opposite sign of $(-1)^{m}$, we need to negate the whole expression. Of course, this doesn't matter because we still get zero.
@@ -476,7 +489,7 @@ $$
 We recognize that:
 
 $$
-{\color{white} \binom{p}{1} - \binom{p}{2} + ... - \binom{p}{p-1}} = -\left( -\sum_{m=0}^{p} (-1)^m \binom{p}{m} +\binom{p}{0} - \binom{p}{p} \right) = -\left(0 + 1 - 1 \right)
+{\color{white} \binom{p}{1} - \binom{p}{2} + \cdots - \binom{p}{p-1}} = -\left( -\sum_{m=0}^{p} (-1)^m \binom{p}{m} +\binom{p}{0} - \binom{p}{p} \right) = -\left(0 + 1 - 1 \right)
  = {\color{white} 0}
 $$
 
@@ -502,7 +515,7 @@ $$
 *Voila!*
 
 # Conclusion
-And there we have it. It feels like a miracle, but we have finally, *somehow* reached the shore. The leading term of the sum of powers $1^p+2^p+...+n^p$ is $\frac{n^{p+1}}{p+1}$. 
+And there we have it. It feels like a miracle, but we have finally, *somehow* reached the shore. The leading term of the sum of powers $1^p+2^p+\cdots+n^p$ is $\frac{n^{p+1}}{p+1}$. 
 
 I set out on this crazy quest to close the final gap in my proof for the area under a polynomial, even though, when I began, I had *absolutely no idea* how to get there.
 
