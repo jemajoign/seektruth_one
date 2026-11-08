@@ -18,7 +18,7 @@ $$
 Let us begin by expanding the sum of cubes using our binomial expansion method. The goal in this case is not to derive the formula for the sum of cubes but to notice if any pattern emerges. To get enough data, let's take the sum of the first four cubes.
 
 $$
-\sum_{i=1}^{4} i^3 = 1^3 + 2^3 + 3^3 + 4^3 = 1^3 + (1+1)^3 + (1 + (1+1))^3 + (1 + (1 + (1 + 1)))^3
+\sum_{i=1}^{4} i^3 = 1^3 + 2^3 + 3^3 + 4^3 = 1^3 + (1+1)^3 + (1 + 2)^3 + (1 + 3)^3
 $$
 
 As we break this down, I will begin coloring things to make the pattern more obvious. (I originally did this with highlighters on paper.)
@@ -32,18 +32,19 @@ Notice the recursion:
 $$
 \displaylines{
 {\color{white} 2^3}  = (1 + 1)^3 \\\
+= \binom{3}{0}(1)^3 (1)^0 + \binom{3}{1}(1)^2 (1)^1 + \binom{3}{2}(1)^1 (1)^2 + \binom{3}{3}(1)^0 1^3\\\
 = {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + {\color{white} 1^3}\\\
 = {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 }
 $$
 
-Also notice that we are only interested in substituting the final, cubed term. By doing so, we will be defining the sum of $n$ cubes by all its lower powers.
+Also notice that we are only substituting the final, cubed term. By doing so, we will be defining the sum of $n$ cubes by all its lower powers.
 
 $$
 \displaylines{
-{\color{white} 3^3} = (1 + (1 + 1))^3 \\\
-= \binom{3}{0} + \binom{3}{1}(1+1) + \binom{3}{2}(1+1)^2 + \binom{3}{3}(1+1)^3 \\\
-= \binom{3}{0} + \binom{3}{1}(1+1) + \binom{3}{2}(1+1)^2 + {\color{white} 2^3} \\\
+{\color{white} 3^3} = (1 + 2)^3 \\\
+= \binom{3}{0}(1)^3 (2)^0 + \binom{3}{1}(1)^2 (2)^1 + \binom{3}{2}(1)^1 (2)^2 + \binom{3}{3}(1)^0 (2)^3 \\\
+= {\color{red} \binom{3}{0} + 2\binom{3}{1} + 2^2\binom{3}{2}} + {\color{white} 2^3} \\\
 = {\color{red} \binom{3}{0} + 2\binom{3}{1} + 2^2\binom{3}{2}} + {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 }
 $$
@@ -52,8 +53,8 @@ It's quite beautiful how this pattern continues...
 
 $$
 \displaylines{
-4^3 = (1 + (1 + (1 + 1)))^3 \\\
-= \binom{3}{0} + \binom{3}{1}(1+(1+1)) + \binom{3}{2}(1+(1+1))^2 + \binom{3}{3}(1+(1+1))^3 \\\
+4^3 = (1 + 3)^3 \\\
+= \binom{3}{0}(1)^3 (3)^0 + \binom{3}{1}(1)^2 (3)^1 + \binom{3}{2}(1)^1 (3)^2 + \binom{3}{3}(1)^0 (3)^3 \\\
 = {\color{yellow} \binom{3}{0} + 3\binom{3}{1} + 3^2\binom{3}{2}} + {\color{white} 3^3} \\\
 = {\color{yellow} \binom{3}{0} + 3\binom{3}{1} + 3^2\binom{3}{2}} + {\color{red} \binom{3}{0} + 2\binom{3}{1} + 2^2\binom{3}{2}} + {\color{green} \binom{3}{0} + \binom{3}{1} + \binom{3}{2}} + 1
 }
@@ -84,7 +85,7 @@ $$
 i^p = \binom{p}{0} + (i-1)\binom{p}{1} + (i-1)^2\binom{p}{2} + \cdots + {\color{white} (i-1)^p}
 $$
 
-The last term is what makes this recursive. Once all the substitutions are made, the summation becomes:
+The last term makes this recursive. Once all the substitutions are made, the summation becomes:
 
 $$
 \sum_{i=1}^{n} i^p = \sum_{i=1}^{n} i \sum_{j=0}^{p-1}  \binom{p}{j} (n-i)^j
